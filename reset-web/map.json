@@ -1,0 +1,105 @@
+{
+    "res": {
+        "css/common/common.less": {
+            "uri": "/static/css/common/common_9426123.css",
+            "type": "css"
+        },
+        "css/detail.less": {
+            "uri": "/static/css/detail_955bfd1.css",
+            "type": "css"
+        },
+        "css/foot/footer.less": {
+            "uri": "/static/css/foot/footer_7b94b4c.css",
+            "type": "css"
+        },
+        "css/header/heater.less": {
+            "uri": "/static/css/header/heater_1575db1.css",
+            "type": "css"
+        },
+        "css/header/nav.less": {
+            "uri": "/static/css/header/nav_8d60ac0.css",
+            "type": "css"
+        },
+        "css/index.less": {
+            "uri": "/static/css/index_2fe974a.css",
+            "type": "css"
+        },
+        "css/index/indexMain.less": {
+            "uri": "/static/css/index/indexMain_a7b1374.css",
+            "type": "css"
+        },
+        "css/list.less": {
+            "uri": "/static/css/list_955bfd1.css",
+            "type": "css"
+        },
+        "css/list/list.less": {
+            "uri": "/static/css/list/list_995773e.css",
+            "type": "css"
+        },
+        "css/page/page.less": {
+            "uri": "/static/css/page/page_e5fa41e.css",
+            "type": "css"
+        },
+        "widget/header/header.html": {
+            "uri": "/widget/header/header.html",
+            "type": "html"
+        },
+        "widget/header/nav.html": {
+            "uri": "/widget/header/nav.html",
+            "type": "html"
+        },
+        "widget/deatils/list.html": {
+            "uri": "/widget/deatils/list.html",
+            "type": "html"
+        },
+        "widget/list/listLeft.html": {
+            "uri": "/widget/list/listLeft.html",
+            "type": "html"
+        },
+        "widget/foot/footer.html": {
+            "uri": "/widget/foot/footer.html",
+            "type": "html"
+        },
+        "widget/index/indexMain.html": {
+            "uri": "/widget/index/indexMain.html",
+            "type": "html"
+        },
+        "js/lib/jQuery.1.7.2.min.js": {
+            "uri": "/static/js/lib/jQuery.1.7.2.min_6dd43d8.js",
+            "type": "js"
+        },
+        "js/lib/jquery.SuperSlide.2.1.1.js": {
+            "uri": "/static/js/lib/jquery.SuperSlide.2.1.1_2fe201a.js",
+            "type": "js"
+        },
+        "js/lib/jquery.flexslider-min.js": {
+            "uri": "/static/js/lib/jquery.flexslider-min_291fc7e.js",
+            "type": "js"
+        },
+        "js/my/SethomeAndAddfavorite.js": {
+            "uri": "/static/js/my/SethomeAndAddfavorite_fd337f3.js",
+            "type": "js"
+        },
+        "widget/list/list.html": {
+            "uri": "/widget/list/list.html",
+            "type": "html"
+        },
+        "widget/page/page.html": {
+            "uri": "/widget/page/page.html",
+            "type": "html"
+        },
+        "widget/detail/detail.html": {
+            "uri": "/widget/detail/detail.html",
+            "type": "html"
+        },
+        "widget/other/bookSeach.html": {
+            "uri": "/widget/other/bookSeach.html",
+            "type": "html"
+        },
+        "widget/other/zhlhh.html": {
+            "uri": "/widget/other/zhlhh.html",
+            "type": "html"
+        }
+    },
+    "pkg": {}
+}

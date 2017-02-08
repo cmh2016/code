@@ -1,0 +1,62 @@
+@import "../common/common.less";
+    /*footer公用模块*/
+        .footer{
+            width: @w;
+            height:38px;
+            background:  url(../images/icon/footerTopbg.png) top center no-repeat;
+          /*  margin-top: -55px;首页样式需要打开 */
+            
+        }
+        .footerC{
+                background: @footerCol; 
+                width: @w;
+                height: 181px;
+                .centent{
+                    width: 1200px;
+                    height: 130px;
+                    padding-top: 30px;
+                    margin: 0 auto;
+                    text-align: center;
+                    .link{
+                        padding-left: 25px;
+                        background: url(../images/icon/link.png) left center no-repeat;
+                    }
+                    ul{
+                        margin: 0 auto;
+                        display:inline-block;
+                        width: auto;
+                        height: 20px;
+                        line-height: 20px;
+                        color: #a9a9a9;
+                        font-size: 12px;
+                        li{
+                            float: left;
+                            a{
+                                color: #a9a9a9;
+                                .transition(color);
+                            &:hover{
+                            color: @lu;
+                            }
+                            }
+                            .shu{
+                                width: 1px;
+                                height: 12px;
+                                display: inline-block;
+                                margin: 0 15px;
+                                background: #fff;
+                            }
+                            &:last-child .shu{
+                                
+                                width: 0;
+                                height: 0;
+                            }
+                        }
+                        
+                    }
+                    .telAndmail {
+                            li{
+                                margin-right: 20px;
+                            }
+                    }   
+                }
+            }

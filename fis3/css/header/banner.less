@@ -1,0 +1,88 @@
+@import "../common/common.less";
+/*banner区域*/
+.banner{
+    width: @w;
+    height: 454px;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    background:url(../images/banner/bannerBg.jpg) center center no-repeat;
+    .bannerBottom{
+        width: @w;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        height: 110px;
+        background: url(../images/banner/bannerBuBg.png) bottom center no-repeat;
+    }
+    .bannerC{
+        position: relative;
+        width: 1200px;
+        height: 454px;
+        z-index: 99;
+        margin: 0 auto;
+        background: url(../images/banner/bannerCenter.png) center center no-repeat;
+        .index{
+            position: absolute;
+            top: 15px;
+            left: 38px;
+            width: 220px;
+            height: 100px;
+            z-index: 9999;
+        }
+    }
+}
+/*导航条*/
+.nav{
+    //IE8 以及更早的浏览器不支持一个元素多个背景图像，使用图片分离引入兼容
+    width: auto;
+    height: 43px;
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    //铅笔头
+    .navL{
+        height: 43px;
+        width: 54px;
+        background: url(../images/icon/navL.png) center no-repeat;
+        float: left;
+    }
+    //铅笔尾
+    .navR{
+        width: 18px;
+        height: 43px;
+        float: right;
+        background: url(../images/icon/navR.png) center no-repeat;
+    }
+    //铅笔身 导航条内容
+    .navC{
+        width: auto;
+        height: 43px;
+        background: url(../images/icon/navC.png) center repeat;
+        float: left;
+        ul{
+            li{
+                float: left;
+                height: 43px;
+                line-height: 43px;
+                a{
+                    font-size: 16px;
+                    color: #fff;
+                    display: block;
+                    .transition();
+                    &:hover{
+                        color: #ff7404;
+                    }
+                }
+                .navY{
+                    display: block;
+                    width: 2px;
+                    height: 8px;
+                    margin: (43-8)/2px 15px (43-8)/2px 15px; 
+                    background: url(../images/icon/navY.png) center no-repeat;
+                }
+            }
+        }
+    }
+}

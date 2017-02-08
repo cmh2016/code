@@ -1,0 +1,156 @@
+@import "../common/common.less";
+/*公用模块 ---头部区域 */
+.topAll {
+  width: @w;
+  height: 40px;
+  background-color: @headerCol;
+  .topCenter {
+    width: @w1200;
+    height: @h;
+    margin: 0 auto;
+    font-size: 12px;
+    .topLeft {
+      width: 400px;
+      height: @h;
+      float: left;
+    }
+    .topRight {
+      width: 392px;
+      height: @h;
+      float: right;
+    }
+  }
+}
+
+//左边
+.topLeft {
+  ul {
+    height: @h;
+    li {
+
+      float: left;
+      color: @topFcolor;
+      line-height: 40px;
+      &:nth-child(1), &:nth-child(4) {
+        margin-right: 10px;
+      }
+      /* &:nth-child(5),&:nth-child(6){
+          margin-right: 15px;
+          padding-left: 20px;
+          cursor: pointer;
+          position: relative;
+          z-index: 4;
+      }
+      &:nth-child(5){
+          background: url(../images/icon/top_android.jpg) left center no-repeat;
+          &:hover .android{
+              top:40px;
+              z-index: 999;
+               filter:Alpha(opacity=100);
+               -moz-opacity:1;
+               -khtml-opacity:1;
+                opacity:1;
+
+
+          }
+      }
+      &:nth-child(6){
+          background: url(../images/icon/top_ios.png) left center no-repeat;
+          padding-left: 20px;
+          &:hover .ios{
+              top:40px;
+                 filter:alpha(opacity=100);
+                                   -moz-opacity:1;
+                                   -khtml-opacity:1;
+              opacity:1;
+
+
+          }
+      } */
+      a {
+        color: @topFcolor;
+        .transition();
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+    /*  .android,.ios{
+    position: absolute;
+    left: -10px;
+    top: -60px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    background-size: cover;
+    
+    z-index: 2;
+             filter:alpha(opacity=0);    
+                                 -moz-opacity:0;            
+                                 -khtml-opacity:0;              
+                                  opacity:0;           
+            
+    .transition();
+    }
+    
+    .android{
+        安卓二维码
+        background-image: url(../images/test/ewm/ios.jpg);
+    
+    }
+    
+    .ios{
+        ios二维码
+        background-image: url(../images/test/ewm/ios.jpg);
+    } */
+  }
+
+}
+
+//右边
+.topRight {
+  ul {
+    height: @h;
+    form {
+      height: 30px;
+      width: 200px;
+      margin-top: 5px;
+      background-color: #fff;
+      .roundedCorners(15px);
+      input[type="text"] {
+        height: 28px;
+        border: none;
+        float: left;
+        width: 130px;
+        padding-left: 15px;
+        .roundedCorners(15px);
+      }
+      button {
+        float: left;
+        border: none;
+        width: 40px;
+        height: 30px;
+        background: #fff url(../images/icon/top_search.jpg) center center no-repeat;
+        .roundedCorners(15px);
+      }
+    }
+    li {
+      float: left;
+      a {
+        color: @topFcolor;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 15px;
+        .transition();
+        &:hover {
+          color: #fff;
+        }
+      }
+      &:nth-child(1) {
+        width: 200px;
+        height: @h;
+
+      }
+    }
+  }
+}

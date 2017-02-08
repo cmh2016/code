@@ -1,0 +1,154 @@
+{
+    "res": {
+        "css/common/base.min.css": {
+            "uri": "/static/css/common/base.min_477be08.css",
+            "type": "css",
+            "aioPkg": "pkg/list.html_aio.css"
+        },
+        "css/common/common.less": {
+            "uri": "/static/css/common/common_d8f773c.css",
+            "type": "css"
+        },
+        "css/common/flexslider.min.css": {
+            "uri": "/static/css/common/flexslider.min_79e7a4b.css",
+            "type": "css",
+            "aioPkg": "pkg/index.html_aio.css"
+        },
+        "css/common/picScroll.min.css": {
+            "uri": "/static/css/common/picScroll.min_edc17e8.css",
+            "type": "css",
+            "aioPkg": "pkg/index.html_aio.css"
+        },
+        "css/detail/detailLeft.less": {
+            "uri": "/static/css/detail/detailLeft_3379829.css",
+            "type": "css",
+            "aioPkg": "pkg/details.html_aio.css"
+        },
+        "css/foot/footer.less": {
+            "uri": "/static/css/foot/footer_9c6e082.css",
+            "type": "css",
+            "aioPkg": "pkg/list.html_aio.css"
+        },
+        "css/header/banner.less": {
+            "uri": "/static/css/header/banner_803bd15.css",
+            "type": "css",
+            "aioPkg": "pkg/list.html_aio.css"
+        },
+        "css/header/heater.less": {
+            "uri": "/static/css/header/heater_c3bfcd2.css",
+            "type": "css",
+            "aioPkg": "pkg/list.html_aio.css"
+        },
+        "css/index.less": {
+            "uri": "/static/css/index_fffd817.css",
+            "type": "css",
+            "aioPkg": "pkg/index.html_aio.css"
+        },
+        "css/list.less": {
+            "uri": "/static/css/list_a806373.css",
+            "type": "css"
+        },
+        "css/list/list.less": {
+            "uri": "/static/css/list/list_ab322c7.css",
+            "type": "css",
+            "aioPkg": "pkg/list.html_aio.css"
+        },
+        "css/page/page.less": {
+            "uri": "/static/css/page/page_feb0786.css",
+            "type": "css",
+            "aioPkg": "pkg/list.html_aio.css"
+        },
+        "widget/header/header.html": {
+            "uri": "/template/widget/header/header.html",
+            "type": "html"
+        },
+        "widget/header/banner.html": {
+            "uri": "/template/widget/header/banner.html",
+            "type": "html"
+        },
+        "widget/detail/detailLeft.html": {
+            "uri": "/template/widget/detail/detailLeft.html",
+            "type": "html"
+        },
+        "widget/list/listRight.html": {
+            "uri": "/template/widget/list/listRight.html",
+            "type": "html"
+        },
+        "widget/foot/footer.html": {
+            "uri": "/template/widget/foot/footer.html",
+            "type": "html"
+        },
+        "widget/other/bookSeach.html": {
+            "uri": "/template/widget/other/bookSeach.html",
+            "type": "html"
+        },
+        "widget/other/zhlhh.html": {
+            "uri": "/template/widget/other/zhlhh.html",
+            "type": "html"
+        },
+        "js/my/SethomeAndAddfavorite.js": {
+            "uri": "/static/js/my/SethomeAndAddfavorite_fd337f3.js",
+            "type": "js"
+        },
+        "js/lib/jQuery.1.7.2.min.js": {
+            "uri": "/static/js/lib/jQuery.1.7.2.min_6dd43d8.js",
+            "type": "js"
+        },
+        "js/lib/jquery.flexslider-min.js": {
+            "uri": "/static/js/lib/jquery.flexslider-min_291fc7e.js",
+            "type": "js"
+        },
+        "js/lib/jquery.SuperSlide.2.1.1.js": {
+            "uri": "/static/js/lib/jquery.SuperSlide.2.1.1_2fe201a.js",
+            "type": "js"
+        },
+        "widget/list/listLiftImg.html": {
+            "uri": "/template/widget/list/listLiftImg.html",
+            "type": "html"
+        },
+        "widget/page/page.html": {
+            "uri": "/template/widget/page/page.html",
+            "type": "html"
+        },
+        "widget/list/listLiftP.html": {
+            "uri": "/template/widget/list/listLiftP.html",
+            "type": "html"
+        }
+    },
+    "pkg": {
+        "pkg/details.html_aio.css": {
+            "type": "js",
+            "uri": "/static/pkg/details.html_aio_7a65391.css",
+            "has": [
+                "css/common/base.min.css",
+                "css/list/list.less",
+                "css/header/heater.less",
+                "css/header/banner.less",
+                "css/foot/footer.less",
+                "css/detail/detailLeft.less"
+            ]
+        },
+        "pkg/index.html_aio.css": {
+            "type": "js",
+            "uri": "/static/pkg/index.html_aio_bd8c59c.css",
+            "has": [
+                "css/common/base.min.css",
+                "css/index.less",
+                "css/common/flexslider.min.css",
+                "css/common/picScroll.min.css"
+            ]
+        },
+        "pkg/list.html_aio.css": {
+            "type": "js",
+            "uri": "/static/pkg/list.html_aio_10d5acc.css",
+            "has": [
+                "css/common/base.min.css",
+                "css/list/list.less",
+                "css/header/heater.less",
+                "css/header/banner.less",
+                "css/foot/footer.less",
+                "css/page/page.less"
+            ]
+        }
+    }
+}

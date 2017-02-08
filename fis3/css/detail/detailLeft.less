@@ -1,0 +1,76 @@
+@import "../common/common.less";
+.listMain{
+    width:1200px;
+    height:auto;
+    margin: 0 auto;
+    padding-top: 20px;
+    .left{
+        width:910px;
+        height:auto;
+        float:left;
+        border-right: 1px dashed #ccc;
+        .leftCentent{
+            width:910-20px;
+            height:auto;
+            padding-right: 20px;
+            .listNav{
+                width:@w;
+                height:35px;
+                color:@333;
+               
+                .navBox{
+                    width:auto;
+                    height:35px;
+                     border-bottom: 1px solid #ccc;
+                  a{
+                     color:@333;
+                     line-height: 35px;
+                     height:22px;
+                     padding-bottom: (35-22)/2px;
+                     border-bottom: 1px solid @lu;
+                    .transition();
+                    &:hover{
+                        color: @lu;
+                    }
+                    }  
+                    span{
+                        padding-bottom: (35-22)/2px;
+                        border-bottom: 1px solid @lu;
+                    }
+                }
+                
+            }
+            .details{
+                text-align: center;
+                h2{
+                    font-size: 20px;
+                    color:@333;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    .ellipsesOne();
+                }
+                .time{
+                                
+                                background: url(../images/icon/time_icon.png) left no-repeat;
+                                color:#AFABAB;
+                                display:block;
+                                width:200px;
+                                margin: 0 auto;
+                                margin-bottom: 20px;
+
+                                .transition();
+                   
+
+                            }
+                            .detailsCenter{
+                                font-size: 14px;
+                                color:@555;
+                                text-align: left;
+                                text-indent: 2em;
+                                line-height: 20px;
+
+                            }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+//公用颜色值 
+@headerCol:#272727;
+@footerCol:#2e2e2e;
+@bodyCol:#fffde2;
+@topFcolor:#626262;
+@lu:#8ab826;//绿色
+@333:#333;//列表颜色
+@555:#555;
+//宽高变量
+@w:100%;
+@h:100%;
+@w1200:1200px;
+@media (max-width: 1200px) {
+  body {
+    width: 1200px;
+  }
+}
+//单行文本溢出省略号
+.ellipsesOne{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+//多行文本溢省略号
+.ellipsesMore(@v:3){
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @v;
+    overflow: hidden
+}
+/*自定义中园字体*/
+@font-face
+{
+font-family: zy;
+src: url('../fonts/zy.ttf'); /*  IE9+  */
+}
+//清除float
+.c{
+    clear: both;
+}
+.cL{
+    clear: left;
+}
+//css3过度
+.transition(@v:all,@t:0.5s,@f:ease,@d:0s){
+    transition:  @arguments;
+-moz-transition:  @arguments;   /* Fi
+
+refox 4 */
+-webkit-transition:  @arguments;    /* Safari 和 Chrome */
+-o-transition:  @arguments; /* Opera */
+}
+//css3圆角
+ .roundedCorners(@radius:5px) { 
+ -moz-border-radius: @radius; 
+ -webkit-border-radius: @radius; 
+ border-radius: @radius; 
+ } 
+ //css32D转换
+ .transform(@d:0deg){
+     transform: rotate(@d);
+    -ms-transform: rotate(@d);      /* IE 9 */
+    -webkit-transform: rotate(@d);  /* Safari and Chrome */
+    -o-transform: rotate(@d);       /* Opera */
+    -moz-transform: rotate(@d);     /* Firefox */
+ }

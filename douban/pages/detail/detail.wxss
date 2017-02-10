@@ -1,0 +1,37 @@
+.container {
+  text-align: center;
+  background-color: #000;
+  opacity: .9;
+  color: #fff;
+  height: 100%;
+}
+
+.name {
+
+  font-size: 40rpx;
+}
+
+.movie-info-item {
+  text-align: left;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+image {
+  display: inline-block;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+image.bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -ms-filter: blur(20px);
+  filter: blur(20px);
+  width: 750rpx;
+}

@@ -1,0 +1,22 @@
+<view class="container">
+  <scroll-view>
+    <image class="bg" style="width:100%;height:100%;" src="{{info.image}}"></image>
+  <navigator url="{{info.mobile_link}}"><image style="width:300rpx;height:450rpx;margin-left:20rpx;" src="{{info.image}}"></image></navigator>
+  
+  <view style="padding:15rpx;display:inline-block">
+    <text class="movie-info-item">电影名称： <text class="name">{{title}}</text>
+    </text>
+    <text class="movie-info-item">评分：{{info.rating.average || text}}</text>
+    <text class="movie-info-item">评分人数：{{info.rating.numRaters || text}}</text>
+    <text class="movie-info-item">导演：<text wx:for="{{info.author}}">{{item.name || text}}</text>
+    </text>
+    <text class="movie-info-item">演员：<text wx:for="{{info.attrs.cast}}">{{item || text}} / </text>
+    </text>
+    <text class="movie-info-item">类型：<text wx:for="{{info.attrs.movie_type}}">{{item || text}} / </text>
+    </text>
+    <text class="movie-info-item">时间：{{info.attrs.year || text}}</text>
+    <text class="movie-info-item">简介：{{info.summary}}</text>
+  </view>
+  </scroll-view>
+  
+</view>

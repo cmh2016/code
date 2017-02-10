@@ -1,0 +1,35 @@
+/**index.wxss**/
+
+.item-movie{
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  margin: 1.5%;
+}
+.movie-img{
+  display: inline-block;
+}
+.movie-name{
+ display: inline-block;
+ width: 100%;
+ margin-top:20rpx;
+ font-size:35rpx;
+ color: #333;
+ font-weight:500;
+ text-align: left;
+ overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+.movie-info{
+display: inline-block;
+ width: 100%;
+ margin-top:15rpx;
+ font-size:32rpx;
+ color: #666;
+ font-weight:500;
+ text-align: left;
+ overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}

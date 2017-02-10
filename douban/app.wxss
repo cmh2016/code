@@ -1,0 +1,43 @@
+/**app.wxss**/
+
+.container {
+  height: 100%;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.start-box{
+    padding-left: 94px;
+    background-image: url(../../img/ic_rating_s@2x.png);
+    background-repeat: no-repeat;
+    background-size:72%;
+}
+.start0{
+    background-position: left -135px;
+}
+.start2{
+    background-position: left -108px;
+}
+.start4{
+    background-position: left -82px;
+}
+.start6{
+    background-position: left -55px;
+}
+.start8{
+    background-position: left -27px;
+}
+.start10{
+    background-position: left 0px;
+}

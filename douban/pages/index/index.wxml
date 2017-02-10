@@ -1,0 +1,10 @@
+
+<!--index.wxml-->
+<view class="container">
+  <view bindtap="goDetail" id="{{item.id}}" wx:for="{{hotMovie}}" class="item-movie">
+    <image class="movie-img" style="width:200rpx;height:300rpx" mode="scaleToFill" src="{{item.images.medium}}"></image>
+    <text class="movie-name">{{item.title}}</text>
+     <text class="movie-info ">评分：{{item.rating.average}}分</text>
+       
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<view class="input">
+  <input bindconfirm="searchMovie" placeholder="输入电影名称/演员名称试一下" focus="true" />
+  <view style="text-algin:center;padding:30rpx 0;color:#666;font-size:14px;">
+    {{searchListTitle}}
+  </view>
+</view>
+<scroll-view bindscrolltolower="lower" scroll-y="true" style="height:{{scrollHeight}}px">
+  <block wx:if="{{show==1}}">
+    <view class="container">
+      <view bindtap="goDetail" id="{{item.id}}" wx:for="{{searchList}}" class="item-movie clearfix">
+        <image class="movie-img" style="width:200rpx;height:300rpx" mode="scaleToFill" src="{{item.images.medium}}"></image>
+        <view class="movie-info-right">
+          <text class="movie-info">名称：{{item.title}}</text>
+           <text class="movie-info">年代：{{item.year}}</text>
+            <text wx:if="{{item.rating.average<=2 && item.rating.average>0}}" class="movie-info ">评分：<text class="start2 start start-box"></text>{{item.rating.average}}</text>
+        <text wx:elif = "{{item.rating.average==0}}"  class="movie-info">评分：<text class="start0 start  start-box"></text>{{item.rating.average}}</text>
+          <text wx:elif = "{{item.rating.average>2 && item.rating.average<=4}}"  class="movie-info">评分：<text class="start4 start start-box"></text>{{item.rating.average}}</text>    
+          <text wx:elif = "{{item.rating.average>4 && item.rating.average<=6}}"  class="movie-info">评分：<text class="start6 start  start-box"></text>{{item.rating.average}}</text> 
+          <text wx:elif = "{{item.rating.average>6 && item.rating.average<=8}}"  class="movie-info">评分：<text class="start8 start  start-box"></text>{{item.rating.average}}</text> 
+          <text wx:elif = "{{item.rating.average>8 && item.rating.average<=10}}"  class="movie-info">评分：<text class="start10 start start-box"></text>{{item.rating.average}}</text>    
+            <text class="movie-info">演员：<text  wx:for="{{item.casts}}">{{item.name || text}} / </text></text>
+            <text class="movie-info">导演：<text wx:for="{{item.directors}}">{{item.name || text}} / </text></text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view style="color:#999" wx:elif="{{show==0}}" class="container">
+    没有找到与 {{searchListTitle}}相关的影片
+  </view>
+</scroll-view>

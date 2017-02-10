@@ -1,0 +1,58 @@
+page{
+    background-color: #f2f2f2;
+}
+input{
+    background-color: #fff;
+    height: 32px;
+   padding-left: 1rem;
+}
+.item-movie{
+    margin-bottom: 20rpx;
+}
+image{
+    float: left;
+}
+.movie-info{
+display: inline-block;
+ width: 480rpx;
+ margin-top:15rpx;
+ font-size:35rpx;
+ color: #333;
+ font-weight:500;
+ text-align: left;
+ overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+.container{
+    padding: 20rpx;
+}
+.movie-info-right{
+    float: right;
+    width: 500rpx;
+    height: 300rpx;
+}
+.start-box{
+    padding-left: 94px;
+    background-image: url(../../img/ic_rating_s@2x.png);
+    background-repeat: no-repeat;
+    background-size:72%;
+}
+.start0{
+    background-position: left -135px;
+}
+.start2{
+    background-position: left -108px;
+}
+.start4{
+    background-position: left -82px;
+}
+.start6{
+    background-position: left -55px;
+}
+.start8{
+    background-position: left -27px;
+}
+.start10{
+    background-position: left 0px;
+}

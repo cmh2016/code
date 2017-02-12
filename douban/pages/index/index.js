@@ -5,7 +5,10 @@ Page({
   data: {
     hotMovie: [],//视频列表
     page: 1,//页码
-    size: 18//每页条数
+    size: 18,//每页条数
+    show:true, //默认显示
+    motto: '欢迎使用豆瓣电影',
+    userInfo: {}
   },
   //详情页跳转,
   goDetail: function (e) {
@@ -111,6 +114,13 @@ Page({
   //onload函数
   onLoad: function () {
     console.log('onLoad');
+      //调用应用实例的方法获取全局数据
+    app.getUserInfo(function(userInfo){
+      //更新数据
+      that.setData({
+        userInfo:userInfo
+      })
+    })
     //获取用户位置 根据经纬度反解析位置（暂无百度地图秘钥）
     wx.getLocation({
       type: 'wgs84',
@@ -123,7 +133,12 @@ Page({
       }
     })
     var that = this
-    console.log(that.data.page)
+    console.log(that.data.page);
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 10000
+    })
     wx.request({
       url: 'https://api.douban.com/v2/movie/top250?count=18&start=1', //获取豆瓣热映列表
       header: {
@@ -134,9 +149,12 @@ Page({
       },
       success: function (res) {
         console.log(res.data.subjects);
+        wx.hideToast();
         that.setData({
-          hotMovie: res.data.subjects
+          hotMovie: res.data.subjects,
+          show:false
         })
+         
         console.log(that.data.hotMovie)
       },
       fail: function (res) {

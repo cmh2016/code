@@ -1,5 +1,7 @@
 /**index.wxss**/
-
+page{
+  height: 100%
+}
 .item-movie{
   width: 30%;
   display: inline-block;
@@ -32,4 +34,34 @@ display: inline-block;
  overflow: hidden;
 text-overflow:ellipsis;
 white-space: nowrap;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+  text-align: center;
+}
+.loading{
+  height: 100%;
+}
+.btn{
+ font-size: 40rpx;
+ font-family: MicroSoft Yahei;
+ line-height: 80rpx;
+ color: #aaa
 }

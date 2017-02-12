@@ -1,4 +1,4 @@
-<view class="container">
+<view style="padding-bottom:2.2rem" class="container">
   <scroll-view>
     <image class="bg" style="width:100%;height:100%;" src="{{info.image}}"></image>
   <navigator url="{{info.mobile_link}}"><image style="width:300rpx;height:450rpx;margin-left:20rpx;" src="{{info.image}}"></image></navigator>
@@ -18,5 +18,7 @@
     <text class="movie-info-item">简介：{{info.summary}}</text>
   </view>
   </scroll-view>
-  
+  <view class="footer">
+    <navigator class="photos footer-nav" url="../photos/photos">人员相册</navigator>
+  </view>
 </view>

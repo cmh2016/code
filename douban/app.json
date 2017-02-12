@@ -2,13 +2,14 @@
   "pages":[
     "pages/index/index",
     "pages/detail/detail",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/photos/photos"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#f2f2f2",
     "navigationBarTitleText": "豆瓣电影",
-    "navigationBarTextStyle":"#00b600"
+    "navigationBarTextStyle":"black"
   },
    "tabBar": {
      "color": "#333",

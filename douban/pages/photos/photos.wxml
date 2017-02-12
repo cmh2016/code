@@ -1,0 +1,12 @@
+<view class="container">
+<swiper style="height:{{height}}px">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+     <view class="photosbg" style="width:100%;height:100%;background:url({{item.avatars.large}});"></view>
+      <image style="height:{{heightImg}}px" src="{{item.avatars.large}}" class="slide-image" />
+      <text class="name" id="{{item.id}}">{{item.name}}</text>
+    </swiper-item>
+    
+  </block>
+</swiper>
+</view>

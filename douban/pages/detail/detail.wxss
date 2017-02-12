@@ -35,3 +35,17 @@ image.bg {
   filter: blur(20px);
   width: 750rpx;
 }
+.footer{
+  position: fixed;
+  bottom: 0;
+  left:0;
+  height: 2.2rem;
+  width: 750rpx;
+  background: #333;
+  line-height: 2.2rem;
+  font-size: 30rpx;
+}
+.footer-nav{
+  width: 100%;
+  display: inline-block;
+}

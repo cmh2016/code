@@ -1,0 +1,32 @@
+.container{
+    padding: 0;
+}
+.photosbg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+  width: 750rpx;
+}
+.slide-image{
+    display: inline-block;
+    width: 650rpx;
+    margin: 50rpx;
+}
+.name{
+    display: block;
+    font-size: 14px;
+    width: 100%;
+    color: #fff;
+    height: 25px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    line-height: 25px;
+    text-align: center;
+    background: rgba(000, 000, 000, .7);
+}

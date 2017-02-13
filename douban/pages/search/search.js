@@ -116,7 +116,7 @@ Page({
     },
     onLoad: function (options) {
         // 生命周期函数--监听页面加载
-
+        console.log("../../img/ic_rating_s@2x.png")
     },
     onReady: function () {
         // 生命周期函数--监听页面初次渲染完成

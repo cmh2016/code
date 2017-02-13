@@ -5,10 +5,14 @@
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
+  <view style="margin-top:200rpx;width:80%;margin-left:10%;">
+   <progress percent="100" show-info color="#00b600" active />
+  </view>
   <view class="usermotto">
     <text class="user-motto btn">{{motto}}</text>
   </view>
 </view>
+
 <view wx:else class="container">
   <view bindtap="goDetail" id="{{item.id}}" wx:for="{{hotMovie}}" class="item-movie">
     <image class="movie-img" style="width:200rpx;height:300rpx" mode="scaleToFill" src="{{item.images.medium}}"></image>

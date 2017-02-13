@@ -134,11 +134,6 @@ Page({
     })
     var that = this
     console.log(that.data.page);
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 10000
-    })
     wx.request({
       url: 'https://api.douban.com/v2/movie/top250?count=18&start=1', //获取豆瓣热映列表
       header: {
@@ -149,7 +144,6 @@ Page({
       },
       success: function (res) {
         console.log(res.data.subjects);
-        wx.hideToast();
         that.setData({
           hotMovie: res.data.subjects,
           show:false

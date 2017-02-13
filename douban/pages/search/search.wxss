@@ -34,7 +34,7 @@ white-space: nowrap;
 }
 .start-box{
     padding-left: 94px;
-    background-image: url(../../img/ic_rating_s@2x.png);
+    background-image: red url(http://ol1kqeyve.bkt.clouddn.com/17-2-12/32321907-file_1486892234264_bcae.png);
     background-repeat: no-repeat;
     background-size:72%;
 }

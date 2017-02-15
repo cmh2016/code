@@ -9,7 +9,7 @@ gif演示
 =====
 > [完整视频演示](http://ol1kqeyve.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1web%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%20v0.12.130400%202017_2_15%2016_49_42.mp4) 视频较大，手机登录勿点！
 
-![](http://ol1kqeyve.bkt.clouddn.com/wx-a-app-music.gif)
+![gif](http://ol1kqeyve.bkt.clouddn.com/wx-a-app-music.gif)
 
 怎么使用
 ======

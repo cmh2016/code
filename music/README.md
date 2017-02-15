@@ -1,9 +1,4 @@
----
-title: 微信小程序--简单音乐播放器
-date: 2017-02-15 13:20:35
-tags: [微信小程序,javascript,webapp]
-categories: 微信小程序
----
+
 api
 =====
 >使用的是QQ音乐非官方api，[地址](https://github.com/ccchangkong/article/issues/23)

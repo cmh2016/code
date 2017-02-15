@@ -1,0 +1,11 @@
+<scroll-view scroll-y>
+    <block wx:for="{{data}}" wx:for-item="itemNew">
+    <view bindtap="goPlay" data-img="http://imgcache.qq.com/music/photo/album_300/{{itemNew.img%100}}/300_albumpic_{{itemNew.img}}_0.jpg" id="{{itemNew.id}}" data-songName="{{itemNew.songName}}"  data-singerName="{{itemNew.name}}" class="new-music-item">
+        <view class="img-box">
+            <image src="http://imgcache.qq.com/music/photo/album_300/{{itemNew.img%100}}/300_albumpic_{{itemNew.img}}_0.jpg"></image>
+        </view>
+        <text class="songName">歌曲：{{itemNew.songName}}</text>
+        <text class="singerName">歌手：{{itemNew.name}}</text>
+    </view>
+    </block>
+</scroll-view>

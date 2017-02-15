@@ -1,0 +1,7 @@
+/* pages/random-music/random-music.wxss */
+page, scroll-view {
+  height: 100%;
+}
+audio {
+    margin: 10rpx auto;
+}

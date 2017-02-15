@@ -1,0 +1,42 @@
+/**index.wxss**/
+.header{
+  height:50px;
+  width: 100%;
+  background-color: #282C2D;
+}
+.header input{
+  width: 550rpx;
+  float: left;
+  text-indent:.5rem;
+  margin-left:50rpx;
+  margin-top: 7.5px;
+  background: #1F1F1F;
+  height: 35px;
+  color: #f2f2f2;
+  line-height: 35px;
+}
+.main{
+  background-color: #282C2D;
+}
+swiper {
+  height: 100%;
+}
+image.slide-image{
+  width: 650rpx;
+  height: 900rpx;
+  margin-left: 50rpx;
+  margin-top:100rpx;
+  box-shadow: 0px 0px 5px #fff;
+}
+.music-box{
+  width: 70rpx;
+  height: 70rpx;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+}
+.music-box-a{
+  display: inline-block;
+}
+.navigator-hover{
+  background: none;
+}

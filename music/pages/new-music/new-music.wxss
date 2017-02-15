@@ -1,0 +1,52 @@
+.new-music-item {
+  display: inline-block;
+  width: 355rpx;
+  height: 355rpx;
+  margin: 10rpx;
+}
+
+page, scroll-view {
+  height: 100%;
+}
+
+.new-music-item image {
+  width: 300rpx;
+  height: 300rpx;
+  margin-left: 27.5rpx;
+  border: 1px solid #f2f2f2;
+}
+
+text {
+  display: block;
+  margin-left: 27.5rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.songName {
+  width: 90%;
+  font-size: 35rpx;
+  color: #333;
+}
+.singerName{
+     width: 90%;
+  font-size:30rpx;
+  color: #666;
+  margin-top: 5rpx;
+}
+.img-box{
+    position: relative;
+}
+.playtime{
+    position: absolute;
+    width: 300rpx;
+     margin-left: 27rpx;
+     text-align: right;
+    background: rgba(0,0,0,.5);
+    top:0rpx;
+    z-index: 66;
+    font-size: 28rpx;
+    padding: 5rpx 0;
+    color: #fff;
+}

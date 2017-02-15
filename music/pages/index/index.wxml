@@ -1,0 +1,19 @@
+
+<!--index.wxml-->
+<view class="container">
+  <view class="header">
+    <input bindconfirm="bindconfirm" placeholder="请输入歌手名称" />
+    <image src="http://ol1kqeyve.bkt.clouddn.com/17-2-15/12229580-file_1487120004830_c458.png" bindtap="goMusicBox" class="music-box"></image>
+  </view>
+  <view style="height:{{mainHeight}}" class="main">
+    <swiper>
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <navigator url="{{item.href}}">
+            <image src="{{item.url}}" class="slide-image" width="355" height="150" />
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

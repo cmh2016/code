@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/new-music/new-music",
+    "pages/random-music/random-music",
+    "pages/music-box/music-box",
+    "pages/search-list/search-list"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#282C2D",
+    "navigationBarTitleText": "Music",
+    "navigationBarTextStyle":"white"
+  }
+}

@@ -1,0 +1,7 @@
+<scroll-view scroll-y>
+    <block wx:for="{{data}}" wx:for-item="itemNew">
+    <view hover-class="music-hover"  class="section section_gap" style="text-align: center;">
+      <audio id="{{itemNew.id}}" bindtimeupdate="bindtimeupdate" bindplay="bindplay" src="http://ws.stream.qqmusic.qq.com/{{itemNew.id}}.m4a?fromtag=46" poster="http://imgcache.qq.com/music/photo/album_300/{{itemNew.albumId%100}}/300_albumpic_{{itemNew.albumId}}_0.jpg" name="{{itemNew.songName}}" author="{{itemNew.singerName}}"  controls></audio>
+    </view>
+    </block>
+</scroll-view>

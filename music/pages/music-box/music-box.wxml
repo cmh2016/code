@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="top">
+     <text style="color:#fff;margin:20rpx;">{{singername}}---{{musicName}}</text>
+    <image src="http://ol1kqeyve.bkt.clouddn.com/17-2-15/94139220-file_1487119412527_155cc.png" class="ganzi {{run?ganziRun:''}}"></image>
+    <view bindtap="fanzhaun" class="box {{ok?fanzhuan:''}}">
+      <image src="http://ol1kqeyve.bkt.clouddn.com/17-2-15/91777270-file_1487119412062_bfda.png" class="diezi {{run?runClass:''}}"></image>
+      <image class="music-img {{run?runClass:''}}" src="{{img}}"></image>
+    </view>
+  </view>
+  <view class="footer" style="text-align:center;">
+    <block wx:if="{{playing === true}}">
+      <view class="page-body-button" bindtap="pause">
+        <image src="/image/pause.png"></image>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="page-body-button"></view>
+      <view class="page-body-button" bindtap="play">
+        <image src="/image/play.png"></image>
+      </view>
+    </block>
+    
+  </view>
+</view>

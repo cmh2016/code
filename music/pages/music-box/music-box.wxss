@@ -1,0 +1,106 @@
+page, .container {
+  height: 100%;
+  background-color: #282c2d;
+}
+
+.top {
+  width: 710rpx;
+  height: 900rpx;
+  margin: 20rpx;
+  position: relative;
+}
+
+.top .ganzi {
+  width: 250rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 0rpx;
+  height: 600rpx;
+  z-index: 66;
+  transform: rotate(-18deg);
+  transition: 1s ease;
+  transform-origin:right top;
+}
+.ganziRun{
+   transform: rotate(0deg)!important;
+}
+
+.box {
+  position: relative;
+  top: 400rpx;
+  z-index: 55;
+  height: 500rpx;
+  width: 500rpx;
+  left: 125rpx;
+  -webkit-perspective: 500;
+  -moz-perspective: 500;
+  -ms-perspective: 500;
+  perspective: 500;
+  -ms-transform: perspective(500px);
+  -moz-transform: perspective(500px);
+  transform-style: preserve-3d;
+}
+
+.diezi, .music-img {
+  width: 500rpx;
+  height: 500rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.diezi-fanzhuan {
+  transform: rotateY(180deg);
+}
+
+.run {
+  -webkit-animation: change 4s linear infinite;
+}
+
+@-webkit-keyframes change {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.ctr {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 50rpx auto;
+}
+
+.footer {
+  width: 100%;
+  height: 200rpx;
+  position: fixed;
+  bottom: 0;
+}
+
+.page-body-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100rpx;
+}
+
+.page-body-button {
+  width: 100rpx;
+  margin: 0 auto;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  margin-left: -50rpx;
+}
+
+.page-body-button image {
+  width: 100rpx;
+  height: 100rpx;
+}

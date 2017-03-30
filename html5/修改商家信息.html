@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>修改商家信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--针对ios-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--添加主屏后再次打开是否全屏-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--禁止百度转码-->
+    <meta name="Cache-Control" content="no-siteapp">
+    <!--ios顶部颜色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--禁用数字识别电话-->
+    <meta content="telephone=no" name="format-detection">
+    <!--添加主屏后显示标题文字-->
+    <meta name="apple-mobile-web-app-title" content="易网">
+    <!--添加主屏显示的图标 sizes为尺寸-->
+    <link rel="apple-touch-icon" sizes="144x144" href="">
+    <!--viewport-->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <!--less-->
+ <link rel="stylesheet" href="css/app.less">
+</head>
+<body>
+
+<!--顶部模块-->
+<header>
+    <a class="back" href="javascript:;"></a>
+    <span class="title title_margin_center">修改商家信息</span>
+</header>
+<!--内容-->
+<section>
+    <form action="">
+        <div class="grxxBox" flex="dir:top box:mean">
+        <a class="photo" flex="dir:left box:first" href="javascript:;">
+            <span class="photoText">商铺LOGO</span>
+            <span class="photoCont shangjiaLogo">
+                <img src="images/test/user.png">
+                <input type="file"  accept="image/*">
+            </span>
+           
+        </a>
+        <a class="name" flex="dir:left box:first" href="javascript:;">
+            <span class="photoText">商铺名称</span>
+            <span class="photoCont">
+                <input type="text" value="罗莎蛋糕店" placeholder="请输入商铺名称">
+            </span>
+        
+        </a>
+        <a class="birthday" flex="dir:left box:first" href="javascript:;">
+            <span class="photoText">商铺电话</span>
+            <span class="photoCont">
+                 <input type="text" value="0375-5523556" placeholder="请输入商铺电话">
+            </span>
+      
+        </a>
+        <a class="address" flex="dir:left box:first" href="javascript:;">
+            <span class="photoText">地址</span>
+            <span class="photoCont">
+               <input type="text" value="xxxx" placeholder="请输入地址">
+            </span>
+      
+        </a>
+        <a class="address" flex="dir:left box:first" href="javascript:;">
+            <span class="photoText">申请时间</span>
+            <span class="photoCont">
+               <input type="date" value="2017-03-21" placeholder="请选择时间">
+            </span>
+      
+        </a>
+    </div>
+    <button type="submit" class="submitDuan">提交审核</button>
+    </form>
+    
+    
+</section>
+
+
+</body>
+<script src="static/js/zepto.min.js"></script><!--ignore-->
+<script src="static/js/touch.js"></script><!--ignore-->
+<script src="static/js/slider.js"></script><!--ignore-->
+<script src="static/js/fx.js"></script><!--ignore-->
+<script src="static/js/fx_methods.js"></script><!--ignore-->
+<script src="static/js/fastclick.js"></script><!--ignore-->
+<script src="static/js/app.js"></script><!--ignore-->
+</html>

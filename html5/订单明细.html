@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>订单明细</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--针对ios-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--添加主屏后再次打开是否全屏-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--禁止百度转码-->
+    <meta name="Cache-Control" content="no-siteapp">
+    <!--ios顶部颜色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--禁用数字识别电话-->
+    <meta content="telephone=no" name="format-detection">
+    <!--添加主屏后显示标题文字-->
+    <meta name="apple-mobile-web-app-title" content="易网">
+    <!--添加主屏显示的图标 sizes为尺寸-->
+    <link rel="apple-touch-icon" sizes="144x144" href="">
+    <!--viewport-->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <!--less-->
+ <link rel="stylesheet" href="css/app.less">
+</head>
+<body>
+
+<!--顶部模块-->
+<header>
+    <a class="back" href="javascript:;"></a>
+    <span class="title title_margin_center">订单明细</span>
+    <span class="rightCtr">筛选</span>
+</header>
+<!--内容-->
+<section>
+    <div class="orderMX">
+        <div class="list">
+            <div flex="dir:top box:last" class="item">
+                <div class="top">
+                    <p>用户A</p>
+                    <p>合计<span>￥<span class="rmb">780</span></span></p>
+                </div>
+                <div class="bottom">
+                    <p>2016.9.27 14:22</p>
+                    <p class="redState">等待付款</p>
+                </div>
+            </div>
+        </div>
+           <div class="list">
+            <div flex="dir:top box:last" class="item">
+                <div class="top">
+                    <p>用户A</p>
+                    <p>合计<span>￥<span class="rmb">780</span></span></p>
+                </div>
+                <div class="bottom">
+                    <p>2016.9.27 14:22</p>
+                    <p>交易成功</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="navRBox">
+    <div class="contant">
+        <p class="name">筛选</p>
+        <div flex="dir:left box:first" class="userName">
+            <p>用户名称</p>
+            <input type="text" placeholder="请输入用户名称">
+        </div>
+        <div flex="dir:left box:first" class="userName">
+            <p>时间段</p>
+            
+        </div>  
+        <div flex="dir:left box:first" class="userName">
+            <p>起始日期:</p>
+            <input type="date">
+            <button>选择日期</button>
+        </div>
+        <div flex="dir:left box:first" class="userName">
+            <p>结束日期:</p>
+            <input type="date">
+            <button>选择日期</button>
+        </div>
+        <button class="ok">确定</button>
+    </div>
+</div>
+
+
+</body>
+<script src="static/js/zepto.min.js"></script><!--ignore-->
+<script src="static/js/touch.js"></script><!--ignore-->
+<script src="static/js/slider.js"></script><!--ignore-->
+<script src="static/js/fx.js"></script><!--ignore-->
+<script src="static/js/fx_methods.js"></script><!--ignore-->
+<script src="static/js/fastclick.js"></script><!--ignore-->
+<script src="js/clipboard.min.js"></script><!--ignore-->
+<script src="static/js/app.js"></script><!--ignore-->
+<script src="js/layer/mobile/layer.js"></script><!--ignore-->
+<script>
+    $(function () {
+        //侧滑菜单js
+        $(".rightCtr").click(function(event) {
+            $(".navRBox").css("transform","translate3d(0,0,0)");
+            $(".userName input").width($(".userName").width()-80)
+        });
+        //关闭操作
+        $(".ok").click(function(event) {
+            $(".navRBox").css("transform","translate3d(100%,0,0)")
+
+        });
+        $(".userName button").click(function(event) {
+            $(this).siblings('input').click();
+        });
+    });
+</script><!--ignore-->
+</html>

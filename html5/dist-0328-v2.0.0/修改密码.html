@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>修改密码</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--针对ios-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--添加主屏后再次打开是否全屏-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--禁止百度转码-->
+    <meta name="Cache-Control" content="no-siteapp">
+    <!--ios顶部颜色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--禁用数字识别电话-->
+    <meta content="telephone=no" name="format-detection">
+    <!--添加主屏后显示标题文字-->
+    <meta name="apple-mobile-web-app-title" content="易网">
+    <!--添加主屏显示的图标 sizes为尺寸-->
+    <link rel="apple-touch-icon" sizes="144x144" href="">
+    <!--viewport-->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <!--less-->
+
+    <link rel="stylesheet" href="static/css/app.css" />
+</head>
+
+<body>
+    <!--顶部模块-->
+    <header style="text-align: left;">
+        <a class="back" href="javascript:;"></a>
+        <span class="title title_left">重置密码</span>
+    </header>
+    <!--内容-->
+    <section>
+        <div class="resBox resetBox">
+            <form class="formBox" action="" method="GET">
+               
+                <input class="pwd" type="password" placeholder="设置新密码">
+                <input class="pwd" type="password" placeholder="确认新密码">
+                <input id="userPhone" class="tel" type="tel" placeholder="手机号码">
+                 <div class="telBox">
+                     <input class="yzm" type="text" placeholder="短信验证码">
+                    <span id="get-verification-code">获取</span>
+                </div>
+            </form>
+          
+            <button class="submit" type="submit">提交</button>
+        </div>
+    </section>
+
+
+</body>
+<script src="static/js/zepto.min.js"></script>
+<script src="static/js/touch.js"></script>
+<script src="static/js/slider.js"></script>
+<script src="static/js/fx.js"></script>
+<script src="static/js/fx_methods.js"></script>
+<script src="static/js/fastclick.js"></script>
+<script src="static/js/app.js"></script>
+<script src="static/js/layer/mobile/layer.js"></script>
+<script>
+Zepto(function() {
+    // 获取验证码 get-verification-code
+    var InterValObj; //timer变量，控制时间
+    var count = 60 //间隔函数，1秒执行
+    var curCount; //当前剩余秒数
+    var code = ""; //验证码
+    var codeLength = 6; //验证码长度
+    function sendMessage() {
+        curCount = count;
+        var phone = $("#userPhone").val(); //手机号码
+        if (phone != "") {
+            //产生验证码
+            for (var i = 0; i < codeLength; i++) {
+                code += parseInt(Math.random() * 9).toString();
+            }
+            //设置button效果，开始计时
+            $("#get-verification-code").attr("disabled", "true");
+            $("#get-verification-code").text("请在" + curCount + "秒内输入验证码");
+            InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+            // console.log(code)
+            //向后台发送处理数据
+            /* $.ajax({
+                    type: "POST", //用POST方式传输
+                    dataType: "text", //数据格式:JSON
+                    url: '', //目标地址
+                    data: "phone=" + phone + "&code=" + code,
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {},
+                    success: function(msg) {
+                        
+                    }
+                });*/
+        } else {
+              layer.open({
+                    content: '手机号不能为空'
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+  });
+            $("#userPhone").focus();
+        }
+    }
+    //timer处理函数
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj); //停止计时器
+            $("#get-verification-code").removeAttr("disabled"); //启用按钮
+            $("#get-verification-code").text("重新发送验证码");
+            code = ""; //清除验证码。如果不清除，过时间后，输入收到的验证码依然有效
+        } else {
+            curCount--;
+            $("#get-verification-code").text("请在" + curCount + "秒内输入验证码");
+        }
+    }
+    $("#get-verification-code").click(function() {
+        /* Act on the event */
+        sendMessage();
+    });
+    //重置成功提示【把这段放在ajax回调成功函数里】
+    $(".submit").click(function(event) {
+        //信息框
+        layer.open({
+           content: '重置密码成功，请重新登录',
+           btn: '确定'
+        });
+    });
+});
+</script>
+
+</html>

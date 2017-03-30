@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>提现申请-银行卡</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--针对ios-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--添加主屏后再次打开是否全屏-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--禁止百度转码-->
+    <meta name="Cache-Control" content="no-siteapp">
+    <!--ios顶部颜色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--禁用数字识别电话-->
+    <meta content="telephone=no" name="format-detection">
+    <!--添加主屏后显示标题文字-->
+    <meta name="apple-mobile-web-app-title" content="易网">
+    <!--添加主屏显示的图标 sizes为尺寸-->
+    <link rel="apple-touch-icon" sizes="144x144" href="">
+    <!--viewport-->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <!--less-->
+    <link rel="stylesheet" href="css/app.less">
+</head>
+<body>
+    <!--顶部模块-->
+<header>
+    <a class="back" href="javascript:;"></a>
+    <span class="title title_margin_center">提现申请</span>
+</header>
+  
+  	<!-- 提现申请 -->
+  	<div class="txsqBox">
+       <!--  <div class="top">
+            <a class="active" href="">申请提现</a>
+            <a href="">提现记录</a>
+        </div> -->
+        <div class="formBox">
+          <form action="">
+            <div style="padding-top: 1rem;margin-top: .5rem;height: 10rem;" class="type">
+             <!--  <h2>选择提现方式</h2>
+              <div class="typeItem typeItem-red-b" flex="dir:left box:mean">
+                <a href="">微信</a>
+                <a class="active"  href="">支付宝</a>
+                <a href="">银行卡</a>
+              </div> -->
+              <div class="typeItem" flex="dir:left box:first">
+                <label for="">到账银行卡</label>
+                <span class="cardNum">xiaoguiozi51400.1</span>
+              </div>
+              <div class="typeItem">
+                <label for="">提现金额</label><br>
+                <div class="rmb" flex="dir:left box:first">
+                  <span>¥</span>
+                  <input class="remInput" type="number">
+                </div>
+                
+              </div>
+				<p class="lingqian">零钱金额￥<span class="lq">51400.12</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="allT">全部提现</span></p>
+            </div>
+            <button class="submit" type="submit">提现</button>
+          </form>
+        </div>
+    </div>
+    
+
+    <link rel="import" href="widget/footer/footer_my.html?__inline">
+</body>
+<script src="static/js/zepto.min.js"></script><!--ignore-->
+<script src="static/js/touch.js"></script><!--ignore-->
+<script src="static/js/slider.js"></script><!--ignore-->
+<script src="static/js/fx.js"></script><!--ignore-->
+<script src="static/js/fx_methods.js"></script><!--ignore-->
+<script src="static/js/fastclick.js"></script><!--ignore-->
+<script src="static/js/app.js"></script><!--ignore-->
+<script src="js/layer/mobile/layer.js"></script><!--ignore-->
+<script>
+	Zepto(function () {
+		//全部提现
+		$(".allT").click(function() {
+			$(".remInput").val($(".lq").text());
+		});
+		//银行卡选择
+		//银行卡列表字符串
+		var cardList = '<div  class="cardList">'+
+					   '<ul>'+
+						'<li>xiaoguiozi51400.1</li>'+
+						'<li>农业银行（2132）</li>'+
+						'<li>农业银行（11111）</li>'+
+						'<li>农业银行（3333）</li>'+
+						'</ul>'+
+						'</div>';
+		$(".cardNum").click(function() {
+				 layer.open({
+          			 content:cardList,
+          			 success:function (argument) {
+          			 	$(".cardList ul li").click(function(event) {
+          			 		event.stopPropagation();
+          			 		var text = $(this).text();
+          			 		$(".cardNum").text(text);
+          			 		layer.closeAll();
+          			 	});
+          			 }
+       			 });
+
+		});
+	});
+</script><!--ignore-->
+</html>

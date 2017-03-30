@@ -1,0 +1,146 @@
+//宽高变量
+@w:100%;
+@h:100%;
+@topH:auto;//顶部高度
+@headerColor:#ec0416;//header背景色
+//reset
+body,html,header,footer,article,section,div,img,ul,li,a,h1,h2,span,select,input,form,p,h3{
+  margin: 0;
+  padding:0;
+}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+body{
+  -webkit-overflow-scrolling: touch;
+  background:#f2f2f2;
+  font-family: '微软雅黑', serif;
+
+}
+input,button,select,textarea{
+  -webkit-appearance:none;
+  outline:none
+}
+body, html {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-touch-callout: none
+}
+
+//单行文本溢出省略号
+.ellipsesOne{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+//多行文本溢省略号
+.ellipsesMore(@v:3){
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @v;
+    overflow: hidden
+}
+img{
+  border: none;
+}
+//清除float
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+//css3阴影
+.box-shadow(@sa:3px,@sb:3px,@sc:2px,@sd:#ccc){
+  box-shadow: @arguments;
+}
+//css3过度
+.transition(@v:all,@t:0.5s,@f:ease,@d:0s){
+    transition:  @arguments;
+-moz-transition:  @arguments;   /* Fi
+refox 4 */
+-webkit-transition:  @arguments;    /* Safari 和 Chrome */
+-o-transition:  @arguments; /* Opera */
+}
+//css3圆角
+ .roundedCorners(@radius:5px) { 
+ -moz-border-radius: @radius; 
+ -webkit-border-radius: @radius; 
+ border-radius: @radius; 
+ } 
+ //css32D转换
+ .transform(@d:0deg){
+     transform: rotate(@d);
+    -ms-transform: rotate(@d);      /* IE 9 */
+    -webkit-transform: rotate(@d);  /* Safari and Chrome */
+    -o-transform: rotate(@d);       /* Opera */
+    -moz-transform: rotate(@d);     /* Firefox */
+ }
+ .border-1px-t{ border-top: 1px solid #eeeeee }
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .border-1px-t{ border: 0.5px solid #eeeeee }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+    .border-1px-t { border: 0.333333px solid #eeeeee }
+}
+ .border-1px-b{ border-bottom: 1px solid #eeeeee }
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .border-1px-b{ border-bottom: 0.5px solid #eeeeee }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+    .border-1px-b { border-bottom: 0.333333px solid #eeeeee }
+}
+ .border-1px-l{ border-left: 1px solid #eeeeee }
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .border-1px-l{ border-left: 0.5px solid #eeeeee }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+    .border-1px-l { border-left: 0.333333px solid #eeeeee }
+}
+ .border-1px-r{ border-right: 1px solid #eeeeee }
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .border-1px-r{ border-right: 0.5px solid #eeeeee }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+    .border-1px-r { border-right: 0.333333px solid #eeeeee }
+}
+html{
+  font-size: 20px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+//定义根字体
+@media only screen and (min-width: 400px) {
+  html {
+    font-size:21.33333333px!important
+  }
+}
+
+@media only screen and (min-width: 414px) {
+  html {
+    font-size:22.08px!important
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  html {
+    font-size:25.6px!important
+  }
+}
+//placeholder颜色
+::-webkit-input-placeholder { /* WebKit browsers */
+  　　color:#c7c7c7;
+  }
+　　:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  　　color:#c7c7c7;
+  }
+　　::-moz-placeholder { /* Mozilla Firefox 19+ */
+  　　color: rgb(199, 199, 199);
+  }
+　　:-ms-input-placeholder { /* Internet Explorer 10+ */
+  　　color:#c7c7c7;
+  }

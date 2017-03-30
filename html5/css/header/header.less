@@ -1,0 +1,141 @@
+@import url(../common/common.less);
+
+header{
+	width: @w;
+	height: 2.2rem;
+	background-color: @headerColor;
+	text-align: center;
+	.location{
+		display: inline-block;
+		font-size: .75rem;
+		color: #fff;
+		line-height: 2.2rem;
+		margin-left:0.5rem;
+		width: 1.8rem;
+	}
+	.xiala{
+		width: 1.8rem;
+		background: url("../../images/icon/arrow.png") center center no-repeat;
+		background-size: 45%;
+	}
+	.search-bar{
+		background-color: #fdfdfd;
+		height:1.3rem;
+		margin-top: (2.2-1.3)/2rem;
+		margin-right: .5rem;
+		margin-left: .5rem;
+		.roundedCorners(0.7rem);
+		.icon_search{
+			width: 25px;
+			background: url("../../images/icon/Icon-search.png?__inline") 10px center no-repeat;
+			background-size: 60%;
+		}
+		form{
+			font-size: 0;
+			input[type=search]{
+				height: 1.3rem;
+				width: 100%;
+				line-height: 1.3rem;
+				border: none;
+				background-color: #fdfdfd;
+				color: #fff;
+				outline:medium;
+				font-size: .7rem;
+			}
+		}
+	}
+	.scan{
+		background: url("../../images/icon/Icon-sis.png?__inline") center center no-repeat;
+		background-size: 70%;
+		margin-right: .5rem;
+		height: 1.6rem;
+		margin-top:(2.2-1.6)/2rem;
+		width: 1.2rem;
+	}
+	.information{
+		margin-right: .5rem;
+		background: url("../../images/icon/Icon-msg.png?__inline") center center no-repeat;
+		background-size: 70%;
+		position: relative;
+		height: 1.6rem;
+		margin-top:(2.2-1.6)/2rem;
+		width: 1.2rem;
+		.msgTip{
+			position: absolute;
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			.roundedCorners(50%);
+			background-color: #f7740a;
+			right: 0;
+			top: 0.4rem;
+		}
+	}
+	.title{
+		font-size: .85rem;
+		color: #fff;
+		line-height: 2.2rem;
+		margin: 0 auto;
+		z-index: 5;
+	}
+	.title_margin_center{
+		margin-left: -2.5rem;
+	}
+	.title_left{
+		margin: 0;
+		font-size: .75rem;
+	}
+	.back{
+		float: left;
+		width: 2rem!important;
+		height:100%;
+		margin-left: .5rem;
+		background: url("../../images/icon/Icon-back.gif?__inline") center center no-repeat;
+		background-size:20%;
+
+	}
+	.backB{
+		float: left;
+		width: 2rem!important;
+		height:100%;
+		margin-left: .5rem;
+		background: url("../../images/icon/backB.png?__inline") center center no-repeat;
+		background-size:20%;
+
+	}
+	.fenxaing{
+		float: right;
+		margin-right: .5rem;
+		height: 100%;
+		width: 2rem!important;
+		background: url("../../images/icon/fenxiang.png?__inline") center center no-repeat;
+		background-size:50%;
+	}
+	.sousuo{
+		float: right;
+		padding-right: .5rem;
+		height: 100%;
+		width: 2rem!important;
+		background: url("../../images/icon/sousuo.png?__inline") center center no-repeat;
+		background-size:50%;
+	}
+	.locationKq{
+		width: 2rem!important;
+		margin-right: .5rem;
+		background: url("../../images/icon/Icon-header-location.gif?__inline") center center no-repeat;
+		background-size:40%;
+	}
+	.titleSave{
+		font-size: 0.7rem;
+		color: #fff;
+		line-height: 2.2rem;
+		margin-right: 0.8rem;
+	}
+	.rightCtr{
+		float: right;
+		margin: .5rem;
+		font-size: .8rem;
+		color: #fff;
+	}
+}
+

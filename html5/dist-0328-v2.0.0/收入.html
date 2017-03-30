@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>收入</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--针对ios-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--添加主屏后再次打开是否全屏-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--禁止百度转码-->
+    <meta name="Cache-Control" content="no-siteapp">
+    <!--ios顶部颜色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--禁用数字识别电话-->
+    <meta content="telephone=no" name="format-detection">
+    <!--添加主屏后显示标题文字-->
+    <meta name="apple-mobile-web-app-title" content="易网">
+    <!--添加主屏显示的图标 sizes为尺寸-->
+    <link rel="apple-touch-icon" sizes="144x144" href="">
+    <!--viewport-->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <!--less-->
+
+    <link rel="stylesheet" href="static/css/app.css" />
+</head>
+<body>
+   <!--顶部模块-->
+<header>
+    <a href="#"  class="back"></a>
+    <span class="title title_margin_center">收入</span>
+</header>
+<div class="txJl shouru">
+    <div flex="dir:left box:mean" class="top">
+        <div class="seckillScreen seckillScreenC" flex="dir:left box:mean">
+            <p class="foodAll chioceTYpe" flex="dir:lef box:justify">
+                <span class="icons"></span>
+                <span class="text" data-id="0">选择类型</span>
+                <span class="selectTy"></span>
+            </p>
+            <div flex="dir:top box:mean" class="foodAllBox footItemsBox">
+                <span class="footAllItem seckillScreenItems">全部分类</span>
+                <span class="footAllItem seckillScreenItems">个人消费</span>
+                <span class="footAllItem seckillScreenItems">商家订单</span>
+                <span class="footAllItem seckillScreenItems">代理提成</span>
+                <span class="footAllItem seckillScreenItems">总监提成</span>
+                <span class="footAllItem seckillScreenItems">股东分红</span>
+                <span class="footAllItem seckillScreenItems">退货扣款</span>
+            </div>
+            <p class="footFuJin dateA" flex="dir:lef box:justify">
+              <span class="icons"></span>
+                <span class="text" data-id="0">日期区间</span>
+                <span class="selectTy"></span>
+            </p>
+            <div flex="dir:top box:mean" class="footFuJinBox footItemsBox dateBox-cc">
+                 <div flex="dir:left box:first" class="userName">
+            <span>起始日期:</span>
+            <input type="date">
+            <button>选择日期</button>
+        </div>
+        <div flex="dir:left box:first" class="userName">
+            <span>结束日期:</span>
+            <input type="date">
+            <button>选择日期</button>
+        </div>
+            </div>
+           
+        </div>
+    </div>
+    <div flex="dir:top box:mean" class="list">
+        <div class="listItem" flex="dir:left box:mean">
+             <p class="geren">个人消费</p>
+            <p>￥300</p>
+            <p>2017.3.21 15:21</p>
+        </div>
+        <div class="listItem" flex="dir:left box:mean">
+          <p class="order">商家订单</p>
+            <p>￥300</p>
+            <p>2017.3.21 15:21</p>
+        </div>
+        <div class="listItem" flex="dir:left box:mean">
+           <p class="daili">代理提成</p>
+            <p>￥300</p>
+            <p>2017.3.21 15:21</p>
+        </div>
+        <div class="listItem" flex="dir:left box:mean">
+           <p class="zongjian">总监提成</p>
+            <p>￥300</p>
+            <p>2017.3.21 15:21</p>
+        </div>
+         <div class="listItem" flex="dir:left box:mean">
+           <p class="gudong">股东分红</p>
+            <p>￥300</p>
+            <p>2017.3.21 15:21</p>
+        </div>
+         <div class="listItem" flex="dir:left box:mean">
+           <p class="tuihuo">退货扣款</p>
+            <p>￥300</p>
+            <p>2017.3.21 15:21</p>
+        </div>
+    </div>
+</div>
+<!--搜索弹窗-->
+<div style="display: none;background-color: rgba(0,0,0,.4);" id="tip">
+    <div class="box">
+        <h2>时间段</h2>
+        <div flex="dir:left box:first" class="userName">
+            <span>起始日期:</span>
+            <input type="date">
+            <button>选择日期</button>
+        </div>
+        <div flex="dir:left box:first" class="userName">
+            <span>结束日期:</span>
+            <input type="date">
+            <button>选择日期</button>
+        </div>
+        <div class="ctrBtn"><button>查&nbsp;&nbsp;&nbsp;询</button></div>
+    </div>
+</div>
+
+
+</body>
+<script src="static/js/zepto.min.js"></script>
+<script src="static/js/touch.js"></script>
+<script src="static/js/slider.js"></script>
+<script src="static/js/fx.js"></script>
+<script src="static/js/fx_methods.js"></script>
+<script src="static/js/fastclick.js"></script>
+<script src="static/js/app.js"></script>
+<script src="static/js/layer/mobile/layer.js"></script>
+
+</html>

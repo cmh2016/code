@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>推广链接</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--针对ios-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!--添加主屏后再次打开是否全屏-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!--禁止百度转码-->
+    <meta name="Cache-Control" content="no-siteapp">
+    <!--ios顶部颜色-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--禁用数字识别电话-->
+    <meta content="telephone=no" name="format-detection">
+    <!--添加主屏后显示标题文字-->
+    <meta name="apple-mobile-web-app-title" content="易网">
+    <!--添加主屏显示的图标 sizes为尺寸-->
+    <link rel="apple-touch-icon" sizes="144x144" href="">
+    <!--viewport-->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <!--less-->
+ <link rel="stylesheet" href="css/app.less">
+</head>
+<body>
+
+<!--顶部模块-->
+<header>
+    <a class="back" href="javascript:;"></a>
+    <span class="title title_margin_center">推广链接</span>
+</header>
+<!--内容-->
+<section>
+<div class="wysk">
+  <!-- <h1>我要收款</h1> -->
+  <p>个人二维码</p>
+  <img src="images/test/ewm2.png" alt="">
+  <div class="nav-set" flex="dir:left box:first">
+    <!-- Trigger -->
+    <button class="btn" style="font-size: .65rem" data-clipboard-target="#foo">点击选择并复制</button>
+      <!-- Target -->
+    <input id="foo" value="https://www.so.com/s?q=易网&ie=">
+
+
+  </div>
+</div>
+</section>
+<link rel="import" href="widget/footer/footer_my.html?__inline">
+
+
+</body>
+<script src="static/js/zepto.min.js"></script><!--ignore-->
+<script src="static/js/touch.js"></script><!--ignore-->
+<script src="static/js/slider.js"></script><!--ignore-->
+<script src="static/js/fx.js"></script><!--ignore-->
+<script src="static/js/fx_methods.js"></script><!--ignore-->
+<script src="static/js/fastclick.js"></script><!--ignore-->
+<script src="js/clipboard.min.js"></script><!--ignore-->
+<script src="static/js/app.js"></script><!--ignore-->
+<script src="js/layer/mobile/layer.js"></script><!--ignore-->
+<script>
+$(function () {
+    //复制粘贴事件
+    var clipboard = new Clipboard('.nav-set .btn');
+    $(".btn").click(function(event) {
+        $("#foo").select();//如果安卓低版本不支持，调用微信自带tip按钮复制
+    });
+    
+    clipboard.on('success', function(e) {
+      console.info('Action:', e.action);
+     console.info('Text:', e.text);
+     console.info('Trigger:', e.trigger);
+     layer.open({
+                    content: '复制成功，请粘贴！'
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+  });
+     e.clearSelection();
+});
+
+    clipboard.on('error', function(e) {
+     console.error('Action:', e.action);
+       console.error('Trigger:', e.trigger);
+          layer.open({
+                    content: '复制失败，请手动长按链接并复制！'
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+  });
+});
+});
+    
+</script><!--ignore-->
+</html>

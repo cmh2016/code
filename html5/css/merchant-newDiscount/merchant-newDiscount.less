@@ -1,0 +1,123 @@
+a:focus,input:focus{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-user-modify:read-write-plaintext-only;
+}
+.newDiscount{
+	input,textarea{
+		outline:none;
+	}
+	
+		input::-webkit-input-placeholder { /* WebKit browsers */
+  　　color:#ccc;
+  }
+　　input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  　　color:#ccc;
+  }
+　　input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  　　color: rgb(204, 204, 204);
+  }
+　　input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  　　color:#ccc;
+  }
+	textarea::-webkit-input-placeholder { /* WebKit browsers */
+		　　color:#ccc;
+	}
+	　　input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		　　color:#ccc;
+	}
+	　　input::-moz-placeholder { /* Mozilla Firefox 19+ */
+		　　color: rgb(204, 204, 204);
+	}
+	　　input:-ms-input-placeholder { /* Internet Explorer 10+ */
+		　　color:#ccc;
+	}
+	background: #fff;
+	>li{
+		margin:0rem 0.7rem;
+		border-bottom: 1px solid #eee;
+		padding:0.8rem 0;
+		.typeItem{
+			display: none;
+		}
+		.title{
+			font-size: 0.7rem;
+			color: #333;
+			margin-right: 0.4rem;
+			width: 3rem;
+			text-align: right;
+		}
+		.name{
+			border:0px;
+			height: 0.7rem;
+			font-size: 0.7rem;
+			outline: none;
+		}
+
+		>label{
+			font-size: 0.7rem;
+			color: #333;
+			margin-left: 0.7rem;
+			.hidden{
+				display: none;
+			}
+			>span{
+				width:0.7rem;
+				height: 0.7rem;
+				background: url(../../images/icon/radio.gif);
+				display: inline-block;
+				background-size: 100% 100%;
+				vertical-align: middle;
+				margin-right: 0.3rem;
+			}
+			.on{
+				background: url(../../images/icon/radio-checked.gif);
+				background-size: 100% 100%;
+			}
+		}
+		.numbers{
+			padding:0.2rem 0.25rem;
+			width:3.825rem;
+			border:1px solid #ddd;
+			border-radius: 2px;
+			font-size: 0.7rem;
+			
+		}
+		.startData{
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			box-sizing: border-box;
+			background: none;
+			display: block;
+			width: 100%;
+		}
+		.endData{
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			box-sizing: border-box;
+			background: none;
+			display: block;
+			width: 100%;
+		}
+		.normal{
+			font-size: 0.7rem;
+			margin:0 0.4rem;
+		}
+	}
+	.cardMessages{
+		.title{
+			float: left;
+		}
+		textarea{
+			width:13.1rem;
+			height: 2.5rem;
+			font-size: 0.7rem;
+			border:1px solid #ddd;
+			resize: none;
+			overflow-y: auto;
+			line-height: inherit;
+			outline: 0;
+		}
+	}
+}

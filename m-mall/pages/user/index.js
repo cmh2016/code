@@ -4,6 +4,16 @@ Page({
 	data: {
 		userInfo: {},
 		items: [
+            {
+                icon: '../../assets/images/money.png',
+                text: '我的钱包',
+                path: '/pages/order/list/index'
+            }, 
+            {
+                icon: '../../assets/images/yhq.png',
+                text: '我的卡券',
+                path: '/pages/address/list/index'
+            },
 			{
 				icon: '../../assets/images/iconfont-order.png',
 				text: '我的订单',
@@ -15,15 +25,15 @@ Page({
 				path: '/pages/address/list/index'
 			}, 
 			{
-				icon: '../../assets/images/iconfont-kefu.png',
+				icon: '../../assets/images/tel.png',
 				text: '联系客服',
 				path: '1553887275',
-			}, 
-			{
-				icon: '../../assets/images/iconfont-help.png',
-				text: '常见问题',
-				path: '/pages/help/list/index',
 			},
+            {
+                icon: '../../assets/images/kf.png',
+                text: '咨询客服',
+                path: '微信考程序',
+            }
 		],
 		settings: [
 			{
@@ -47,16 +57,19 @@ Page({
 		const path = e.currentTarget.dataset.path
 
 		switch(index) {
-			case 2:
+			case 4:
 				App.WxService.makePhoneCall({
 					phoneNumber: path
 				})
 				break
+            case 5:
+                return false
+                break
 			default:
 				App.WxService.navigateTo(path)
 		}
     },
-    getUserInfo() {
+    getUserInfo() { 
     	const userInfo = App.globalData.userInfo
 
 		if (userInfo) {

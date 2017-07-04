@@ -13,7 +13,7 @@ Page({
     onLoad() { },
     onShow() { },
     bindload(e) {
-        setTimeout(App.WxService.getStorageSync('token') ? this.goIndex : this.goLogin, 3000)
+        setTimeout(this.goIndex , 3000)
     },
     goIndex() {
         App.WxService.switchTab({

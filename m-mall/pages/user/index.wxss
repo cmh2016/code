@@ -1,4 +1,4 @@
-.userinfo {
+ .userinfo {
 	display: flex;
 	flex-direction: column;
 	padding: 50rpx 0;

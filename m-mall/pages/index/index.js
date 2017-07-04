@@ -20,10 +20,21 @@ Page({
             { path: "http://img.zcool.cn/community/01c55e56fdd6de6ac72579484479c7.jpg@1280w_1l_2o_100sh.jpg", shopId:3 },
             { path: "http://img.zcool.cn/community/01751156fdd6dd32f875a9445997d0.jpg@1280w_1l_2o_100sh.jpg", shopId: 4 },
             { path: "http://img.zcool.cn/community/014c7e56fdd6de6ac72579486dc015.jpg@1280w_1l_2o_100sh.jpg", shopId: 5 }
+        ],
+        shopType:[
+            {"icon":"../../assets/images/test/fenlei.png","name":"潮男衣橱","id":1},
+            { "icon": "../../assets/images/test/fenlei.png", "name": "新品T恤", "id": 1 },
+            { "icon": "../../assets/images/test/fenlei.png", "name": "休闲裤", "id": 1 },
+            { "icon": "../../assets/images/all-shop.png", "name": "全部商品", "id": 1 },
+            { "icon": "../../assets/images/test/fenlei.png", "name": "潮男衣橱", "id": 1 },
+            { "icon": "../../assets/images/test/fenlei.png", "name": "新品T恤", "id": 1 },
+            { "icon": "../../assets/images/test/fenlei.png", "name": "休闲裤", "id": 1 },
+            { "icon": "../../assets/images/all-shop.png", "name": "全部商品", "id": 1 },
         ]
+        
     },
     swiperchange(e) {
-        // console.log(e.detail.current)
+         console.log(e.detail.current)
     },
     onLoad() {
         this.banner = App.HttpResource('/banner/:id', { id: '@id' })

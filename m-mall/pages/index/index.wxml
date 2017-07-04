@@ -1,26 +1,55 @@
-<import src="../common/nav.wxml"/>
-<import src="../common/list.wxml"/>
-
+<import src="../common/nav.wxml" />
+<import src="../common/list.wxml" />
+<!--轮播-->
 <swiper class="swiper_box" indicator-dots="{{ indicatorDots }}" autoplay="{{ autoplay }}" current="{{ current }}" interval="{{ interval }}" duration="{{ duration }}" circular="{{ circular }}" bindchange="swiperchange">
-    <block wx:for="{{ images }}" wx:key="">
-        <swiper-item>
-            <image data-shopid="{{item.shopId}}" src="{{ item.path }}" class="slide-image"/>
-        </swiper-item>
-    </block>
+  <block wx:for="{{ images }}" wx:key="">
+    <swiper-item data-id="{{ item.shopId }}" bindtap="navigateTo">
+      <image src="{{ item.path }}" class="slide-image" />
+    </swiper-item>
+  </block>
 </swiper>
-
+<!--搜索分类-->
 <view class="weui-search-bar">
-    <view class="weui-search-bar__form">
-        <view class="weui-search-bar__box">
-            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-            <input type="text" class="weui-search-bar__input" placeholder="搜索"/>
-        </view>
-        <label class="weui-search-bar__label" bindtap="search">
-            <icon class="weui-icon-search" type="search" size="14"></icon>
-            <view class="weui-search-bar__text">搜索</view>
-        </label>
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="搜索" />
     </view>
+    <label class="weui-search-bar__label" bindtap="search">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <view class="weui-search-bar__text">搜索</view>
+    </label>
+  </view>
 </view>
+<!--分类-->
+<view class="weui-shop-type">
+  <view wx:for="{{ shopType }}" data-id="{{ item.id }}" bindtap="navigateTo" class="weui-type-item">
+    <image class="weui-type-item-image" src="{{ item.icon }}" />
+    <text class="weui-type-item-name">{{ item.name }}</text>
+  </view>
+</view>
+<!--优惠券-->
+<view class="weui-yhq">
+  <view class="weui-yhq-list">
+    <navigator class="weui-cell weui-cell_access" url="/pages/order/list/index" hover-class="navigator-hover">
+      <view class="weui-cell__bd">
+        <text>优惠券</text>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">全部</view>
+    </navigator>
+  </view>
+  <view class="weui-yhq-items">
+    <navigator url="" hover-class="navigator-hover" class="weui-media-box weui-media-box_appmsg">
+      <view class="weui-media-box__hd">
+        <text>¥<text>20</text></text>
+      </view>
+      <view class="weui-media-box__bd">
+        <text class="weui-media-box__title">标题一</text>
+        <text class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</text>
+      </view>
+    </navigator>
+  </view>
 
-<template is="nav" data="{{ navList, activeIndex }}"/>
-<template is="list" data="{{ goods, prompt }}"/>
+</view>
+<template is="nav" data="{{ navList, activeIndex }}" />
+<template is="list" data="{{ goods, prompt }}" />

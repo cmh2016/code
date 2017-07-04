@@ -1,7 +1,9 @@
 .scroll-list {
     overflow: hidden;
 }
-
+page{
+    background: #f2f2f2;
+}
 .weui-icon-search, 
 .weui-search-bar__text {
     vertical-align: inherit;
@@ -29,4 +31,52 @@ swiper-item image {
     width: 100%;
     display: inline-block;
     overflow: hidden;
+}
+.weui-shop-type{
+    width: 750rpx;
+    height: auto;
+    overflow: hidden;
+    margin: 5rpx 0;
+    background: #fff;
+}
+.weui-type-item{
+    width: 160rpx;
+    height:160rpx;
+    float: left;
+    text-align: center;
+    margin: 13rpx;
+}
+.weui-type-item-image{
+    width:80rpx;
+    height:80rpx;
+    margin: 0 30rpx;
+    border-radius: 50%;
+}
+.weui-type-item-name{
+    font-size: 12px;
+    display: block;
+    width:100%;
+    margin-top:5px;
+}
+.weui-yhq{
+    width: 750rpx;
+    height: auto;
+    overflow: hidden;
+    margin: 15rpx 0;
+}
+.weui-yhq-list{
+    background: #fff;
+}
+.weui-yhq-items{
+    width: 750rpx;
+    background: #fff;
+    height: 180rpx;
+    border: 1px solid red;
+
+}
+.weui-media-box{
+    width: 700rpx;
+    margin: 0 auto;
+    border: 1px solid red;
+    padding: 5rpx;
 }

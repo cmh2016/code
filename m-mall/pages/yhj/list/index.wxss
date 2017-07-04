@@ -1,0 +1,129 @@
+
+.kabaoConteny {
+    height: auto
+}
+
+.kabaoConteny .liBOX {
+    height: auto;
+    margin-bottom: .5rem
+}
+
+.kabaoConteny .kabaoLi {
+    border: 1px solid #CCC;
+    margin: 0 .5rem;
+    height: 4.5rem;
+    position: relative;
+    overflow: visible;
+    -moz-border-radius: .1rem;
+    -webkit-border-radius: .1rem;
+    border-radius: .1rem;
+    background-color: #fff
+}
+
+.kabaoConteny .kabaoLi .left {
+    width: 4rem;
+    border-right: 1px dashed #ccc
+}
+
+.kabaoConteny .kabaoLi .left img {
+    width: 80%;
+    height: 50%;
+    margin: 1rem .4rem
+}
+
+.kabaoConteny .kabaoLi .right {
+    padding-left: .7rem
+}
+
+.kabaoConteny .kabaoLi .right .content {
+    font-size: .6rem;
+    color: #999;
+    border-bottom: 1px dashed #ccc;
+    margin-right: .2rem
+}
+
+.kabaoConteny .kabaoLi .right .content .Head {
+    height: 1.5rem;
+    line-height: 1.7rem;
+    font-size: .75rem;
+    color: #333
+}
+
+.kabaoConteny .kabaoLi .right .price {
+    width: 3rem;
+    text-align: left;
+    font-size: .75rem;
+    color: #f63
+}
+
+.kabaoConteny .kabaoLi .right .price .text-overdue {
+    color: #999
+}
+
+.kabaoConteny .kabaoLi .right .youxiaoqi {
+    height: 1rem;
+    font-size: .6rem;
+    color: #999
+}
+
+.kabaoConteny .kabaoLi .right .youxiaoqi .overdue {
+    font-size: .6rem;
+    color: #999;
+    float: right;
+    margin-right: .5rem
+}
+
+.kabaoConteny .kabaoLi .kabaoStyleTop {
+    width: 1rem;
+    height: 1rem;
+    background-color: #F2F2F2;
+    border: 1px solid #CCC;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 4.1rem;
+    left: 3.5rem
+}
+
+.kabaoConteny .kabaoLi .kabaoStyleBottom {
+    width: 1rem;
+    height: 1rem;
+    background-color: #F2F2F2;
+    border: 1px solid #CCC;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: 4.1rem;
+    left: 3.5rem
+}
+
+.kabaoConteny-shangjia .liBOX .kabaoLi .right .content {
+    border: 0
+}
+
+.kabaoConteny-shangjia .liBOX .kabaoLi .right .price {
+    width: 5rem;
+    position: relative;
+    text-align: center
+}
+
+.kabaoConteny-shangjia .liBOX .kabaoLi .right .price .overdue {
+    color: #000;
+    line-height: 2.2rem;
+    font-size: .7rem
+}
+
+.kabaoConteny-shangjia .liBOX .kabaoLi .right .price .delete {
+    font-size: .6rem;
+    line-height: 2rem
+}
+
+.kabaoConteny-shangjia .liBOX .kabaoLi .right .price .text-overdue000 {
+    color: #000
+}
+
+.kabaoConteny-shangjia .liBOX .kabaoLi .right .text {
+    font-size: .6rem
+}

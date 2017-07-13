@@ -13,8 +13,9 @@ Page({
     onLoad() { },
     onShow() { },
     bindload(e) {
-        setTimeout(this.goIndex , 3000)
+        setTimeout(App.WxService.getStorageSync('token') ? this.goIndex : this.goLogin, 3000)
     },
+    
     goIndex() {
         App.WxService.switchTab({
             url: '/pages/index/index'

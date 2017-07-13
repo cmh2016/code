@@ -27,6 +27,7 @@ App({
 			this.globalData.userInfo = data.userInfo
 			return this.globalData.userInfo
 		})
+        
 	},
 	globalData: {
 		userInfo: null
@@ -41,5 +42,5 @@ App({
 	HttpService: new HttpService, 
 	WxService: new WxService, 
 	Tools: new Tools, 
-	Config: Config, 
+    api: Config.api, 
 })

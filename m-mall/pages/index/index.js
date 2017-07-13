@@ -14,35 +14,72 @@ Page({
         prompt: {
             hidden: !0,
         },
-        images: [
-            { path: "http://img.zcool.cn/community/018f3356fdd6de6ac7257948f2d3b0.jpg",shopId:1 },
-            { path: "http://img.zcool.cn/community/011a3e56fdd6de32f875a9445460f4.jpg", shopId:2 },
-            { path: "http://img.zcool.cn/community/01c55e56fdd6de6ac72579484479c7.jpg@1280w_1l_2o_100sh.jpg", shopId:3 },
-            { path: "http://img.zcool.cn/community/01751156fdd6dd32f875a9445997d0.jpg@1280w_1l_2o_100sh.jpg", shopId: 4 },
-            { path: "http://img.zcool.cn/community/014c7e56fdd6de6ac72579486dc015.jpg@1280w_1l_2o_100sh.jpg", shopId: 5 }
-        ],
-        shopType:[
-            {"icon":"../../assets/images/test/fenlei.png","name":"潮男衣橱","id":1},
-            { "icon": "../../assets/images/test/fenlei.png", "name": "新品T恤", "id": 1 },
-            { "icon": "../../assets/images/test/fenlei.png", "name": "休闲裤", "id": 1 },
-            { "icon": "../../assets/images/all-shop.png", "name": "全部商品", "id": 1 },
-            { "icon": "../../assets/images/test/fenlei.png", "name": "潮男衣橱", "id": 1 },
-            { "icon": "../../assets/images/test/fenlei.png", "name": "新品T恤", "id": 1 },
-            { "icon": "../../assets/images/test/fenlei.png", "name": "休闲裤", "id": 1 },
-            { "icon": "../../assets/images/all-shop.png", "name": "全部商品", "id": 1 },
-        ]
+        poster: [],
+        navigation:[]
         
     },
     swiperchange(e) {
          console.log(e.detail.current)
     },
     onLoad() {
-        this.banner = App.HttpResource('/banner/:id', { id: '@id' })
-        this.goods = App.HttpResource('/goods/:id', { id: '@id' })
-        this.classify = App.HttpResource('/classify/:id', { id: '@id' })
-
-        this.getBanners()
-        this.getClassify()
+        this.gitIndexData()
+    },
+    //获取首页数据
+    gitIndexData(){
+        var uid = wx.getStorageSync('uid');
+        var token = wx.getStorageSync('token');
+        var that = this;
+        if (wx.showLoading) {
+            wx.showLoading({
+                title: "加载中",
+                mask: true
+            })
+        } else {
+            // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+            wx.showModal({
+                title: '提示',
+                content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+            })
+        }
+        wx.request({
+            url: App.api+'/app/index', //仅为示例，并非真实的接口地址
+            data: {
+                uid: uid,
+                token: token
+            },
+            header: {
+                'content-type': 'application/json'
+            },
+            success: function (res) {
+                console.log(res.data)
+                //关闭loading
+                if (wx.hideLoading) {
+                    wx.hideLoading()
+                } else {
+                    // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+                    wx.showModal({
+                        title: '提示',
+                        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+                    })
+                }
+                if (res.data.code == '0'){
+                    //绑定轮播
+                    that.setData({
+                        poster: res.data.data.poster
+                    })
+                    //设置分类
+                    that.setData({
+                        navigation: res.data.data.navigation
+                    })
+                }else if(res.data.code == '-1'){
+                    wx.showToast({
+                        title: res.data.msg,
+                        image: '../../assets/images/fail.png',
+                        duration: 2000
+                    })
+                }
+            }
+        })
     },
     initData() {
         const type = this.data.goods.params && this.data.goods.params.type || ''

@@ -2,9 +2,9 @@
 <import src="../common/list.wxml" />
 <!--轮播-->
 <swiper class="swiper_box" indicator-dots="{{ indicatorDots }}" autoplay="{{ autoplay }}" current="{{ current }}" interval="{{ interval }}" duration="{{ duration }}" circular="{{ circular }}" bindchange="swiperchange">
-  <block wx:for="{{ images }}" wx:key="">
-    <swiper-item data-id="{{ item.shopId }}" bindtap="navigateTo">
-      <image src="{{ item.path }}" class="slide-image" />
+  <block wx:for="{{ poster }}" wx:key="">
+    <swiper-item data-click_value="{{ item.click_value }}"  data-click_type="{{ item.click_type }}" bindtap="navigateTo">
+      <image src="{{ item.img }}" alt="{{ item.title }}" class="slide-image" />
     </swiper-item>
   </block>
 </swiper>
@@ -23,9 +23,9 @@
 </view>
 <!--分类-->
 <view class="weui-shop-type">
-  <view wx:for="{{ shopType }}" data-id="{{ item.id }}" bindtap="navigateTo" class="weui-type-item">
-    <image class="weui-type-item-image" src="{{ item.icon }}" />
-    <text class="weui-type-item-name">{{ item.name }}</text>
+  <view wx:for="{{ navigation }}" data-click_value="{{ item.click_value }}"  data-click_type="{{ item.click_type }}"  bindtap="navigateTo" class="weui-type-item">
+    <image class="weui-type-item-image" src="{{ item.img }}" />
+    <text class="weui-type-item-name">{{ item.title }}</text>
   </view>
 </view>
 <!--优惠券-->

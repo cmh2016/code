@@ -38,11 +38,6 @@
       "selectedIconPath": "assets/images/iconfont-home-active.png",
       "text": "主页"
     }, {
-      "pagePath": "pages/classify/index",
-      "iconPath": "assets/images/iconfont-list.png",
-      "selectedIconPath": "assets/images/iconfont-list-active.png",
-      "text": "分类"
-    }, {
       "pagePath": "pages/cart/index",
       "iconPath": "assets/images/iconfont-cart.png",
       "selectedIconPath": "assets/images/iconfont-cart-active.png",

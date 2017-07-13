@@ -2,7 +2,8 @@ const App = getApp()
 
 Page({
 	data: {
-		logged: !1
+		logged: !1,
+        jscode:''
 	},
     onLoad() {},
     onShow() {
@@ -11,9 +12,87 @@ Page({
     		logged: !!token
     	})
     	token && setTimeout(this.goIndex, 1500)
+        
     },
     login() {
-    	this.signIn(this.goIndex)
+        var that = this;
+        if (wx.showLoading) {
+            wx.showLoading({
+                title:"登录中...",
+                mask:true
+            })
+        } else {
+            // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+            wx.showModal({
+                title: '提示',
+                content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+            })
+        }
+        wx.login({
+            success: function (res) {
+                var code = res.code;
+                that.setData({
+                    jscode: code
+                })
+                wx.getUserInfo({
+                    success: function (res) {
+                        var userInfo = res.userInfo
+                        var nickName = userInfo.nickName
+                        var avatarUrl = userInfo.avatarUrl
+                        var gender = userInfo.gender //性别 0：未知、1：男、2：女
+                        var province = userInfo.province
+                        var city = userInfo.city
+                        var country = userInfo.country
+                        console.log(that.data.jscode)
+                        wx.request({
+                            url: App.api + '/user/login',
+                            data: {
+                                jscode: that.data.jscode,
+                                nickname: nickName,
+                                gender: gender,
+                                avatar: avatarUrl,
+                                code: '9W18'
+                            },
+                            header: {
+                                'content-type': 'application/json'
+                            },
+                            success: function (res) {
+                                //关闭loading
+                                if (wx.hideLoading) {
+                                    wx.hideLoading()
+                                } else {
+                                    // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+                                    wx.showModal({
+                                        title: '提示',
+                                        content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+                                    })
+                                }
+                                if (res.data.code == '0'){
+                                    //将token等信息写入缓存
+                                    wx.setStorageSync("token", res.data.data.token)
+                                    wx.setStorageSync("userInfo", res.data.data)
+                                    wx.setStorageSync("uid", res.data.data.uid)
+                                    wx.showToast({
+                                        title: '登录成功',
+                                        icon: 'success',
+                                        duration: 2000
+                                    })
+                                    setTimeout(that.goIndex ,1000)
+                                } else if (res.data.code == '-1'){
+                                    wx.showToast({
+                                        title: res.data.msg,
+                                        image: '../../assets/images/fail.png',
+                                        duration: 2000
+                                    })
+                                }
+                                
+                            }
+                        })
+                    }
+                })
+            }
+        })
+      
     },
     goIndex() {
     	App.WxService.switchTab({
@@ -27,79 +106,7 @@ Page({
             showCancel: !1, 
         })
 	},
-	wechatDecryptData() {
-		let code
-
-		App.WxService.login()
-		.then(data => {
-			console.log('wechatDecryptData', data.code)
-			code = data.code
-			return App.WxService.getUserInfo()
-		})
-		.then(data => {
-			return App.HttpService.wechatDecryptData({
-				encryptedData: data.encryptedData, 
-				iv: data.iv, 
-				rawData: data.rawData, 
-				signature: data.signature, 
-				code: code, 
-			})
-		})
-		.then(data => {
-			console.log(data)
-		})
-	},
-	wechatSignIn(cb) {
-		if (App.WxService.getStorageSync('token')) return
-		App.WxService.login()
-		.then(data => {
-			console.log('wechatSignIn', data.code)
-			return App.HttpService.wechatSignIn({
-				code: data.code
-			})
-		})
-		.then(data => {
-			console.log('wechatSignIn', data)
-			if (data.meta.code == 0) {
-				App.WxService.setStorageSync('token', data.data.token)
-				cb()
-			} else if(data.meta.code == 40029) {
-				App.showModal()
-			} else {
-				App.wechatSignUp(cb)
-			}
-		})
-	},
-	wechatSignUp(cb) {
-		App.WxService.login()
-		.then(data => {
-			console.log('wechatSignUp', data.code)
-			return App.HttpService.wechatSignUp({
-				code: data.code
-			})
-		})
-		.then(data => {
-			console.log('wechatSignUp', data)
-			if (data.meta.code == 0) {
-				App.WxService.setStorageSync('token', data.data.token)
-				cb()
-			} else if(data.meta.code == 40029) {
-				App.showModal()
-			}
-		})
-	},
-	signIn(cb) {
-		if (App.WxService.getStorageSync('token')) return
-		App.HttpService.signIn({
-			username: 'admin', 
-			password: '123456', 
-		})
-		.then(data => {
-			console.log(data)
-			if (data.meta.code == 0) {
-				App.WxService.setStorageSync('token', data.data.token)
-				cb()
-			}
-		})
+	signIn() {
+       
 	},
 })

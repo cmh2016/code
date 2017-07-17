@@ -1,7 +1,7 @@
 <view class="login-container">
 	<view class="login" wx:if="{{ !logged }}">
 		<view class="app-info">
-			<image class="app-logo" src="../../assets/images/logo.jpg" />
+			<image class="app-logo fade_in" src="../../assets/images/logo.jpg" />
 			<text class="app-name">潘晨国际服饰</text>
 		</view>
 		<view class="alert">

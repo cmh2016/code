@@ -1,5 +1,4 @@
 const App = getApp()
-
 Page({
     data: {
         activeIndex: 0,
@@ -12,7 +11,7 @@ Page({
         circular: !0,
         goods: {},
         prompt: {
-            hidden: !0,
+            hidden: true,
         },
         poster: [],
         navigation:[]
@@ -23,6 +22,7 @@ Page({
     },
     onLoad() {
         this.gitIndexData()
+       
     },
     //获取首页数据
     gitIndexData(){
@@ -71,6 +71,18 @@ Page({
                     that.setData({
                         navigation: res.data.data.navigation
                     })
+                    //设置商品
+                    that.setData({
+                      goods: res.data.data.item_list
+                    })
+                    if (res.data.data.item_list.length==0){
+                      //设置空提示
+                      var prompts = that.data.prompt;
+                      prompts.hidden = false;
+                      that.setData({
+                        prompt: prompts
+                      })
+                    }
                 }else if(res.data.code == '-1'){
                     App.error(res.data.msg)
                 }

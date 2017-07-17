@@ -1,7 +1,9 @@
+<import src="../img-loader/img-loader.wxml"/>
+<template is="img-loader" data="{{ imgLoadList }}"></template>
 <view class="start">
 	<swiper class="swiper_box" indicator-dots="{{ indicatorDots }}" autoplay="{{ autoplay }}" current="{{ current }}" interval="{{ interval }}" duration="{{ duration }}" circular="{{ circular }}" bindchange="swiperchange">
 	    <swiper-item>
-            <image  src="{{pic_url}}" class="slide-image" bindload="bindload" />
+            <image  src="{{pic_url}}" class="slide-image fade_in" bindload="bindload" />
         </swiper-item>
 	</swiper>
 </view>

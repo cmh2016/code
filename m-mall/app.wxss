@@ -24,3 +24,54 @@ button[disabled][type="primary"]{
 button[type="primary"]{
      background-color: #D62156;
 }
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+image{
+   animation: fadeIn .5s both;
+}
+/*
+**商品列表
+*/
+.weui-shop-list{
+  width: 740rpx;
+  margin: 5rpx;
+}
+.weui-shop-list-item{
+  width: 335rpx;
+  float: left;
+  margin: 8.5rpx;
+ padding: 0 10rpx;
+  background: #fff;
+}
+.weui-shop-list-item-image{
+  width: 335rpx;
+  height: 335rpx;
+}
+.weui-shop-list-item-name{
+  color:#4b566a;
+  font-size: 15px;
+
+}
+.weui-shop-list-item-price-now{
+  color:#eb5211;
+  font-size: 16px;
+  margin-right: 10rpx;
+}
+.weui-shop-list-item-price-old{
+   color:#999;
+  font-size: 13px;
+  text-decoration:line-through;
+}
+.weui-shop-list-item-bottom{
+  font-size: 12px;
+  color:#999;
+}
+.weui-shop-list-item-sales{
+  float: left;
+}
+.weui-shop-list-item-evaluate{
+  float: right;
+}

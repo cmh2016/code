@@ -1,5 +1,5 @@
 const App = getApp()
-
+const ImgLoader = require('../img-loader/img-loader.js')
 Page({
     data: {
         indicatorDots: !1,
@@ -11,7 +11,7 @@ Page({
         pic_url: []
     },
     onLoad() {
-       
+      this.imgLoader = new ImgLoader(this)
      },
     onShow() {
         const that = this;
@@ -32,12 +32,16 @@ Page({
                             pic_url: res.data.data.pic_url
                         })
                         wx.setStorageSync("pic_url", res.data.data)
+                        
                     }else if(res.data.code == "-1"){
                         App.error(res.data.msg)
                     }
                 }
             })
         }
+        that.imgLoader.load(that.data.pic_url, (err, data) => {
+          console.log('图片加载完成', err, data.src, data.width, data.height)
+        })
      },
     bindload(e) {
         setTimeout(App.WxService.getStorageSync('token') ? this.goIndex : this.goLogin, 3000)

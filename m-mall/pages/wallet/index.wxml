@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="wallet">
+  <view class="wallet-top">
+    <text class="wallet-money">我的账户余额(元)</text>
+    <text class="wallet-money-num">{{userInfo.money}}</text>
+  </view>
+</view>
+

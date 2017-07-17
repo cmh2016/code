@@ -79,11 +79,7 @@ Page({
                                     })
                                     setTimeout(that.goIndex ,1000)
                                 } else if (res.data.code == '-1'){
-                                    wx.showToast({
-                                        title: res.data.msg,
-                                        image: '../../assets/images/fail.png',
-                                        duration: 2000
-                                    })
+                                    App.error(res.data.msg)
                                 }
                                 
                             }

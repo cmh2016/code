@@ -9,3 +9,18 @@
 @import 'assets/styles/weui.wxss';
 @import 'assets/styles/prompt.wxss';
 @import 'assets/styles/skyvow.wxss';
+/*
+全局主色调
+*/
+.mainColor{
+    color: #D62156;
+}
+.mainBgColor{
+    background-color: #D62156;
+}
+button[disabled][type="primary"]{
+     background-color: #f36f95;
+}
+button[type="primary"]{
+     background-color: #D62156;
+}

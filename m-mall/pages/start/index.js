@@ -8,10 +8,37 @@ Page({
         interval: 3000,
         duration: 1000,
         circular: !1,
-        img: [{ src: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498364725220&di=5938563adeeea3e855b08f602bef8892&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0178085631e4856ac7254878fa60ea.jpg" }]
+        pic_url: []
     },
-    onLoad() { },
-    onShow() { },
+    onLoad() {
+       
+     },
+    onShow() {
+        const that = this;
+        const picStart = wx.getStorageSync("pic_url");
+        if (picStart) {
+            that.setData({
+                pic_url: picStart.pic_url
+            })
+        } else {
+            wx.request({
+                url: App.api + '/app/pic', //仅为示例，并非真实的接口地址
+                header: {
+                    'content-type': 'application/json'
+                },
+                success: function (res) {
+                    if (res.data.code == 0) {
+                        that.setData({
+                            pic_url: res.data.data.pic_url
+                        })
+                        wx.setStorageSync("pic_url", res.data.data)
+                    }else if(res.data.code == "-1"){
+                        App.error(res.data.msg)
+                    }
+                }
+            })
+        }
+     },
     bindload(e) {
         setTimeout(App.WxService.getStorageSync('token') ? this.goIndex : this.goLogin, 3000)
     },

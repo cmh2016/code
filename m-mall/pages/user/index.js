@@ -57,6 +57,11 @@ Page({
 		const path = e.currentTarget.dataset.path
 
 		switch(index) {
+            case 0:
+                if (this.data.userInfo.mobile == 0){
+                    App.WxService.navigateTo('/pages/tel/index?type=bind&go=' + path)
+                }
+                break
 			case 4:
 				App.WxService.makePhoneCall({
 					phoneNumber: path
@@ -65,12 +70,26 @@ Page({
             case 5:
                 return false
                 break
+            case 3:
+                wx.chooseAddress({
+                    success: function (res) {
+                        console.log(res.userName)
+                        console.log(res.postalCode)
+                        console.log(res.provinceName)
+                        console.log(res.cityName)
+                        console.log(res.countyName)
+                        console.log(res.detailInfo)
+                        console.log(res.nationalCode)
+                        console.log(res.telNumber)
+                    }
+                })
+                break
 			default:
 				App.WxService.navigateTo(path)
 		}
     },
     getUserInfo() { 
-    	const userInfo = App.globalData.userInfo
+        const userInfo = wx.getStorageSync("userInfo");
 
 		if (userInfo) {
 			this.setData({
@@ -78,14 +97,6 @@ Page({
 			})
 			return
 		}
-
-		App.getUserInfo()
-		.then(data => {
-			console.log(data)
-			this.setData({
-				userInfo: data
-			})
-		})
     },
     getStorageInfo() {
     	App.WxService.getStorageInfo()
@@ -112,12 +123,19 @@ Page({
 				App.WxService.navigateTo(path)
 		}
     },
-    logout() {
-    	App.WxService.showModal({
-            title: '友情提示', 
-            content: '确定要登出吗？', 
+    unbind() {
+        wx.showModal({
+            title: '提示',
+            content: '是否解绑当前的手机号码？',
+            success: function (res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                    App.WxService.navigateTo('/pages/tel/index?type=unbind&go=/pages/user/index')
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
         })
-        .then(data => data.confirm == 1 && this.signOut())
     },
     signOut() {
     	App.HttpService.signOut()

@@ -24,7 +24,7 @@
                 <view class="weui-label">联系电话</view>
             </view>
             <view class="weui-cell__bd">
-                <input name="tel" value="{{ form.tel }}" class="weui-input" type="tel" placeholder="请输入收货人电话" />
+                <input name="tel"  value="{{ form.tel }}" class="weui-input" type="tel" placeholder="请输入收货人电话" />
             </view>
         </view>
         <view class="weui-cell weui-cell_textarea">

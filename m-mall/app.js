@@ -37,6 +37,14 @@ App({
         if (path.indexOf('http') !== -1) return path
         return `${this.Config.fileBasePath}${path}`
     },
+    error:function(msg){
+        wx.showToast({
+            title: msg,
+            image: '/assets/images/fail.png',
+            duration: 2000,
+            mask:true
+        })
+    },
 	WxValidate: (rules, messages) => new WxValidate(rules, messages), 
 	HttpResource: (url, paramDefaults, actions, options) => new HttpResource(url, paramDefaults, actions, options).init(), 
 	HttpService: new HttpService, 

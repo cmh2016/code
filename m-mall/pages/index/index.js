@@ -19,7 +19,7 @@ Page({
         
     },
     swiperchange(e) {
-         console.log(e.detail.current)
+       //  console.log(e.detail.current)
     },
     onLoad() {
         this.gitIndexData()
@@ -72,11 +72,7 @@ Page({
                         navigation: res.data.data.navigation
                     })
                 }else if(res.data.code == '-1'){
-                    wx.showToast({
-                        title: res.data.msg,
-                        image: '../../assets/images/fail.png',
-                        duration: 2000
-                    })
+                    App.error(res.data.msg)
                 }
             }
         })

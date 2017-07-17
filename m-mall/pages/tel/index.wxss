@@ -1,0 +1,9 @@
+/* index.wxss */
+.telbox{
+    height: 100vh;
+    width: 1000vw;
+    background-color: #f2f2f2;
+}
+.weui-label{
+    width: 65px;
+}

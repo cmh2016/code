@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="weui-cells__title"></view>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+            <view class="weui-label">手机号</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" bindchange="mobileInputEvent" value="{{mobile}}" placeholder="请输入手机号" />
+        </view>
+        <view class="weui-cell__ft">
+            <view bindtap="verifyCodeEvent" disabled="{{buttonDisable}}" class="weui-vcode-btn">{{verifyCodeTime}}</view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+            <view class="weui-label">验证码</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" bindinput="mobileyzmEvent" value="{{yzm}}" placeholder="请输入验证码" />
+        </view>
+    </view>
+    <view wx:if="{{code}}" class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+            <view class="weui-label">推荐码</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" value="{{tjcode}}" bindchange="mobilecodeEvent" placeholder="请输入推荐码" />
+        </view>
+    </view>
+</view>
+<view class="weui-cells__tips">底部说明文字底部说明文字</view>
+<view class="button-sp-area">
+    <button class="weui-btn mainBgColor" bindtap="submitTel" type="primary" disabled="{{btnisable}}">{{btnText}}</button>
+</view>

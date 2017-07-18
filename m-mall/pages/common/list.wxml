@@ -5,7 +5,7 @@
 	<view class="scroll-list">
 		<view class="weui-shop-list clearfix" wx:if="{{ goods.length>0 }}">
             <view class="weui-shop-list-item" data-id="{{item.item_id}}" wx:for="{{ goods }}">
-                <navigator url="" class="" hover-class="none" >
+                <navigator url="/pages/goods/detail/index?item_id={{item.item_id}}" class="" hover-class="none" >
                     <view class="weui-shop-list-item-img">
                         <image class="weui-shop-list-item-image" src="{{ item.picture }}" />
                     </view>

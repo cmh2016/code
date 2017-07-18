@@ -9,6 +9,7 @@
 @import 'assets/styles/weui.wxss';
 @import 'assets/styles/prompt.wxss';
 @import 'assets/styles/skyvow.wxss';
+
 /*
 全局主色调
 */
@@ -40,19 +41,29 @@ image{
   margin: 5rpx;
 }
 .weui-shop-list-item{
-  width: 335rpx;
+  width: 100%;
   float: left;
   margin: 8.5rpx;
- padding: 0 10rpx;
+ padding:10rpx;
   background: #fff;
 }
 .weui-shop-list-item-image{
-  width: 335rpx;
-  height: 335rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.weui-shop-list-item-img{
+  float: left
+}
+.weui-shop-list-item-others{
+  float: left;
+  margin-right: 10rpx;
+  width: 500rpx;
+  margin-left: 10rpx;
 }
 .weui-shop-list-item-name{
   color:#4b566a;
   font-size: 15px;
+  margin-bottom: 10rpx;
 
 }
 .weui-shop-list-item-price-now{
@@ -68,6 +79,7 @@ image{
 .weui-shop-list-item-bottom{
   font-size: 12px;
   color:#999;
+  margin-top: 10rpx;
 }
 .weui-shop-list-item-sales{
   float: left;

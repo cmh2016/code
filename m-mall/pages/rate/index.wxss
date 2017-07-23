@@ -1,0 +1,4 @@
+/* index.wxss */
+.shop-rate{
+    width: 100%;
+}

@@ -14,7 +14,8 @@ Page({
             hidden: true,
         },
         poster: [],
-        navigation:[]
+        navigation:[],
+        promote_list:[]
         
     },
     swiperchange(e) {
@@ -76,13 +77,24 @@ Page({
                       goods: res.data.data.item_list
                     })
                     if (res.data.data.item_list.length==0){
-                      //设置空提示
+                      //设置商品空提示
                       var prompts = that.data.prompt;
                       prompts.hidden = false;
                       that.setData({
                         prompt: prompts
                       })
                     }
+                    //更新欢迎页大图
+                    //本地大图ID
+                    let old_pic_id = wx.getStorageInfoSync("pic_url").pic_id;
+                    let new_pic_id = res.data.data.pic_info.pic_id;
+                    if (old_pic_id != new_pic_id){
+                        wx.setStorageSync("pic_url", res.data.data.pic_info)
+                    }
+                    //优惠券数据
+                    that.setData({
+                        promote_list: res.data.data.promote_list
+                    })
                 }else if(res.data.code == '-1'){
                     App.error(res.data.msg)
                 }
@@ -110,6 +122,35 @@ Page({
         App.WxService.navigateTo('/pages/goods/detail/index', {
             id: e.currentTarget.dataset.id
         })
+    },
+    //领取优惠券
+    getYhq(){
+        if (wx.showLoading) {
+            wx.showLoading({
+                title: "领取中",
+                mask: true
+            })
+        } else {
+            // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+            wx.showModal({
+                title: '提示',
+                content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+            })
+        }
+
+       // 关闭loading
+       setTimeout(function(){
+           if (wx.hideLoading) {
+               wx.hideLoading()
+           } else {
+               // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+               wx.showModal({
+                   title: '提示',
+                   content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+               })
+           }
+       },1000)
+        
     },
     search() {
         App.WxService.navigateTo('/pages/search/index')

@@ -13,7 +13,6 @@
 
 .shopping-container {
     padding: 0 30rpx;
-    padding-bottom: 100rpx;
 }
 
 .shopping-container .name {
@@ -29,6 +28,7 @@
     margin: 10px 0;
     font-weight: normal;
     color: orangered;
+    font-size: 24px;
 }
 
 .shopping-container .remark {
@@ -56,4 +56,53 @@
     text-align: center;
     line-height: 40px;
     font-size: 12px;
+}
+.weui-navbar__item.weui-bar__item_on {
+    color: #D62156!important;
+}
+.weui-navbar__slider{
+ background: #D62156!important;
+}
+.weui-navbar{
+    background: #fff
+}
+.addcart{
+    z-index: 99999;
+}
+.shopping-container2{
+    padding-bottom: 100px;
+}
+.shopping-arrts{
+    width: 750rpx;
+    min-height: 30px;
+    line-height: 30px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+.shopping-arrts text{
+    font-size: 13px;
+    color:#333;
+    text-align: left;
+    display: inline-block;
+}
+.shopping-arrts text:first-child{
+    width: 200rpx;
+    text-indent: 10px;
+    color: #999
+}
+.shopping-arrts text:last-child{
+    width: 550rpx;
+}
+.shop-num{
+    float: right;
+    font-size: 13px;
+    color: #939393;
+    margin-right: 10rpx;
+    margin-top: 30rpx;
+}
+.zan-dialog__mask{
+    z-index: 66666;
+}
+.zan-dialog__container{
+    z-index: 6666666;
 }

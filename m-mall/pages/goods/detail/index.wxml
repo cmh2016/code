@@ -1,26 +1,114 @@
 <view class="container">
-  <view class="swiper-container">
-    <swiper class="swiper-box" indicator-dots="{{ indicatorDots }}" vertical="{{ vertical }}" autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}" bindchange="swiperchange">
-      <block wx:for="{{ goods.pic_list }}" wx:key="">
-        <swiper-item>
-          <image src="{{ item }}" class="slide-image" data-index="{{ index }}" />
-        </swiper-item>
-      </block>
-    </swiper>
-    <view class="swiper-pager">{{ current + 1 }} / {{ goods.pic_list.length }}</view>
-  </view>
-  <view class="shopping-container">
-    <view class="name">{{ goods.name }}</view>
-    <view class="names">{{ goods.sub_name }}</view>
-    <view class="price">¥ {{ goods.price }} <text class="weui-shop-list-item-price-old"> {{ goods.market_price }}</text></view>
-  </view>
-  <view class="shopping-container">
-    <view class="">详情</view>
-    <import src="../../../wxParse/wxParse.wxml" />
-    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
-  </view>
-  <view class="btn-plus" bindtap="addCart">
-    <image class="icon" src="../../../assets/images/iconfont-plus-circle.png" />
-    <text>加入购物车</text>
-  </view>
+    <view class="swiper-container">
+        <swiper class="swiper-box" indicator-dots="{{ indicatorDots }}" vertical="{{ vertical }}" autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}" bindchange="swiperchange">
+            <block wx:for="{{ goods.pic_list }}" wx:key="">
+                <swiper-item>
+                    <image src="{{ item }}" class="slide-image" data-index="{{ index }}" />
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="swiper-pager">{{ current + 1 }} / {{ goods.pic_list.length }}</view>
+    </view>
+    <view class="shopping-container">
+        <view class="name">{{ goods.name }}</view>
+        <view class="names">{{ goods.sub_name }}</view>
+        <view class="price">¥ {{ goods.price }} <text class="weui-shop-list-item-price-old"> 市场价:{{ goods.market_price }}</text> <text class="shop-num">已售:{{ goods.sales_num }}</text></view>
+    </view>
+    <view style="margin:20rpx 0;" class="zan-panel">
+        <view bindtap="chioceShop" class="zan-cell zan-cell--access">
+            <view class="zan-cell__bd">请选择</view>
+            <view class="zan-cell__ft">颜色、分类和尺寸</view>
+        </view>
+    </view>
+    <view style="margin-bottom:20rpx;" class="zan-panel">
+        <navigator url="/pages/rate/index">
+            <view style="border-bottom:1rpx solid #e5e5e5;" class="zan-cell zan-cell--access">
+                <view class="zan-cell__bd">评价</view>
+                <view class="zan-cell__ft">查看全部</view>
+            </view>
+        </navigator>
+        <view class="zan-cell zan-cell--access">
+            <view class="shop-rate">
+                <image class="shop-rate-logo" src="https://static.segmentfault.com/v-59689f47/global/img/user-64.png"></image>
+                <text class="shop-rate-name">就是***你</text>
+                <text class="shop-rate-time">2016-12-05 15:13:48</text>
+                <view class="">
+                    <text class="shop-rate-cont">6666666666666666666666666666666666666666666666666</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shopping-container2">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                    <import src="../../../wxParse/wxParse.wxml" />
+                    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+                    <view class="prompt-container" hidden="{{ prompt3.hidden }}">
+                        <view class="prompt-message">
+                            <image src="/assets/images/iconfont-empty.png" class="prompt-icon" />
+                            <view class="prompt-title">{{ prompt.title || '空空如也' }}</view>
+                            <view class="prompt-text">{{ prompt.text || '暂时没有相关数据' }}</view>
+                            <view class="prompt-button-area" wx:if="{{ prompt.buttons && !!prompt.buttons.length }}">
+                                <button type="{{ item.type || 'default' }}" size="{{ item.size || 'default' }}" loading="{{ item.loading }}" plain="{{ item.plain }}" disabled="{{ item.disabled }}" class="prompt-button {{ item.className }}" hover-class="{{ item.haveClass || 'button-hover' }}"
+                                    wx:for="{{ prompt.buttons }}" wx:key="" bindtap="{{ item.bindtap }}" data-index="{{ index }}">{{ item.text }}</button>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                    <view wx:for="{{goods.attr_list}}" class="shopping-arrts">
+                        <text>{{item.name}}</text>
+                        <text>{{item.value}}</text>
+                    </view>
+                    <view class="prompt-container" hidden="{{ prompt2.hidden }}">
+                        <view class="prompt-message">
+                            <image src="/assets/images/iconfont-empty.png" class="prompt-icon" />
+                            <view class="prompt-title">{{ prompt.title || '空空如也' }}</view>
+                            <view class="prompt-text">{{ prompt.text || '暂时没有相关数据' }}</view>
+                            <view class="prompt-button-area" wx:if="{{ prompt.buttons && !!prompt.buttons.length }}">
+                                <button type="{{ item.type || 'default' }}" size="{{ item.size || 'default' }}" loading="{{ item.loading }}" plain="{{ item.plain }}" disabled="{{ item.disabled }}" class="prompt-button {{ item.className }}" hover-class="{{ item.haveClass || 'button-hover' }}"
+                                    wx:for="{{ prompt.buttons }}" wx:key="" bindtap="{{ item.bindtap }}" data-index="{{ index }}">{{ item.text }}</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                    <view wx:for="{{goods.spec_list}}" class="shopping-arrts">
+                        <text>{{item.name}}</text>
+                        <text>{{item.value}}</text>
+                    </view>
+                    <view class="prompt-container" hidden="{{ prompt.hidden }}">
+                        <view class="prompt-message">
+                            <image src="/assets/images/iconfont-empty.png" class="prompt-icon" />
+                            <view class="prompt-title">{{ prompt.title || '空空如也' }}</view>
+                            <view class="prompt-text">{{ prompt.text || '暂时没有相关数据' }}</view>
+                            <view class="prompt-button-area" wx:if="{{ prompt.buttons && !!prompt.buttons.length }}">
+                                <button type="{{ item.type || 'default' }}" size="{{ item.size || 'default' }}" loading="{{ item.loading }}" plain="{{ item.plain }}" disabled="{{ item.disabled }}" class="prompt-button {{ item.className }}" hover-class="{{ item.haveClass || 'button-hover' }}"
+                                    wx:for="{{ prompt.buttons }}" wx:key="" bindtap="{{ item.bindtap }}" data-index="{{ index }}">{{ item.text }}</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+        <view class="zan-dialog__mask" bindtap="chioceShop" />
+        <view class="zan-dialog__container">
+            <view style="padding:20px 0; text-align: center;">
+                <view class="">这里是分类联动</view>
+                <button class="zan-btn zan-btn--large zan-btn--danger">加入购物车</button>
+            </view>
+        </view>
+    </view>
 </view>

@@ -1,3 +1,23 @@
-<import src="../../common/list.wxml"/>
+<import src="../../common/list.wxml" />
+<view class="shop-list-box">
+  <view class="shop-list-top">
+    <view catchtap="show" class="shop-list-type">分类</view>
+    <view catchtap="show" class="shop-list-type">品牌</view>
+    <view catchtap="show" class="shop-list-type">销量</view>
+    <view catchtap="show" class="shop-list-type">价格</view>
+  </view>
+  <scroll-view scroll-y style="height:95vh">
+    <template is="list" data="{{ goods, prompt }}" />
+  </scroll-view>
 
-<template is="list" data="{{ goods, prompt }}"/>
+  <!--遮罩-->
+  <view hidden="{{show}}" catchtap="hide" class="shop-list-shoadw">
+    <view class="shoadw-top">
+      <scroll-view class="shoadw-top-type">
+  1111111111111
+      </scroll-view>
+      <button class="zan-btn zan-btn--danger shop-list-btn">重置</button>
+      <button class="zan-btn zan-btn--danger shop-list-btn">确认</button>
+    </view>
+  </view>
+</view>

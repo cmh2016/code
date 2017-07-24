@@ -13,7 +13,7 @@
                         <view class="weui-shop-list-item-name">{{item.name}}</view>
                         <view class="weui-shop-list-item-price">
                             <text class="weui-shop-list-item-price-now">¥ {{item.price}}</text>
-                            <text class="weui-shop-list-item-price-old">¥ {{item.market_price}}</text>
+                            <text wx:if="{{item.market_price.length>0}}" class="weui-shop-list-item-price-old">¥ {{item.market_price}}</text>
                         </view>
                         <view class="weui-shop-list-item-bottom clearfix">
                             <text class="weui-shop-list-item-sales">已售 {{item.sales_num}}</text>

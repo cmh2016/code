@@ -12,7 +12,7 @@
     <view class="shopping-container">
         <view class="name">{{ goods.name }}</view>
         <view class="names">{{ goods.sub_name }}</view>
-        <view class="price">¥ {{ goods.price }} <text class="weui-shop-list-item-price-old"> 市场价:{{ goods.market_price }}</text> <text class="shop-num">已售:{{ goods.sales_num }}</text></view>
+        <view class="price">¥ {{ goods.price }} <text wx:if="{{ goods.market_price.length>0 }}" class="weui-shop-list-item-price-old"> 市场价:{{ goods.market_price }}</text> <text class="shop-num">已售:{{ goods.sales_num }}</text></view>
     </view>
     <view style="margin:20rpx 0;" class="zan-panel">
         <view bindtap="chioceShop" class="zan-cell zan-cell--access">

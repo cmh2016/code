@@ -117,10 +117,10 @@ Page({
             goods: goods
         })
     },
-    navigateTo(e) {
+    goList(e) {
         console.log(e)
-        App.WxService.navigateTo('/pages/goods/detail/index', {
-            id: e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '/pages/goods/list/index?category_id=' + e.currentTarget.dataset.click_value + '&title='+e.currentTarget.dataset.title
         })
     },
     //领取优惠券

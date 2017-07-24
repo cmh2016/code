@@ -23,7 +23,7 @@
 </view>
 <!--分类-->
 <view class="weui-shop-type">
-    <view wx:for="{{ navigation }}" data-click_value="{{ item.click_value }}" data-click_type="{{ item.click_type }}" bindtap="navigateTo" class="weui-type-item">
+    <view wx:for="{{ navigation }}" data-title="{{item.title}}" data-click_value="{{ item.click_value }}" data-click_type="{{ item.click_type }}" bindtap="goList" class="weui-type-item">
         <image class="weui-type-item-image" src="{{ item.img }}" />
         <text class="weui-type-item-name">{{ item.title }}</text>
     </view>

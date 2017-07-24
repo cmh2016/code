@@ -9,30 +9,10 @@ Page({
             inputVal: ''
         })
     },
-    inputTyping(e) {
-        this.setData({
-            inputVal: e.detail.value
-        })
-        this.search()
-    },
-    search() {
-    	if (!this.data.inputVal) return
-    	App.HttpService.search({
-            keyword: this.data.inputVal
-        })
-        .then(data => {
-            console.log(data)
-            if (data.meta.code == 0) {
-            	this.setData({
-            		items: data.data
-            	})
-            }
-        })
-    },
-    redirectTo(e) {
+    search(e){
         console.log(e)
-        App.WxService.redirectTo('/pages/goods/list/index', {
-            keyword: e.currentTarget.dataset.keyword
+        wx.redirectTo({
+            url: '/pages/goods/list/index?k=' + e.detail.value
         })
-    },
+    }
 })

@@ -4,16 +4,31 @@ Page({
     data: {
         hidden: !0,
         type  : null,
+        topType:'',
         goods : {},
         prompt: {
-            hidden: !0,
+            hidden: true,
             icon: '../../../assets/images/iconfont-empty.png',
         },
         show:true
     },
     onLoad(option) {
+        console.log(option)
+        if(option.k){
+            this.setData({
+                keyword: option.k
+            })
+            wx.setNavigationBarTitle({
+                title: '搜索结果'
+            })
+        }
+        if (option.title) {
+            wx.setNavigationBarTitle({
+                title: option.title
+            })
+        }
         this.setData({
-            type: option.type, 
+            category_id: option.category_id, 
             keyword: option.keyword && decodeURI(option.keyword), 
         })
         this.getList();
@@ -28,6 +43,7 @@ Page({
     getList() {
       var uid = wx.getStorageSync('uid');
       var token = wx.getStorageSync('token');
+
       var that = this;
       if (wx.showLoading) {
         wx.showLoading({
@@ -45,7 +61,8 @@ Page({
         url: App.api + '/item/list', //仅为示例，并非真实的接口地址
         data: {
           uid: uid,
-          token: token
+          token: token,
+          category_id: that.data.category_id
         },
         header: {
           'content-type': 'application/json'
@@ -65,32 +82,13 @@ Page({
             that.setData({
               goods: res.data.data
             })
-            if (res.data.data.spec_list.length == 0) {
-              //设置规格数据空提示
-              let prompts = that.data.prompt;
-              prompts.hidden = false;
-              that.setData({
-                prompt: prompts
-              })
+            if (res.data.data.length ==0){
+                let prompts = that.data.prompt;
+                prompts.hidden = false;
+                that.setData({
+                    prompt: prompts
+                })
             }
-            if (res.data.data.attr_list.length == 0) {
-              //设置属性数据空提示
-              let prompts = that.data.prompt2;
-              prompts.hidden = false;
-              that.setData({
-                prompt2: prompts
-              })
-            }
-            if (res.data.data.content.length == 0) {
-              //设置详情数据空提示
-              let prompts = that.data.prompt3;
-              prompts.hidden = false;
-              that.setData({
-                prompt3: prompts
-              })
-            }
-            var article = res.data.data.content;
-            WxParse.wxParse('article', 'html', article, that, 5);
           } else if (res.data.code == -1) {
             App.error(res.data.msg)
 
@@ -99,14 +97,26 @@ Page({
       })
     },
     //切换显示
-    show(){
+    show(e){
+      let type = e.target.dataset.type;
       this.setData({
-        show: false
+        show: false,
+        topType:type 
       })
     },
     hide() {
       this.setData({
         show: true
       })
+    },
+    formSubmit: function (e) {
+        this.setData({
+            show: true
+        })
+        
+        console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    },
+    formReset: function () {
+        console.log('form发生了reset事件')
     }
 })

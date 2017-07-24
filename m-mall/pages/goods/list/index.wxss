@@ -80,3 +80,30 @@
   float: right;
    margin-right: 10px;
 }
+.shoadw-top-type-item{
+    width: 750rpx;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    text-indent: 1rem;
+}
+.shoadw-top-type-item .yes{
+    color: #D62156;
+    float: right;
+    margin-right: 20px;
+}
+.shoadw-top-type-item .no{
+    display: none;
+}
+checkbox-group label,radio-group label{
+    display: block;
+     padding:0  15px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+}
+checkbox-group label checkbox,radio-group label radio {
+    float: right
+}

@@ -3,7 +3,7 @@
 <!--轮播-->
 <swiper class="swiper_box" indicator-dots="{{ indicatorDots }}" autoplay="{{ autoplay }}" current="{{ current }}" interval="{{ interval }}" duration="{{ duration }}" circular="{{ circular }}" bindchange="swiperchange">
     <block wx:for="{{ poster }}" wx:key="">
-        <swiper-item data-click_value="{{ item.click_value }}" data-click_type="{{ item.click_type }}" bindtap="navigateTo">
+        <swiper-item data-click_value="{{ item.click_value }}" data-click_type="{{ item.click_type }}" bindtap="goTO">
             <image src="{{ item.img }}" alt="{{ item.title }}" class="slide-image" />
         </swiper-item>
     </block>
@@ -23,14 +23,14 @@
 </view>
 <!--分类-->
 <view class="weui-shop-type">
-    <view wx:for="{{ navigation }}" data-title="{{item.title}}" data-click_value="{{ item.click_value }}" data-click_type="{{ item.click_type }}" bindtap="goList" class="weui-type-item">
+    <view wx:for="{{ navigation }}" data-title="{{item.title}}" data-click_value="{{ item.click_value }}" data-click_type="{{ item.click_type }}" bindtap="goTO" class="weui-type-item">
         <image class="weui-type-item-image" src="{{ item.img }}" />
         <text class="weui-type-item-name">{{ item.title }}</text>
     </view>
 </view>
 <!--优惠券-->
 <view class="weui-yhq">
-    <view class="weui-yhq-list">
+    <!-- <view class="weui-yhq-list">
         <navigator class="weui-cell weui-cell_access" url="/pages/order/list/index" hover-class="navigator-hover">
             <view class="weui-cell__bd">
                 <text>优惠券</text>
@@ -56,8 +56,10 @@
                 <button data-promote_id="{{item.promote_id}}" catchtap="getYhq" hover-class="none" size="mini" type="primary">免费领取</button>
             </view>
         </navigator>
-    </view>
-
+    </view> -->
+  <navigator url="/pages/yhq/index">
+    <image class="goyhq" src="../../assets/images/yhqindex.png"></image>
+  </navigator>
 </view>
 <view class="index-shop">
       <view wx:if="{{prompt.hidden}}" class="weui-cells weui-cells_after-title">

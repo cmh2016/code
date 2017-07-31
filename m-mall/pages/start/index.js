@@ -22,7 +22,7 @@ Page({
             })
         } else {
             wx.request({
-                url: App.api + '/app/pic', //仅为示例，并非真实的接口地址
+                url: App.api + '/app/pic', 
                 header: {
                     'content-type': 'application/json'
                 },

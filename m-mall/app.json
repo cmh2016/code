@@ -1,0 +1,59 @@
+{
+    "pages": [
+        "pages/start/index",
+        "pages/index/index",
+        "pages/classify/index",
+        "pages/cart/index",
+        "pages/address/list/index",
+        "pages/address/add/index",
+        "pages/address/edit/index",
+        "pages/address/confirm/index",
+        "pages/order/list/index",
+        "pages/order/confirm/index",
+        "pages/order/detail/index",
+        "pages/goods/list/index",
+        "pages/goods/detail/index",
+        "pages/yhq/index",
+        "pages/search/index",
+        "pages/about/index",
+        "pages/login/index",
+        "pages/user/index",
+        "pages/tel/index",
+        "pages/wallet/index",
+        "pages/rate/index"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#D62156",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "灏忓晢鍩�",
+        "backgroundColor": "#f8f8f8",
+        "backgroundTextStyle": "dark"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#D62156",
+        "borderStyle": "white",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "assets/images/iconfont-home.png",
+                "selectedIconPath": "assets/images/iconfont-home-active.png",
+                "text": "涓婚〉"
+            },
+            {
+                "pagePath": "pages/cart/index",
+                "iconPath": "assets/images/iconfont-cart.png",
+                "selectedIconPath": "assets/images/iconfont-cart-active.png",
+                "text": "璐墿杞�"
+            },
+            {
+                "pagePath": "pages/user/index",
+                "iconPath": "assets/images/iconfont-user.png",
+                "selectedIconPath": "assets/images/iconfont-user-active.png",
+                "text": "鎴戠殑"
+            }
+        ]
+    },
+    "debug": false
+}

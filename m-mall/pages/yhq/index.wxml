@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="weui-yhq">
+    <view wx:for="{{promote_list}}" class="weui-yhq-items">
+        <navigator url="/pages/order/list/index?promote_id={{item.promote_id}}" hover-class="none" class="">
+            <view class="weui-yhq-top1"></view>
+            <view class="weui-yhq-bottom1"></view>
+            <view class="weui-yhq-line1"></view>
+            <view class="weui-yhq-top2"></view>
+            <view class="weui-yhq-bottom2"></view>
+            <view class="weui-yhq-line2"></view>
+            <view class="weui-yhq-img">
+                <image src="{{item.picture}}"></image>
+            </view>
+            <view class="weui-yhq-text">
+                <text class="num">{{item.name}}</text>
+            </view>
+            <view class="weui-yhq-btn">
+                <button data-promote_id="{{item.promote_id}}" catchtap="getYhq" hover-class="none" size="mini" type="primary">免费领取</button>
+            </view>
+        </navigator>
+    </view> 
+</view>

@@ -9,7 +9,7 @@
     <view wx:if="{{keyword}}" class="shop-list-top">
         <text>您搜索的'{{keyword}}',有8个商品</text>
     </view>
-    <scroll-view scroll-y style="{{category_id == 0 || keyword? 'height:95vh' : 'height:100vh'}}">
+    <scroll-view scroll-y style="{{category_id == 0 || keyword? 'height:92vh' : 'height:100vh'}}">
         <template is="list" data="{{ goods, prompt }}" />
     </scroll-view>
 
@@ -19,7 +19,7 @@
             <form bindsubmit="formSubmit" bindreset="formReset">
                 <scroll-view scroll-y class="shoadw-top-type">
                     <checkbox-group wx:if="{{topType == 'category'}}" name="category">
-                        <label><checkbox value="checkbox1"/>分类1</label>
+                        <label><checkbox value="checkbox1"/>分类1 <icon class="ok" type="success_no_circle" size="20"/></label>
                         <label><checkbox value="checkbox2"/>分类2</label>
                         <label><checkbox value="checkbox2"/>分类3</label>
                         <label><checkbox value="checkbox2"/>分类4</label>
@@ -32,13 +32,11 @@
                         <label><checkbox value="checkbox1"/>品牌1</label>
                         <label><checkbox value="checkbox2"/>品牌2</label>
                     </checkbox-group>
-                    <radio-group wx:if="{{topType == 'sales'}}" name="sales">
-                        <label><radio value="radio1"/>销量由高到低</label>
-                        <label><radio value="radio2"/>销量由低到高</label>
+                    <radio-group bindchange="radioChange" data-type="categoryR" wx:if="{{topType == 'sales'}}" name="order">
+                        <label wx:for="{{categoryR}}"><radio  value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}} <icon class="ok" wx:if="{{item.checked}}" type="success_no_circle" size="18"/></label>
                     </radio-group>
-                    <radio-group wx:if="{{topType == 'price'}}" name="price">
-                        <label><radio value="radio1"/>价格由高到低</label>
-                        <label><radio value="radio2"/>价格由低到高</label>
+                    <radio-group bindchange="radioChange" data-type="priceR" wx:if="{{topType == 'price'}}" name="order">
+                        <label wx:for="{{priceR}}"><radio  value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}} <icon class="ok" wx:if="{{item.checked}}" type="success_no_circle" size="18"/></label>
                     </radio-group>
                 </scroll-view>
                 <button formType="reset" class="zan-btn zan-btn--danger shop-list-btn">重置</button>

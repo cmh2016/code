@@ -4,7 +4,7 @@
 }
 
 .shop-list-top {
-  height: 5vh;
+  height:8vh;
   width: 750rpx;
   background: #fff;
   border-bottom: 1px solid #ccc;
@@ -18,14 +18,14 @@
 
 .shop-list-type {
   width: 185rpx;
-  height: 4vh;
+  height: 7vh;
   margin-top: 0.5vh;
   float: left;
   border-right: 1px solid #ccc;
   font-size: 12px;
   color: #666;
   text-align: center;
-  line-height: 4vh;
+  line-height:7vh;
   position: relative;
 }
 
@@ -40,7 +40,7 @@
   border-width: 2px 2px 0 0;
   border-color: #c8c8c8;
   border-style: solid;
-  transform: rotate(135deg) translateY(10px) scale(.5,.5);
+  transform: rotate(135deg) translateY(5px) scale(.5,.5);
 }
 
 .shop-list-type:last-child {
@@ -50,10 +50,10 @@
 .shop-list-shoadw {
   position: fixed;
   width: 100vw;
-  height: 95vh;
+  height: 91vh;
   z-index: 99;
   left: 0;
-  top: 5.2vh;
+  top:8.2vh;
   background: rgba(0, 0, 0, 0.5);
 }
 .shoadw-top{
@@ -105,5 +105,10 @@ checkbox-group label,radio-group label{
     font-size: 12px;
 }
 checkbox-group label checkbox,radio-group label radio {
-    float: right
+    float: right;
+    opacity: 0;
+    display: none;
+}
+.ok{
+    float: right;
 }

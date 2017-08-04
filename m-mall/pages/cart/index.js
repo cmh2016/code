@@ -7,7 +7,7 @@ Page({
             items: []
         },
         prompt: {
-            hidden: !0,
+            hidden: 0,
             icon: '../../assets/images/iconfont-cart-empty.png',
             title: '购物车空空如也',
             text: '来挑几件好货吧',
@@ -38,17 +38,7 @@ Page({
         this.getCarts()
     },
     getCarts() {
-        App.HttpService.getCartByUser()
-        .then(data => {
-            console.log(data)
-            if (data.meta.code == 0) {
-                data.data.forEach(n => n.goods.thumb_url = App.renderImage(n.goods.images[0] && n.goods.images[0].path))
-                this.setData({
-                    'carts.items': data.data,
-                    'prompt.hidden': data.data.length,
-                })
-            }
-        })
+       
     },
     onPullDownRefresh() {
         this.getCarts()

@@ -9,7 +9,16 @@
   background: #fff;
   border-bottom: 1px solid #ccc;
 }
-
+.weui-cell::before{
+    border: none;
+}
+checkbox-group wx-label, wx-radio-group wx-label {
+height: 15px!important;
+}
+.weui-icon-radio {
+    position: relative;
+    top: 8px;
+}
 .shop-list-box {
   width: 100vw;
   height: 100vh;
@@ -50,7 +59,7 @@
 .shop-list-shoadw {
   position: fixed;
   width: 100vw;
-  height: 91vh;
+  height: 93vh;
   z-index: 99;
   left: 0;
   top:8.2vh;
@@ -106,9 +115,13 @@ checkbox-group label,radio-group label{
 }
 checkbox-group label checkbox,radio-group label radio {
     float: right;
-    opacity: 0;
+   
+}
+radio-group label radio{
+ opacity: 0;
     display: none;
 }
+
 .ok{
     float: right;
 }

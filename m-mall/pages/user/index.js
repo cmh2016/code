@@ -13,7 +13,7 @@ Page({
       {
         icon: '../../assets/images/yhq.png',
         text: '我的卡券',
-        path: '/pages/address/list/index'
+        path: '/pages/yhq/index'
       },
       {
         icon: '../../assets/images/iconfont-order.png',

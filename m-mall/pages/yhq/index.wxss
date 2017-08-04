@@ -108,3 +108,9 @@
     font-size: 13px;
     padding: 0 .7em;
 }
+.weui-navbar__item.weui-bar__item_on{
+    color:#D62156
+}
+.weui-navbar__slider {
+    background-color: #D62156
+}

@@ -2,12 +2,7 @@
     "pages": [
         "pages/start/index",
         "pages/index/index",
-        "pages/classify/index",
         "pages/cart/index",
-        "pages/address/list/index",
-        "pages/address/add/index",
-        "pages/address/edit/index",
-        "pages/address/confirm/index",
         "pages/order/list/index",
         "pages/order/confirm/index",
         "pages/order/detail/index",
@@ -25,7 +20,7 @@
     "window": {
         "navigationBarBackgroundColor": "#D62156",
         "navigationBarTextStyle": "white",
-        "navigationBarTitleText": "灏忓晢鍩�",
+        "navigationBarTitleText": "潘晨国际服饰",
         "backgroundColor": "#f8f8f8",
         "backgroundTextStyle": "dark"
     },
@@ -39,19 +34,19 @@
                 "pagePath": "pages/index/index",
                 "iconPath": "assets/images/iconfont-home.png",
                 "selectedIconPath": "assets/images/iconfont-home-active.png",
-                "text": "涓婚〉"
+                "text": "首页"
             },
             {
                 "pagePath": "pages/cart/index",
                 "iconPath": "assets/images/iconfont-cart.png",
                 "selectedIconPath": "assets/images/iconfont-cart-active.png",
-                "text": "璐墿杞�"
+                "text": "购物车"
             },
             {
                 "pagePath": "pages/user/index",
                 "iconPath": "assets/images/iconfont-user.png",
                 "selectedIconPath": "assets/images/iconfont-user-active.png",
-                "text": "鎴戠殑"
+                "text": "我的"
             }
         ]
     },

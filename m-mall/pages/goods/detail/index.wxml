@@ -21,14 +21,15 @@
         </view>
     </view>
     <view style="margin-bottom:20rpx;" class="zan-panel">
-        <navigator url="/pages/rate/index">
+        <text class="rateNo" wx:if="{{goods.rate_num==0}}">暂无评价！</text>
+        <navigator  wx:if="{{goods.rate_num>0}}" url="/pages/rate/index">
             <view style="border-bottom:1rpx solid #e5e5e5;" class="zan-cell zan-cell--access">
                 <view class="zan-cell__bd">评价</view>
                 <view class="zan-cell__ft">查看全部</view>
             </view>
         </navigator>
         <view class="zan-cell zan-cell--access">
-            <view class="shop-rate">
+            <view wx:if="{{goods.rate_num>0}}" class="shop-rate">
                 <image class="shop-rate-logo" src="https://static.segmentfault.com/v-59689f47/global/img/user-64.png"></image>
                 <text class="shop-rate-name">就是***你</text>
                 <text class="shop-rate-time">2016-12-05 15:13:48</text>
@@ -82,33 +83,39 @@
                         </view>
                     </view>
                 </view>
-                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-                    <view wx:for="{{goods.spec_list}}" class="shopping-arrts">
-                        <text>{{item.name}}</text>
-                        <text>{{item.value}}</text>
-                    </view>
-                    <view class="prompt-container" hidden="{{ prompt.hidden }}">
-                        <view class="prompt-message">
-                            <image src="/assets/images/iconfont-empty.png" class="prompt-icon" />
-                            <view class="prompt-title">{{ prompt.title || '空空如也' }}</view>
-                            <view class="prompt-text">{{ prompt.text || '暂时没有相关数据' }}</view>
-                            <view class="prompt-button-area" wx:if="{{ prompt.buttons && !!prompt.buttons.length }}">
-                                <button type="{{ item.type || 'default' }}" size="{{ item.size || 'default' }}" loading="{{ item.loading }}" plain="{{ item.plain }}" disabled="{{ item.disabled }}" class="prompt-button {{ item.className }}" hover-class="{{ item.haveClass || 'button-hover' }}"
-                                    wx:for="{{ prompt.buttons }}" wx:key="" bindtap="{{ item.bindtap }}" data-index="{{ index }}">{{ item.text }}</button>
-                            </view>
-                        </view>
-                    </view>
-                </view>
+                
             </view>
         </view>
     </view>
     <view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
-        <view class="zan-dialog__mask" bindtap="chioceShop" />
-        <view class="zan-dialog__container">
-            <view style="padding:20px 0; text-align: center;">
-                <view class="">这里是分类联动</view>
-                <button class="zan-btn zan-btn--large zan-btn--danger">加入购物车</button>
+        <view class="zan-dialog__mask " bindtap="chioceShop" />
+        <view class="zan-dialog__container visible">
+            <view class="visible" style="padding:0; text-align: center;min-height:700rpx;position: relative;">
+                <view class="dialog-top visible">
+                    <image src="{{dialog_image}}"></image>
+                    <text class="dialog-price">¥ {{dialog_price * quantity1.quantity}}</text>
+                    <text class="dialog-kucun">库存：</text>
+                    <text class="dialog-color">{{dialogTopText}}  {{dialogTopText2}}</text>
+                </view>
+                <scroll-view class="dialog-center">
+                    <view class="dialog-color-text">颜色分类</view>
+                    <view class="dialog-color-box">
+                        <text bindtap="chioceColor" wx:for="{{spec_list_color}}" data-index="{{index}}" data-item_id="{{item.item_id}}" class="{{index == color_label_active ? 'color-label-active' : 'dialog-color-label'}}">{{item.item}}</text>
+                    </view>
+                    <view class="dialog-color-text">规格分类</view>
+                    <view class="dialog-color-box">
+                        <text bindtap="chioceGuige" wx:for="{{spec_list_chima}}" data-index="{{index}}" data-item_id="{{item.item_id}}"  class="{{index == color_label_active2 ? 'color-label-active' : 'dialog-color-label'}}">{{item.item}}</text>
+                    </view>
+                </scroll-view>
+                <view class="dialog-footer">
+                    
+                    <import src="/zanui-weapp/dist/quantity/index.wxml" />
+                    <template is="zan-quantity" data="{{ ...quantity1, componentId: 'quantity1' }}" />
+                    <text>购买数量：</text>
+                </view>
+                <button style="height:40px;font-size:16px;font-weight:bold;position: absolute;left:0;bottom:0;width:750rpx;" class="zan-btn zan-btn--large zan-btn--danger">加入购物车</button>
             </view>
         </view>
     </view>
+    <view bindtap="chioceShop" hidden="{{showDialog}}" class="footerAddCar zan-btn zan-btn--large zan-btn--danger">加入购物车</view>
 </view>

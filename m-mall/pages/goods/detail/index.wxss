@@ -106,3 +106,103 @@
 .zan-dialog__container{
     z-index: 6666666;
 }
+.rateNo{
+    float: left;
+    margin: 10px;
+    font-size: 12px;
+    color:#999;
+}
+.footerAddCar{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 750rpx;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 999999999;
+}
+.dialog-top{
+    width: 100%;
+    height: 170rpx;
+    border-bottom: 1px solid #f2f2f2;
+    position: relative;
+  
+}
+.visible{
+  overflow: visible;
+}
+.dialog-top image{
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 200rpx;
+    z-index: 666;
+    height: 200rpx;
+    border: 1px solid #f2f2f2;
+}
+.dialog-price{
+    color:#f60;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    left: 300rpx;
+    top: 15rpx;
+}
+.dialog-kucun{
+     color:#333;
+    font-size: 12px;
+    position: absolute;
+    left: 300rpx;
+    top:75rpx;
+}
+.dialog-color{
+     color:#666;
+    font-size: 12px;
+    position: absolute;
+    left: 300rpx;
+    top:120rpx;
+}
+.dialog-center{
+    height:350rpx;
+}
+.dialog-footer{
+}
+.dialog-footer text{
+    float: left;
+    color: #999;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.dialog-footer .zan-quantity{
+    width: auto;float: right;
+    margin-right: 5px;
+}
+.dialog-color-text{
+    font-size: 12px;
+    color:#999;
+    text-align: left;
+    padding-left:10px;
+}
+.color-label-active{
+     background-color: #f60;
+     color:#fff;
+      float: left;
+    padding: 3px 6px;
+    border-radius: 3px;
+    margin: 5px;
+    font-size: 12px;
+}
+.dialog-color-box .dialog-color-label{
+    float: left;
+    padding: 3px 6px;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    color: #333;
+    margin: 5px;
+    font-size: 12px;
+}

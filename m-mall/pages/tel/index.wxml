@@ -6,7 +6,7 @@
             <view class="weui-label">手机号</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" bindchange="mobileInputEvent" value="{{mobile}}" placeholder="请输入手机号" />
+            <input class="weui-input" bindinput="mobileInputEvent" value="{{mobile}}" placeholder="请输入手机号" />
         </view>
         <view class="weui-cell__ft">
             <view bindtap="verifyCodeEvent" disabled="{{buttonDisable}}" class="weui-vcode-btn">{{verifyCodeTime}}</view>

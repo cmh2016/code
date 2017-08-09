@@ -100,11 +100,11 @@
                 <scroll-view class="dialog-center">
                     <view class="dialog-color-text">颜色分类</view>
                     <view class="dialog-color-box">
-                        <text bindtap="chioceColor" wx:for="{{spec_list_color}}" data-index="{{index}}" data-item_id="{{item.item_id}}" class="{{index == color_label_active ? 'color-label-active' : 'dialog-color-label'}}">{{item.item}}</text>
+                        <text catchtap="chioceColor" wx:for="{{spec_list_color}}" data-index="{{index}}" data-item_id="{{item.item_id}}" class="{{index == color_label_active ? 'color-label-active' : 'dialog-color-label'}}">{{item.item}}</text>
                     </view>
                     <view class="dialog-color-text">规格分类</view>
                     <view class="dialog-color-box">
-                        <text bindtap="chioceGuige" wx:for="{{spec_list_chima}}" data-index="{{index}}" data-item_id="{{item.item_id}}"  class="{{index == color_label_active2 ? 'color-label-active' : 'dialog-color-label'}}">{{item.item}}</text>
+                        <text catchtap="chioceGuige" wx:for="{{spec_list_chima}}" data-index="{{index}}" data-item_id="{{item.item_id}}"  class="{{index == color_label_active2 ? 'color-label-active' : 'dialog-color-label'}}">{{item.item}}</text>
                     </view>
                 </scroll-view>
                 <view class="dialog-footer">
@@ -113,7 +113,7 @@
                     <template is="zan-quantity" data="{{ ...quantity1, componentId: 'quantity1' }}" />
                     <text>购买数量：</text>
                 </view>
-                <button style="height:40px;font-size:16px;font-weight:bold;position: absolute;left:0;bottom:0;width:750rpx;" class="zan-btn zan-btn--large zan-btn--danger">加入购物车</button>
+                <button catchtap="addCar" style="height:40px;font-size:16px;font-weight:bold;position: absolute;left:0;bottom:0;width:750rpx;" class="zan-btn zan-btn--large zan-btn--danger">加入购物车</button>
             </view>
         </view>
     </view>

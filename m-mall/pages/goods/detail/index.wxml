@@ -28,16 +28,6 @@
                 <view class="zan-cell__ft">查看全部</view>
             </view>
         </navigator>
-        <view class="zan-cell zan-cell--access">
-            <view wx:if="{{goods.rate_num>0}}" class="shop-rate">
-                <image class="shop-rate-logo" src="https://static.segmentfault.com/v-59689f47/global/img/user-64.png"></image>
-                <text class="shop-rate-name">就是***你</text>
-                <text class="shop-rate-time">2016-12-05 15:13:48</text>
-                <view class="">
-                    <text class="shop-rate-cont">6666666666666666666666666666666666666666666666666</text>
-                </view>
-            </view>
-        </view>
     </view>
     <view class="shopping-container2">
         <view class="weui-tab">
@@ -90,14 +80,14 @@
     <view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
         <view class="zan-dialog__mask " bindtap="chioceShop" />
         <view class="zan-dialog__container visible">
-            <view class="visible" style="padding:0; text-align: center;min-height:700rpx;position: relative;">
+            <view class="visible" style="padding:0; text-align: center;min-height:{{goods.price_type == 3?h7:h3}};position: relative;">
                 <view class="dialog-top visible">
                     <image src="{{dialog_image}}"></image>
                     <text class="dialog-price">¥ {{dialog_price * quantity1.quantity}}</text>
                     <text class="dialog-kucun">库存：</text>
-                    <text class="dialog-color">{{dialogTopText}}  {{dialogTopText2}}</text>
+                    <text wx:if="{{goods.price_type == 3}}" class="dialog-color">{{dialogTopText}}  {{dialogTopText2}}</text>
                 </view>
-                <scroll-view class="dialog-center">
+                <scroll-view wx:if="{{goods.price_type == 3}}" class="dialog-center">
                     <view class="dialog-color-text">颜色分类</view>
                     <view class="dialog-color-box">
                         <text catchtap="chioceColor" wx:for="{{spec_list_color}}" data-index="{{index}}" data-item_id="{{item.item_id}}" class="{{index == color_label_active ? 'color-label-active' : 'dialog-color-label'}}">{{item.item}}</text>

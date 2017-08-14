@@ -2,6 +2,7 @@
   <view bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{ userInfo.avatar }}" background-size="cover"></image>
     <text class="userinfo-nickname">{{ userInfo.nickname }}</text>
+    <text class="userinfo-tel" hidden="{{ ismobiled }}">{{ mobiled }}</text>
   </view>
   <view class="info_list">
     <view class="weui-cells">

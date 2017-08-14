@@ -16,7 +16,11 @@
 .userinfo-nickname {
 	color: #fff;
 }
+.userinfo-tel{
+    color: #f2f2f2;
+    font-size: 13px;
 
+}
 .badge {
 	width: 15px;
 	height: 15px;

@@ -6,7 +6,8 @@
             <view class="weui-label">手机号</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" bindinput="mobileInputEvent" value="{{mobile}}" placeholder="请输入手机号" />
+            <input wx:if="{{Utype=='bind'}}" type="number" class="weui-input" bindinput="mobileInputEvent" value="{{mobile}}" placeholder="请输入手机号" />
+            <input disabled="{{!code}}" type="number" wx:if="{{Utype=='unbind'}}" class="weui-input" bindinput="mobileInputEvent" value="{{mobiled}}" placeholder="请输入手机号" />
         </view>
         <view class="weui-cell__ft">
             <view bindtap="verifyCodeEvent" disabled="{{buttonDisable}}" class="weui-vcode-btn">{{verifyCodeTime}}</view>
@@ -17,7 +18,7 @@
             <view class="weui-label">验证码</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" bindinput="mobileyzmEvent" value="{{yzm}}" placeholder="请输入验证码" />
+            <input class="weui-input" bindinput="mobileyzmEvent" type="number" value="{{yzm}}" placeholder="请输入验证码" />
         </view>
     </view>
     <view wx:if="{{code}}" class="weui-cell weui-cell_input weui-cell_vcode">
@@ -25,7 +26,7 @@
             <view class="weui-label">推荐码</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" value="{{tjcode}}" bindchange="mobilecodeEvent" placeholder="请输入推荐码" />
+            <input class="weui-input" value="{{tjcode}}" bindchange="mobilecodeEvent" type="text" placeholder="请输入推荐码" />
         </view>
     </view>
 </view>

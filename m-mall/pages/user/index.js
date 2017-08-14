@@ -45,7 +45,8 @@ Page({
   onShow() {
     if (wx.getStorageSync("mobile") != 0) {
       this.setData({
-        ismobiled: false
+        ismobiled: false,
+        mobiled: wx.getStorageSync("mobile")
       })
     } else {
       this.setData({

@@ -10,6 +10,8 @@ Page(Object.assign({}, Zan.Quantity, {
         interval: 3000,
         duration: 1000,
         current: 0,
+        h7:'700rpx',
+        h3:'370rpx',
         goods: {},
         tabs: ["商品详情", "商品属性"],
         activeIndex:0,
@@ -69,13 +71,29 @@ Page(Object.assign({}, Zan.Quantity, {
     //价格计算
     price(){
         var that = this;
-        for (var i in that.data.spec_price_list){
-            if (that.data.zuhePrice == i ){
-                that.setData({
-                    dialog_price: that.data.spec_price_list[i].price
-                })
+        //SKU价格
+        if (that.data.goods.price_type == 3){
+            for (var i in that.data.spec_price_list) {
+                if (that.data.zuhePrice == i) {
+                    that.setData({
+                        dialog_price: that.data.spec_price_list[i].price
+                    })
+                }
             }
+        } else if (that.data.goods.price_type == 2){
+            //阶梯价
+        
+            if (that.data.quantity1.quantity>1){
+
+            }
+
+        } else if (that.data.goods.price_type == 1){
+            //售卖价
+            that.setData({
+                dialog_price: that.data.goods.price
+            })
         }
+        
     },
     swiperchange(e) {
         this.setData({
@@ -173,7 +191,7 @@ Page(Object.assign({}, Zan.Quantity, {
             })
             //设置dialog img
             that.setData({
-                dialog_image: res.data.data.spec_list.颜色[0].src
+                dialog_image: res.data.data.picture
             })
             //设置dialog price
             that.setData({
@@ -226,6 +244,6 @@ Page(Object.assign({}, Zan.Quantity, {
         this.setData({
             [`${componentId}.quantity`]: quantity
         });
-     
+        this.price();
     }
 }))

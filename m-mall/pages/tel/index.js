@@ -16,7 +16,8 @@ Page({
     typeB: '',//按钮发送绑定还是解绑
     btnText: '',
     btnisable: true,
-    goWhere: ''
+    goWhere: '',
+    mobiled:''
   },
 
   /**
@@ -36,18 +37,24 @@ Page({
       })
     }
     if (options.type == "bind") {
+
       this.setData({
         Utype: "bind",
         typeB: "1",
         btnText: '绑定手机号',
-        goWhere: options.go
+        goWhere: options.go,
+        mobiled: ""
       })
     } else if (options.type == "unbind") {
+        var mobiled = wx.getStorageSync("mobile")
       this.setData({
         Utype: "unbind",
         typeB: "0",
         btnText: '解绑手机号',
-        goWhere: options.go
+        goWhere: options.go,
+        code: false,
+        mobiled: mobiled,
+        mobile: mobiled
       })
     }
 

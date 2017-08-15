@@ -74,7 +74,7 @@ Page(Object.assign({}, Zan.Quantity, {
         var that = this;
         //SKU价格
         if (that.data.goods.price_type == 3){
-            for (var i in that.data.spec_price_list) {
+          for (var i in that.data.spec_price_list) {
                 if (that.data.zuhePrice == i) {
                     that.setData({
                         dialog_price: that.data.spec_price_list[i].price,
@@ -84,10 +84,23 @@ Page(Object.assign({}, Zan.Quantity, {
             }
         } else if (that.data.goods.price_type == 2){
             //阶梯价
-        
-            if (that.data.quantity1.quantity>1){
-
+          var a = that.data.goods.price_ladder;
+          var b = that.data.quantity1.quantity;
+          for (var i = 1; i < a.length; i++) {
+            if (b >= a[i - 1].number && b < a[i].number) {
+              console.log(a[i - 1].price);
+              that.setData({
+                dialog_price: a[i - 1].price,                
+              })
+              break;
+            } else if (b >= a[a.length - 1].number) {
+              console.log(a[a.length - 1].price);
+              that.setData({
+                dialog_price: a[a.length - 1].price,
+              })
+              break;
             }
+          }
 
         } else if (that.data.goods.price_type == 1){
             //售卖价
@@ -189,11 +202,11 @@ Page(Object.assign({}, Zan.Quantity, {
             })
             //设置库存
             that.setData({
-                spec_list_chima: res.data.data.spec_list.尺码
-            })
-            //设置价格
-            that.setData({
                 dialog_stock: res.data.data.stock
+            })
+            //设置规格价格
+            that.setData({
+              spec_price_list: res.data.data.spec_price_list
             })
             //设置dialog img
             that.setData({
@@ -255,6 +268,8 @@ Page(Object.assign({}, Zan.Quantity, {
     //加入购物车
     addCar(e){
         var that = this;
+        var uid = wx.getStorageSync('uid');
+        var token = wx.getStorageSync('token');
         if (that.data.dialog_stock == '' || that.data.dialog_stock == 0){
             wx.showToast({
                 title: '暂无库存',
@@ -280,8 +295,7 @@ Page(Object.assign({}, Zan.Quantity, {
                 })
                 return false;
             }
-            var uid = wx.getStorageSync('uid');
-            var token = wx.getStorageSync('token');
+            
             if (wx.showLoading) {
                 wx.showLoading({
                     title: "加入购物车...",
@@ -338,7 +352,64 @@ Page(Object.assign({}, Zan.Quantity, {
                 }
             })
         }else{
+          if (wx.showLoading) {
+            wx.showLoading({
+              title: "加入购物车...",
+              mask: true
+            })
+          } else {
+            // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+            wx.showModal({
+              title: '提示',
+              content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+            })
+          }
+          wx.request({
+            url: App.api + '/cart/add', //仅为示例，并非真实的接口地址
+            data: {
+              uid: uid,
+              token: token,
+              item_id: that.data.goods.item_id,
+              number: that.data.quantity1.quantity,
+              price_type: that.data.goods.price_type,
+              price: that.data.dialog_price
 
+            },
+            header: {
+              'content-type': 'application/json'
+            },
+            success: function (res) {
+              //关闭loading
+              if (wx.hideLoading) {
+                wx.hideLoading()
+              } else {
+                // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+                wx.showModal({
+                  title: '提示',
+                  content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+                })
+              }
+              if (res.data.code == 0) {
+                setTimeout(function () {
+                  that.setData({
+                    showDialog: false
+                  })
+                }, 1000)
+
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'success',
+                  duration: 2000
+                })
+              } else if (res.data.code == -1) {
+                App.error(res.data.msg)
+              }
+            }
+          })
         }
-    }
+    },
+    onPullDownRefresh: function () {
+        this.getDetail(this.data.id)
+    },
+
 }))

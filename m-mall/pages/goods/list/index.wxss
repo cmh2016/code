@@ -5,6 +5,8 @@
 
 .shop-list-top {
   height:8vh;
+  line-height:8vh;
+padding-left:10px;
   width: 750rpx;
   background: #fff;
   border-bottom: 1px solid #ccc;

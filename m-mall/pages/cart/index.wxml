@@ -6,7 +6,7 @@
     <view class="weui-panel__hd">
         <text class="info-meta" wx:if="{{ !canEdit }}" data-value="edit" bindtap="onTapEdit">编辑</text>
         <text class="info-meta" wx:if="{{ canEdit }}" bindtap="onTapEdit">完成</text>
-        <text class="info-meta" bindtap="del" data-id="{{ item.item_id }}">删除</text>
+        <text class="info-meta" bindtap="del" data-id="{{ item.cart_id }}">删除</text>
     </view>
     <view class="weui-panel__bd">
         <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
@@ -23,15 +23,15 @@
                     <view class="weui-media-box__info__meta">单价 x{{ item.price }}</view>
                     <view class="weui-media-box__info__meta">总价 x{{ item.number*item.price }}</view>
                 </view>
-                <view class="weui-media-box__info">
+                <view wx:if="{{item.spec_key_name!=''}}" class="weui-media-box__info">
                     <view class="weui-media-box__info__meta">规格 {{ item.spec_key_name }}</view>
                   
                 </view>
                 <view class="quantity-wrapper" wx:if="{{ canEdit }}">
                     <view class="customize-qua">
-                        <view class="quantity-decrease" bindtap="decrease" data-id="{{ item._id }}" data-total="{{ item.total }}"></view>
-                        <input class="quantity" type="number" data-id="{{ item._id }}" value="{{ item.total }}" bindinput="bindKeyInput" />
-                        <view class="quantity-increase" bindtap="increase" data-id="{{ item._id }}" data-total="{{ item.total }}"></view>
+                        <view class="quantity-decrease" bindtap="decrease" data-id="{{ item.item_id }}" data-total="{{ item.number }}"></view>
+                        <input class="quantity" type="number" data-id="{{ item.item_id }}" value="{{ item.number }}" bindinput="bindKeyInput" />
+                        <view class="quantity-increase" bindtap="increase" data-id="{{ item.item_id }}" data-total="{{ item.number }}"></view>
                     </view>
                 </view>
             </view>
@@ -39,7 +39,7 @@
     </view>
 </view>
 
-<view class="button-sp-area" wx:if="{{ !!carts.items.length }}">
+<view class="button-sp-area" wx:if="{{ !!carts.length }}">
     <button class="weui-btn" type="primary" bindtap="confirmOrder">去结算</button>
     <button class="weui-btn" type="warn" bindtap="clear">清空</button>
 </view>

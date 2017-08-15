@@ -7,9 +7,9 @@
         <view catchtap="show" data-type="price" class="shop-list-type">价格</view>
     </view>
     <view wx:if="{{keyword}}" class="shop-list-top">
-        <text>您搜索的'{{keyword}}',有8个商品</text>
+        <text style="font-size:13px">您搜索的'{{keyword}}',有 {{count}} 个商品</text>
     </view>
-    <scroll-view scroll-y style="{{category_id == 0 || keyword? 'height:92vh' : 'height:100vh'}}">
+    <scroll-view scroll-y bindscrolltolower="lower" lower-threshold="1"  style="{{category_id == 0 || keyword? 'height:92vh' : 'height:100vh'}}">
         <template is="list" data="{{ goods, prompt }}" />
     </scroll-view>
 
@@ -17,27 +17,27 @@
     <view hidden="{{show}}" catchtap="hide" class="shop-list-shoadw">
         <view catchtap="show" class="shoadw-top">
             <form bindsubmit="formSubmit" bindreset="formReset">
-                <scroll-view scroll-y class="shoadw-top-type">
-                    <checkbox-group wx:if="{{topType == 'category'}}" bindchange="checkboxChange" name="category">
+                <scroll-view  scroll-y class="shoadw-top-type">
+                 <radio-group wx:if="{{topType == 'category'}}" name="category" bindchange="radioChange3">
                         <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="value">
-                    <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+                    <radio class="weui-check" value="{{item.id}}" checked="{{item.checked}}"/>
+
                     <view class="weui-cell__bd">{{item.name}}</view>
-                     <view class="weui-cell__hd weui-check__hd_in-checkbox">
-                        <icon class="weui-icon-radio" type="" wx:if="{{!item.checked}}" size="16"></icon>
-                        <icon class="weui-icon-radio" type="success_no_circle" wx:if="{{item.checked}}" size="16"></icon>
+                    <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+                        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
                     </view>
                 </label>
-                    </checkbox-group>
-                    <checkbox-group wx:if="{{topType == 'brand'}}" bindchange="checkboxChange2" name="brand">
+                    </radio-group>
+                      <radio-group wx:if="{{topType == 'brand'}}" name="brand" bindchange="radioChange4">
                         <label class="weui-cell weui-check__label" wx:for="{{checkboxItems2}}" wx:key="value">
-                    <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+                    <radio class="weui-check" value="{{item.id}}" checked="{{item.checked}}"/>
+
                     <view class="weui-cell__bd">{{item.name}}</view>
-                     <view class="weui-cell__hd weui-check__hd_in-checkbox">
-                        <icon class="weui-icon-radio" type="" wx:if="{{!item.checked}}" size="16"></icon>
-                        <icon class="weui-icon-radio" type="success_no_circle" wx:if="{{item.checked}}" size="16"></icon>
+                    <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+                        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
                     </view>
                 </label>
-                    </checkbox-group>
+                    </radio-group>
                     <radio-group wx:if="{{topType == 'sales'}}" name="order" bindchange="radioChange">
                         <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
                     <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>

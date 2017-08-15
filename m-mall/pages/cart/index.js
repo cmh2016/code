@@ -3,9 +3,7 @@ const App = getApp()
 Page({
     data: {
         canEdit: !1,
-        carts: {
-            items: []
-        },
+        carts: [],
         prompt: {
             hidden: 0,
             icon: '../../assets/images/iconfont-cart-empty.png',
@@ -66,14 +64,16 @@ Page({
                         var prompts = that.data.prompt;
                         prompts.hidden=0;
                         that.setData({
-                            prompt: prompts
+                            prompt: prompts,
                         })
                     }else{
                         var prompts = that.data.prompt;
                         prompts.hidden = 1;
                         that.setData({
-                            prompt: prompts
+                            prompt: prompts,
+                            carts: res.data.data
                         })
+
                     }
                  
                 } else if (res.data.code == -1) {

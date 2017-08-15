@@ -84,7 +84,7 @@
                 <view class="dialog-top visible">
                     <image src="{{dialog_image}}"></image>
                     <text class="dialog-price">¥ {{dialog_price * quantity1.quantity}}</text>
-                    <text class="dialog-kucun">库存：</text>
+                    <text class="dialog-kucun">库存：{{dialog_stock}}</text>
                     <text wx:if="{{goods.price_type == 3}}" class="dialog-color">{{dialogTopText}}  {{dialogTopText2}}</text>
                 </view>
                 <scroll-view wx:if="{{goods.price_type == 3}}" class="dialog-center">

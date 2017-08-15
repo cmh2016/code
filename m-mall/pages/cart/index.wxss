@@ -1,7 +1,9 @@
 .info-meta {
 	padding-right: 1em;
 }
-
+.weui-media-box__info{
+margin-top: 4px;
+}
 .weui-media-box__bd_in-appmsg {
 	position: relative;
 }

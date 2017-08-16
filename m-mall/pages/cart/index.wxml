@@ -29,9 +29,9 @@
                 </view>
                 <view class="quantity-wrapper" wx:if="{{ canEdit }}">
                     <view class="customize-qua">
-                        <view class="quantity-decrease" bindtap="decrease" data-id="{{ item.item_id }}" data-total="{{ item.number }}"></view>
-                        <input class="quantity" type="number" data-id="{{ item.item_id }}" value="{{ item.number }}" bindinput="bindKeyInput" />
-                        <view class="quantity-increase" bindtap="increase" data-id="{{ item.item_id }}" data-total="{{ item.number }}"></view>
+                        <view class="quantity-decrease" bindtap="decrease" data-id="{{ item.cart_id }}" data-total="{{ item.number }}"></view>
+                        <input class="quantity" type="number" data-id="{{ item.cart_id }}" value="{{ item.number }}" bindinput="bindKeyInput" />
+                        <view class="quantity-increase" bindtap="increase" data-id="{{ item.cart_id }}" data-total="{{ item.number }}"></view>
                     </view>
                 </view>
             </view>

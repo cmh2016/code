@@ -1,5 +1,4 @@
-const App = getApp()
-
+const App = getApp();
 Page({
     data: {
         canEdit: !1,
@@ -22,22 +21,27 @@ Page({
     onShow() {
         this.getCarts()
     },
-    getCarts() {
+    getCarts(a) {
         var uid = wx.getStorageSync('uid');
         var token = wx.getStorageSync('token');
         var that = this;
-        if (wx.showLoading) {
+        if(a){
+          
+        }else{
+          if (wx.showLoading) {
             wx.showLoading({
-                title: "加载中",
-                mask: true
+              title: "加载中",
+              mask: true
             })
-        } else {
+          } else {
             // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
             wx.showModal({
-                title: '提示',
-                content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+              title: '提示',
+              content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
             })
+          }
         }
+       
         wx.request({
             url: App.api + '/cart/list', //仅为示例，并非真实的接口地址
             data: {
@@ -226,34 +230,53 @@ Page({
     bindKeyInput(e) {
         const id = e.currentTarget.dataset.id
         const total = Math.abs(e.detail.value)
-        if (total < 0 || total > 100) return
+        if (total < 0) return
         this.putCartByUser(id, {
-            total: total
+          number: total 
         })
     },
     putCartByUser(id, params) {
-        App.HttpService.putCartByUser(id, params)
-        .then(data => {
-            console.log(data)
-            if (data.meta.code == 0) {
-                this.getCarts()
-            }
-        })
+      var uid = wx.getStorageSync('uid');
+      var token = wx.getStorageSync('token');
+      var that = this;
+      wx.request({
+        url: App.api + '/cart/number', 
+        data: {
+          uid: uid,
+          token: token,
+          cart_id: id,
+          number: params.number
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          if (res.data.code == 0) {
+            console.log(res.data)
+            var a=1;
+            that.getCarts(a);
+          } else if (res.data.code == -1) {
+            App.error(res.data.msg)
+          }
+        }
+      })
     },
     decrease(e) {
-        const id = e.currentTarget.dataset.id
-        const total = Math.abs(e.currentTarget.dataset.total)
-        if (total == 1) return
-        this.putCartByUser(id, {
-            total: total - 1
-        })
+        var id = e.currentTarget.dataset.id
+        var total = Math.abs(e.currentTarget.dataset.total)
+        if (total == 1){
+          return false;
+        }else{
+          this.putCartByUser(id, {
+            number: total-1
+          })
+        }
     },
     increase(e) {
         const id = e.currentTarget.dataset.id
         const total = Math.abs(e.currentTarget.dataset.total)
-        if (total == 100) return
         this.putCartByUser(id, {
-            total: total + 1
+          number: total + 1
         })
     },
     onPullDownRefresh(){

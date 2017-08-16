@@ -21,6 +21,11 @@ Page({
     onShow() {
         this.getCarts()
     },
+    bindtap(){
+        wx.navigateTo({
+            url: '/pages/goods/list/index?category_id=0&title=全部商品'
+        })
+    },
     getCarts(a) {
         var uid = wx.getStorageSync('uid');
         var token = wx.getStorageSync('token');
@@ -69,6 +74,7 @@ Page({
                         prompts.hidden=0;
                         that.setData({
                             prompt: prompts,
+                            carts: res.data.data
                         })
                     }else{
                         var prompts = that.data.prompt;

@@ -9,7 +9,9 @@
         <text class="info-meta" bindtap="del" data-id="{{ item.cart_id }}">删除</text>
     </view>
     <view class="weui-panel__bd">
-        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+       
+        <navigator url="/pages/goods/detail/index?item_id={{item.item_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" bindtap="navigateTo" data-id="{{ item.item_id }}">
                 <image class="weui-media-box__thumb" src="{{ item.item_picture }}" />
             </view>
@@ -20,18 +22,25 @@
                 </view>
                 <view class="weui-media-box__info">
                     <view class="weui-media-box__info__meta">数量 x{{ item.number }}</view>
-                    <view class="weui-media-box__info__meta">单价 x{{ item.price }}</view>
+                    <view class="weui-media-box__info__meta">售价 x{{ item.price }}</view>
                     <view class="weui-media-box__info__meta">总价 x{{ item.number*item.price }}</view>
                 </view>
                 <view wx:if="{{item.spec_key_name!=''}}" class="weui-media-box__info">
                     <view class="weui-media-box__info__meta">规格 {{ item.spec_key_name }}</view>
-                  
+
                 </view>
-                <view class="quantity-wrapper" wx:if="{{ canEdit }}">
+
+                <view class="quantity-wrapper" catchtap="a" wx:if="{{ canEdit }}">
+                    <view class="weui-media-box__title">{{ item.item_name }}</view>
                     <view class="customize-qua">
-                        <view class="quantity-decrease" bindtap="decrease" data-id="{{ item.cart_id }}" data-total="{{ item.number }}"></view>
-                        <input class="quantity" type="number" data-id="{{ item.cart_id }}" value="{{ item.number }}" bindinput="bindKeyInput" />
-                        <view class="quantity-increase" bindtap="increase" data-id="{{ item.cart_id }}" data-total="{{ item.number }}"></view>
+                        <view class="quantity-decrease" catchtap="decrease" data-id="{{ item.cart_id }}" data-total="{{ item.number }}"></view>
+                        <input class="quantity" type="number" data-id="{{ item.cart_id }}"  value="{{ item.number }}" bindinput="bindKeyInput" />
+                        <view class="quantity-increase" catchtap="increase" data-id="{{ item.cart_id }}" data-total="{{ item.number }}"></view>
+                    </view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">数量 x{{ item.number }}</view>
+                        <view class="weui-media-box__info__meta">售价 x{{ item.price }}</view>
+                        <view class="weui-media-box__info__meta">总价 x{{ item.number*item.price }}</view>
                     </view>
                 </view>
             </view>

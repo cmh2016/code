@@ -235,15 +235,36 @@ Page({
                 content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
             })
         }
-        wx.request({
-            url: App.api + '/item/list', //仅为示例，并非真实的接口地址
-            data: {
+        var data = {};
+        console.log(that.data.topType)
+        if (that.data.topType == 'category'){
+            data = {
+                uid: uid,
+                token: token,
+               // order: params.order,
+                category_id: params.category,
+                //brand_id: params.brand
+            }
+        } else if (that.data.topType == 'brand'){
+            data = {
+                uid: uid,
+                token: token,
+                // order: params.order,
+                //category_id: params.category,
+                brand_id: params.brand
+            }
+        }else{
+            data = {
                 uid: uid,
                 token: token,
                 order: params.order,
-                category_id:params.category,
-                brand_id: params.brand
-            },
+                //category_id: params.category,
+                //brand_id: params.brand
+            }
+        }
+        wx.request({
+            url: App.api + '/item/list', //仅为示例，并非真实的接口地址
+            data: data,
             header: {
                 'content-type': 'application/json'
             },

@@ -3,7 +3,7 @@
 <!--轮播-->
 <swiper class="swiper_box" indicator-dots="{{ indicatorDots }}" autoplay="{{ autoplay }}" current="{{ current }}" interval="{{ interval }}" duration="{{ duration }}" circular="{{ circular }}" bindchange="swiperchange">
     <block wx:for="{{ poster }}" wx:key="">
-        <swiper-item data-click_value="{{ item.click_value }}" data-click_type="{{ item.click_type }}" bindtap="goTO">
+        <swiper-item  data-title="{{item.title}}"  data-click_value="{{ item.click_value }}" data-click_type="{{ item.click_type }}" bindtap="goTO">
             <image src="{{ item.img }}" alt="{{ item.title }}" class="slide-image" />
         </swiper-item>
     </block>

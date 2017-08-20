@@ -23,7 +23,7 @@
         "navigationBarTitleText": "潘晨国际服饰",
         "backgroundColor": "#f8f8f8",
         "backgroundTextStyle": "dark",
-        "enablePullDownRefresh":true
+        "enablePullDownRefresh":false
     },
     "tabBar": {
         "color": "#999999",

@@ -100,6 +100,7 @@ Page({
                     })
                 }else if(res.data.code == '-1'){
                     App.error(res.data.msg)
+                    App.errGoLogin(res.data.data)
                 }
             }
         })

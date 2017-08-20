@@ -15,7 +15,7 @@
 
     <!--遮罩-->
     <view hidden="{{show}}" catchtap="hide" class="shop-list-shoadw">
-        <view catchtap="show" class="shoadw-top">
+        <view catchtap="show2" class="shoadw-top">
             <form bindsubmit="formSubmit" bindreset="formReset">
                 <scroll-view  scroll-y class="shoadw-top-type">
                  <radio-group wx:if="{{topType == 'category'}}" name="category" bindchange="radioChange3">

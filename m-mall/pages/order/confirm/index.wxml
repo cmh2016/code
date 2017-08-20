@@ -5,12 +5,12 @@
                 <view class="weui-media-box__title weui-media-box__title_in-text">{{ address.userName }} {{ address.telNumber }}</view>
                 <view class="weui-media-box__desc">{{ address.provinceName }}{{address.cityName}}{{address.countyName}} {{address.detailInfo}}</view>
                 <view class="addr">
-                    <image class="icon" src="../../assets/images/iconfont-addr-default.png" />
+                    
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </view>
             <view wx:if="{{onAddress}}" class="weui-media-box weui-media-box_text" bindtap="goaddress">
-                <view class="weui-media-box__title weui-media-box__title_in-text">请先添加收货地址</view>
+                <view class="weui-media-box__title weui-media-box__title_in-text">请选择收货地址</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </view>
         </view>
@@ -37,7 +37,7 @@
                 <view class="weui-media-box__info">
                     <view class="weui-media-box__info__meta">数量 x{{ item.number }}</view>
                     <view class="weui-media-box__info__meta">售价 x{{ item.price }}</view>
-                    <view class="weui-media-box__info__meta">总价 x{{ item.number*item.price }}</view>
+                    <view style='color:#dd2727' class="weui-media-box__info__meta">总价 x{{ item.number*item.price }}</view>
                 </view>
                 <view wx:if="{{item.spec_key_name!=''}}" class="weui-media-box__info">
                     <view class="weui-media-box__info__meta">规格 {{ item.spec_key_name }}</view>

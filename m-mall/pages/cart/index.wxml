@@ -23,7 +23,7 @@
                 <view class="weui-media-box__info">
                     <view class="weui-media-box__info__meta">数量 x{{ item.number }}</view>
                     <view class="weui-media-box__info__meta">售价 x{{ item.price }}</view>
-                    <view class="weui-media-box__info__meta">总价 x{{ item.number*item.price }}</view>
+                    <view style='color:#dd2727' class="weui-media-box__info__meta">总价 x{{ item.number*item.price }}</view>
                 </view>
                 <view wx:if="{{item.spec_key_name!=''}}" class="weui-media-box__info">
                     <view class="weui-media-box__info__meta">规格 {{ item.spec_key_name }}</view>
@@ -40,7 +40,7 @@
                     <view class="weui-media-box__info">
                         <view class="weui-media-box__info__meta">数量 x{{ item.number }}</view>
                         <view class="weui-media-box__info__meta">售价 x{{ item.price }}</view>
-                        <view class="weui-media-box__info__meta">总价 x{{ item.number*item.price }}</view>
+                        <view style='color:#dd2727' class="weui-media-box__info__meta">总价 x{{ item.number*item.price }}</view>
                     </view>
                 </view>
             </view>

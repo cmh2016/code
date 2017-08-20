@@ -100,7 +100,7 @@ Page({
                  
                 } else if (res.data.code == -1) {
                     App.error(res.data.msg)
-
+                    App.errGoLogin(res.data.data)
                 }
             }
         })
@@ -118,6 +118,13 @@ Page({
         var uid = wx.getStorageSync('uid');
         var token = wx.getStorageSync('token');
         var that = this;
+        var path = '/pages/cart/index';
+           if (wx.getStorageSync("mobile") == 0) {
+      wx.navigateTo({
+  url: '/pages/tel/index?type=bind&go=' + path
+})
+return false;
+        } 
         if (wx.showLoading) {
             wx.showLoading({
                 title: "提交中...",
@@ -164,7 +171,7 @@ Page({
 
                 } else if (res.data.code == -1) {
                     App.error(res.data.msg)
-
+App.errGoLogin(res.data.data)
                 }
             }
         })
@@ -225,7 +232,7 @@ Page({
                     that.getCarts();
                   } else if (res.data.code == -1) {
                     App.error(res.data.msg)
-
+App.errGoLogin(res.data.data)
                   }
                 }
               })
@@ -284,7 +291,7 @@ Page({
                     that.getCarts();
                   } else if (res.data.code == -1) {
                     App.error(res.data.msg)
-
+App.errGoLogin(res.data.data)
                   }
                 }
               })
@@ -326,6 +333,7 @@ Page({
             that.getCarts(a);
           } else if (res.data.code == -1) {
             App.error(res.data.msg)
+            App.errGoLogin(res.data.data)
           }
         }
       })

@@ -17,7 +17,7 @@ Page({
     btnText: '',
     btnisable: true,
     goWhere: '',
-    mobiled:''
+    mobiled: ''
   },
 
   /**
@@ -46,7 +46,7 @@ Page({
         mobiled: ""
       })
     } else if (options.type == "unbind") {
-        var mobiled = wx.getStorageSync("mobile")
+      var mobiled = wx.getStorageSync("mobile")
       this.setData({
         Utype: "unbind",
         typeB: "0",
@@ -118,10 +118,18 @@ Page({
           } else {
             wx.setStorageSync("mobile", that.data.mobile)
             setTimeout(function () {
-              wx.redirectTo({
-                url: that.data.goWhere
-              })
+              if (that.data.goWhere == "/pages/cart/index") {
+                wx.switchTab({
+                  url: that.data.goWhere
+                })
+              } else {
+                wx.redirectTo({
+                  url: that.data.goWhere
+                })
+              }
+
             }, 2000)
+
           }
           wx.showToast({
             title: that.data.btnText + '成功',
@@ -129,11 +137,11 @@ Page({
             duration: 2000
           })
 
-          
+
 
         } else if (res.data.code == -1) {
           App.error(res.data.msg)
-
+          App.errGoLogin(res.data.data)
         }
 
       }
@@ -174,6 +182,7 @@ Page({
             }, 1000)
           } else if (res.data.code == -1) {
             App.error(res.data.msg)
+            App.errGoLogin(res.data.data)
           }
 
         }

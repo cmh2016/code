@@ -61,11 +61,7 @@ Page({
 
     switch (index) {
       case 0:
-        if (wx.getStorageSync("mobile") == 0) {
-          App.WxService.navigateTo('/pages/tel/index?type=bind&go=' + path)
-        } else {
-          App.WxService.navigateTo(path)
-        }
+        App.bindTel(path)
         break
       case 4:
         App.WxService.makePhoneCall({

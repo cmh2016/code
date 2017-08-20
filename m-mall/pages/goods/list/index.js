@@ -122,7 +122,7 @@ Page({
                     }
                 } else if (res.data.code == -1) {
                     App.error(res.data.msg)
-
+App.errGoLogin(res.data.data)
                 }
             }
         })
@@ -195,7 +195,7 @@ Page({
                     }
                 } else if (res.data.code == -1) {
                     App.error(res.data.msg)
-
+App.errGoLogin(res.data.data)
                 }
             }
         })
@@ -203,10 +203,15 @@ Page({
     //切换显示
     show(e) {
         let type = e.target.dataset.type;
+        wx.setStorageSync("topType",type)
         this.setData({
             show: false,
-            topType: type
+            topType:type
         })
+        
+    },
+    show2(e) {
+
     },
     hide() {
         this.setData({
@@ -236,8 +241,8 @@ Page({
             })
         }
         var data = {};
-        console.log(that.data.topType)
-        if (that.data.topType == 'category'){
+        var topType = wx.getStorageSync("topType")
+        if (topType == 'category'){
             data = {
                 uid: uid,
                 token: token,
@@ -245,7 +250,7 @@ Page({
                 category_id: params.category,
                 //brand_id: params.brand
             }
-        } else if (that.data.topType == 'brand'){
+        } else if (topType == 'brand'){
             data = {
                 uid: uid,
                 token: token,
@@ -295,7 +300,7 @@ Page({
                     }
                 } else if (res.data.code == -1) {
                     App.error(res.data.msg)
-
+App.errGoLogin(res.data.data)
                 }
             }
         })

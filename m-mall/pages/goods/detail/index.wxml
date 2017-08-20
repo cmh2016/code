@@ -20,6 +20,10 @@
             <view class="zan-cell__ft">颜色、分类和尺寸</view>
         </view>
     </view>
+<view wx:if="{{goods.notice != ''}}">
+<text style='color:' class="rateNo">公告：{{goods.notice}}</text>
+</view>
+  
     <view style="margin-bottom:20rpx;" class="zan-panel">
         <text class="rateNo" wx:if="{{goods.rate_num==0}}">暂无评价！</text>
         <navigator  wx:if="{{goods.rate_num>0}}" url="/pages/rate/index">

@@ -12,12 +12,18 @@
     <view class="shopping-container">
         <view class="name">{{ goods.name }}</view>
         <view class="names">{{ goods.sub_name }}</view>
+        <scroll-view style='height:200rpx;' scroll-x="true" class='jietijia' wx:if="{{goods.price_type==2}}">
+          <view wx:for="{{goods.price_ladder}}" class='items'>
+            <text>{{item.number}}条起订</text>
+            <text>¥{{item.price}}</text>
+          </view>
+        </scroll-view>
         <view class="price">¥ {{ goods.price }} <text wx:if="{{ goods.market_price.length>0 }}" class="weui-shop-list-item-price-old"> 市场价:{{ goods.market_price }}</text> <text class="shop-num">已售:{{ goods.sales_num }}</text></view>
     </view>
     <view style="margin:20rpx 0;" class="zan-panel">
         <view bindtap="chioceShop" class="zan-cell zan-cell--access">
             <view class="zan-cell__bd">请选择</view>
-            <view class="zan-cell__ft">颜色、分类和尺寸</view>
+            <view class="zan-cell__ft">{{dialogTopText}} {{dialogTopText2}}</view>
         </view>
     </view>
 <view wx:if="{{goods.notice != ''}}">
@@ -29,7 +35,7 @@
         <navigator  wx:if="{{goods.rate_num>0}}" url="/pages/rate/index">
             <view style="border-bottom:1rpx solid #e5e5e5;" class="zan-cell zan-cell--access">
                 <view class="zan-cell__bd">评价</view>
-                <view class="zan-cell__ft">查看全部</view>
+                <view class="zan-cell__ft">查看全部({{goods.rate_num}})</view>
             </view>
         </navigator>
     </view>

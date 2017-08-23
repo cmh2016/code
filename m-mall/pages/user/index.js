@@ -54,6 +54,8 @@ Page({
       })
     }
     console.log("onshow")
+    this.getUserInfo()
+    this.getStorageInfo()
   },
   navigateTo(e) {
     const index = e.currentTarget.dataset.index

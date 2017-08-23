@@ -6,17 +6,27 @@
 
 <view class="scroll-list">
     <view class="weui-form-preview" wx:if="{{ !!order.length }}" wx:for="{{ order }}" wx:key="" >
-       <view class='order-top'>订单编号: {{item.order_sn}} <text>订单状态: {{item.order_status_txt}}</text></view>
-       <navigator url='' class='order-shop'>
-            <scroll-view style='height:180rpx;' class='cleaxfix'>
+       <view class='order-top'>下单时间:{{item.create_time}} <text>订单状态: {{item.order_status_txt}}</text></view>
+       <navigator url='/pages/order/detail/index?order_id={{item.order_id}}' class='order-shop'>
+            <scroll-view style='height:150rpx;' class='cleaxfix'>
               <view wx:for-item="list" wx:for="{{item.item_list}}" class='order-shop-item'>
                   <image src='{{list.item_picture}}'></image>
-                  <text>x {{list.item_number}}</text>
               </view>
             </scroll-view>
        </navigator>
-       <view class='order-m'>
-
+       <view wx:if="{{item.order_status==1}}" class='order-footer'>
+          共<text>{{item.item_list.length}}</text>件商品，实际支付<text>{{item.real_money}}</text>元
+       </view>
+       <view wx:if="{{item.order_status==2}}" class='order-footer'>
+          共<text>{{item.item_list.length}}</text>件商品，实际支付<text>{{item.real_money}}</text>元
+       </view>
+       <view wx:if="{{item.order_status==0}}" class='order-footer'>
+          共<text>{{item.item_list.length}}</text>件商品，需支付<text>{{item.real_money}}</text>元
+       </view>
+       <view class='order-btn'>
+          <button wx:if="{{item.order_status==2}}" class="zan-btn zan-btn--small">查看物流</button>
+          <button wx:if="{{item.order_status==0}}" class="zan-btn zan-btn--small zan-btn--primary">去支付</button>
+          <button  wx:if="{{item.order_status==3}}" class="zan-btn zan-btn--small zan-btn--danger">删除</button>
        </view>
     </view>
 </view>

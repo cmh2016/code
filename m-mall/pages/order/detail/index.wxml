@@ -5,57 +5,90 @@
       <text wx:if="{{order.status == 2}}">卖家已发货</text>
       <text wx:if="{{order.status == 3}}">买家已取消</text>
     </view>
+      <view wx:if="{{order.send_id >0}}" class="zan-panel">
+    <navigator url="/pages/order/wuliu/index" class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd" style='color: #359a2b;'> <view class="zan-icon zan-icon-send"  style="font-size: 20px; color: #359a2b;margin-right:10px;"></view> 您的订单开始处理 </view>
+      <view class="zan-cell__ft"></view>
+    </navigator>
+  </view>
     <view class="weui-form-preview__hd">
         <view style='font-size:15px;color:#666' class="weui-form-preview__item">
-          <image style='width:20px;height:20px;float:left' src='../../../assets/images/iconfont-addr-default.png'></image>
-          <view>收货人：{{order.name}}</view>
-            
+          <view style='width:30px;height:200rpx;float:left'>
+           <image style='width:20px;height:20px;float:left;margin-top:30px;' src='../../../assets/images/iconfont-addr-default.png'></image>
+          </view>
+         <view style='padding-left:30px;'>
+         <view style='height:25px;' class='clearfix'><text style='float:left;height:25px;'>收货人：{{order.name}}</text><text style='float:right;height:25px;'>{{order.mobile}}</text></view>
+            <view style='font-size:13px;text-align:left;line-height:24px;padding:0'>
+               <text style='float:left'>收货地址:{{order.province}} {{order.city}} {{order.area}} {{order.address}}</text>
+            </view>
+         </view>
+          
         </view>
     </view>
-    <view class="weui-form-preview__hd">
-        <view class="weui-form-preview__item">
-            <view class="weui-form-preview__label">订单总价</view>
-            <view class="weui-form-preview__value_in-hd">¥ {{ order.real_money }}</view>
+     <view wx:for="{{order.item_list}}" wx:for-item="shop" class="zan-panel">
+    <view class="zan-card">
+      <view class="zan-card__thumb">
+        <image class="zan-card__img" src="{{shop.item_picture}}"
+          mode="aspectFit"
+        ></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__right-col">¥ 999.99</view>
+          <view class="zan-card__left-col zan-ellipsis--l2">
+             商品名称商品名称商品名称商品名称
+          </view>
         </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__right-col">x{{shop.item_number}}</view>
+          <view class="zan-card__left-col">
+            分类尺寸
+          </view>
+        </view>
+      </view>
     </view>
+  </view>
     <view class="weui-form-preview__bd">
-        <view class="weui-form-preview__item" wx:for="{{ order.item_list }}" wx:key="">
-            <view class="weui-form-preview__label">{{ item.goods.name }}</view>
-            <view class="weui-form-preview__value">x{{ item.meta.total }} ¥ {{ item.meta.totalAmount }}</view>
+        <view class="weui-form-preview__item">
+            <view class="weui-form-preview__value"><text style='float:left'>订单总金额</text>¥{{order.total_money}}</view>
+              <view class="weui-form-preview__value"><text style='float:left'>优惠金额</text>¥{{order.cost_money}}</view>
+               <view wx:if="{{order.status != 0}}" class="weui-form-preview__value"><text style='float:left'>实际支付金额</text>¥{{order.real_money}}</view>
+<view wx:if="{{order.status == 0}}" class="weui-form-preview__value"><text style='float:left'>需支付金额</text>¥{{order.real_money}}</view>
         </view>
     </view>
-    <view class="weui-form-preview__ft">
-        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">联系商家</navigator>
-        <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">再来一单</navigator>
-    </view>
+   
 </view>
 
-<view class="weui-panel weui-panel_access">
-    <view class="weui-panel__hd">配送信息</view>
-    <view class="weui-panel__bd">
-        <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__desc">送达时间：尽快送达</view>
-        </view>
-        <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__desc">收货地址：{{ order.item.recipientName }} {{ order.item.recipientGender === 'female' ? '女士' : '先生' }} {{ order.item.recipientTel }} {{ order.item.recipientAddress }}</view>
-        </view>
-        <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__desc">配送方式：商家配送</view>
-        </view>
-    </view>
-</view>
 
 <view class="weui-panel weui-panel_access">
     <view class="weui-panel__hd">订单信息</view>
     <view class="weui-panel__bd">
         <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__desc">订单号：{{ order.item._id }}</view>
+            <view style='font-size:12px;' class="weui-media-box__desc">订单编号：{{ order.order_sn }}</view>
         </view>
         <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__desc">支付方式：货到付款</view>
+            <view style='font-size:12px;' class="weui-media-box__desc">外部交易单号：{{order.out_trade_sn==''?'无':order.out_trade_sn}}</view>
         </view>
         <view class="weui-media-box weui-media-box_text">
-            <view class="weui-media-box__desc">下单时间：{{ order.item.create_at }}</view>
+            <view style='font-size:12px;' class="weui-media-box__desc">创建时间：{{ order.create_time }}</view>
         </view>
+        <view wx:if="{{order.pay_time !=''}}" class="weui-media-box weui-media-box_text">
+            <view style='font-size:12px;' class="weui-media-box__desc">支付时间：{{ order.pay_time }}</view>
+        </view>
+        <view  wx:if="{{order.pay_time !=''}}" class="weui-media-box weui-media-box_text">
+            <view style='font-size:12px;' class="weui-media-box__desc">支付方式：{{ order.payment_name }}</view>
+        </view>
+         <view class="weui-media-box weui-media-box_text">
+            <view style='font-size:12px;' class="weui-media-box__desc">订单备注：{{ order.desc==''?'无':order.desc }}</view>
+        </view>
+     
     </view>
+    <view style='text-align:right;padding:10px;'>
+     <button wx:if="{{order.status == 3}}" class="zan-btn zan-btn--small zan-btn--danger">删除订单</button>
+    <button class="zan-btn zan-btn--small">取消订单</button>
+    <navigator wx:if="{{order.send_id >0}}" url='/pages/order/wuliu/index' class="zan-btn zan-btn--small zan-btn--warn">查看物流</navigator>
+    <button wx:if="{{order.status == 0}}" class="zan-btn zan-btn--small zan-btn--primary">确认付款</button>
+    </view>
+      
 </view>

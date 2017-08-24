@@ -65,6 +65,9 @@ Page({
       case 0:
         App.bindTel(path)
         break
+      case 2:
+        App.bindTel(path)
+        break
       case 4:
         App.WxService.makePhoneCall({
           phoneNumber: path

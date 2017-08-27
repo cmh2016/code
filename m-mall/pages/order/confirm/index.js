@@ -179,6 +179,18 @@ Page({
             },
             'fail': function (res) {
               console.log(res)
+              wx.showToast({
+                title: "转为待支付订单",
+                icon: 'success',
+                duration: 2000
+              })
+              setTimeout(function () {
+                wx.reLaunch({
+                  url: '/pages/user/index'
+                })
+              }, 1000)
+
+
             }
           })
 

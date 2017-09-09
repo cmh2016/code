@@ -1,0 +1,109 @@
+.classify {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	overflow: hidden;
+}
+
+.nav_left {
+	width: 25%;
+	background: #F6F6F9;
+}
+
+.nav_right {
+	width: 75%;
+	background: #f2f2f2;
+	padding: 10px;
+}
+
+.nav_right .title {
+	font-size: 12px;
+	font-weight: bold;
+    color: #666;
+    padding-bottom: 10px;
+}
+
+.nav_left_item {
+	color: #7c7c7c;
+	font-size: 26rpx;
+	width: 100%;
+	padding: 20rpx 0;
+	text-align: center;
+}
+
+.nav_left_item.active {
+	background: #fff;
+    position: relative;
+}
+
+.nav_left_item.active:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: #e21323;
+    top: 0;
+    left: 0;
+}
+.content .weui-shop-list{
+  width: 100%;
+  margin: 5rpx;
+}
+.content .weui-shop-list-item{
+  width: 100%;
+  float: left;
+  margin: 1.5%;
+  background: #fff;
+  position: relative;
+}
+.content .weui-shop-list-item-image{
+  display: inline-block;
+  width: 130rpx;
+  height:130rpx;
+}
+.content .weui-shop-list-item-img{
+  float: left;
+
+}
+.content .weui-shop-list-item-others{
+  display: inline-block;
+width:-moz-calc(100% - 180rpx); width:-webkit-calc(100% - 180rpx); width: calc(100% - 180rpx);
+  float: left;
+}
+.content .weui-shop-list-item-name{
+  color:#4b566a;
+  font-size: 12px;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp:2;
+overflow: hidden;
+
+}
+.content .weui-shop-list-item-price-now{
+  color:#eb5211;
+  font-size: 12px;
+  margin-right: 10rpx;
+}
+.weui-shop-list-item-price-old{
+   color:#999;
+  font-size: 13px;
+  text-decoration:line-through;
+}
+.content .weui-shop-list-item-bottom{
+  font-size: 12px;
+  color:#999;
+  position: absolute;
+  bottom: 10rpx;
+  left: 220rpx;
+  width: 500rpx;
+
+
+}
+.weui-shop-list-item-sales{
+  float: left;
+}
+.weui-shop-list-item-evaluate{
+  float: right;
+}

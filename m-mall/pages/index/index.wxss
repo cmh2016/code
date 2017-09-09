@@ -43,18 +43,17 @@ swiper-item image {
 }
 
 .weui-type-item {
-    width: 160rpx;
-    height: 160rpx;
+    width: 150rpx;
+    height: 150rpx;
     float: left;
     text-align: center;
-    margin: 13rpx;
+    margin:10px 0px;
 }
 
 .weui-type-item-image {
     width: 80rpx;
     height: 80rpx;
     margin: 0 30rpx;
-    border-radius: 50%;
 }
 
 .weui-type-item-name {

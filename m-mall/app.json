@@ -2,6 +2,7 @@
   "pages": [
     "pages/start/index",
     "pages/index/index",
+    "pages/classify/index",
     "pages/cart/index",
     "pages/order/list/index",
     "pages/order/confirm/index",
@@ -37,6 +38,12 @@
         "iconPath": "assets/images/iconfont-home.png",
         "selectedIconPath": "assets/images/iconfont-home-active.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/classify/index",
+        "iconPath": "assets/images/iconfont-list.png",
+        "selectedIconPath": "assets/images/iconfont-list-active.png",
+        "text": "分类"
       },
       {
         "pagePath": "pages/cart/index",

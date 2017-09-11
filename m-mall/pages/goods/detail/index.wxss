@@ -1,227 +1,288 @@
 @import "../../../wxParse/wxParse.wxss";
+
 .swiper-box {
-    width: 100%;
-    height: 320px;
+  width: 100%;
+  height: 320px;
 }
 
 .swiper-box .slide-image {
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
 }
 
 .shopping-container {
-    padding: 0 30rpx;
+  padding: 0 30rpx;
 }
 
 .shopping-container .name {
-    margin: 10px 0;
-    font-weight: bold;
-    color: #333;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #333;
 }
-.shopping-container .names{
+
+.shopping-container .names {
   font-size: 12px;
-  color:#999
+  color: #999;
 }
+
 .shopping-container .price {
-    margin: 10px 0;
-    font-weight: normal;
-    color: orangered;
-    font-size: 24px;
+  margin: 10px 0;
+  font-weight: normal;
+  color: orangered;
+  font-size: 24px;
 }
 
 .shopping-container .remark {
-    margin: 10px 0;
-    color: #939393;
-    line-height: 22px;
+  margin: 10px 0;
+  color: #939393;
+  line-height: 22px;
 }
 
 .swiper-container {
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
 .swiper-pager {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(0,0,0,.3);
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    line-height: 40px;
-    font-size: 12px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
 }
+
 .weui-navbar__item.weui-bar__item_on {
-    color: #D62156!important;
+  color: #d62156 !important;
 }
-.weui-navbar__slider{
- background: #D62156!important;
+
+.weui-navbar__slider {
+  background: #d62156 !important;
 }
-.weui-navbar{
-    background: #fff
+
+.weui-navbar {
+  background: #fff;
 }
-.addcart{
-    z-index: 99999;
+
+.addcart {
+  z-index: 99999;
 }
-.shopping-container2{
-    padding-bottom: 100px;
+
+.shopping-container2 {
+  padding-bottom: 100px;
 }
-.shopping-arrts{
-    width: 750rpx;
-    min-height: 30px;
-    line-height: 30px;
-    background: #fff;
-    border-bottom: 1px solid #ccc;
+
+.shopping-arrts {
+  width: 750rpx;
+  min-height: 30px;
+  line-height: 30px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
 }
-.shopping-arrts text{
-    font-size: 13px;
-    color:#333;
-    text-align: left;
-    display: inline-block;
+
+.shopping-arrts text {
+  font-size: 13px;
+  color: #333;
+  text-align: left;
+  display: inline-block;
 }
-.shopping-arrts text:first-child{
-    width: 200rpx;
-    text-indent: 10px;
-    color: #999
+
+.shopping-arrts text:first-child {
+  width: 200rpx;
+  text-indent: 10px;
+  color: #999;
 }
-.shopping-arrts text:last-child{
-    width: 550rpx;
+
+.shopping-arrts text:last-child {
+  width: 550rpx;
 }
-.shop-num{
-    float: right;
-    font-size: 13px;
-    color: #939393;
-    margin-right: 10rpx;
-    margin-top: 30rpx;
+
+.shop-num {
+  float: right;
+  font-size: 13px;
+  color: #939393;
+  margin-right: 10rpx;
+  margin-top: 30rpx;
 }
-.zan-dialog__mask{
-    z-index: 66666;
+
+.zan-dialog__mask {
+  z-index: 66666;
 }
-.zan-dialog__container{
-    z-index: 6666666;
+
+.zan-dialog__container {
+  z-index: 6666666;
 }
-.rateNo{
-    float: left;
-    margin: 10px;
-    font-size: 12px;
-    color:#999;
+
+.rateNo {
+  float: left;
+  margin: 10px;
+  font-size: 12px;
+  color: #999;
 }
-.footerAddCar{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 750rpx;
-    height: 40px;
-    line-height: 40px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    z-index: 999999999;
+.msg,.tocar{
+  width: 125rpx;
+  float: left;
+  padding: 0;margin: 0;
+   height: 40px;
+  overflow: hidden
 }
-.dialog-top{
-    width: 100%;
-    height: 170rpx;
-    border-bottom: 1px solid #f2f2f2;
-    position: relative;
-  
+.msg image,.tocar image{
+  width: 100%;
+  height:40px;
+  background: #fff;
 }
-.visible{
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  text-align: center;
+  z-index: 999999999;
+}
+
+.AddCar {
+  width: 250rpx;
+  background-color: #ef9b05;
+  color: #fff;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+  float: left;
+}
+
+.bug {
+  width: 250rpx;
+  background-color: #ff0037;
+  color: #fff;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: bold;
+  float: left;
+}
+
+.dialog-top {
+  width: 100%;
+  height: 170rpx;
+  border-bottom: 1px solid #f2f2f2;
+  position: relative;
+}
+
+.visible {
   overflow: visible;
 }
-.dialog-top image{
-    position: absolute;
-    left: 20px;
-    top: -20px;
-    width: 200rpx;
-    z-index: 666;
-    height: 200rpx;
-    border: 1px solid #f2f2f2;
+
+.dialog-top image {
+  position: absolute;
+  left: 20px;
+  top: -20px;
+  width: 200rpx;
+  z-index: 666;
+  height: 200rpx;
+  border: 1px solid #f2f2f2;
 }
-.dialog-price{
-    color:#f60;
-    font-size: 15px;
-    font-weight: bold;
-    position: absolute;
-    left: 300rpx;
-    top: 15rpx;
+
+.dialog-price {
+  color: #f60;
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  left: 300rpx;
+  top: 15rpx;
 }
-.dialog-kucun{
-     color:#333;
-    font-size: 12px;
-    position: absolute;
-    left: 300rpx;
-    top:75rpx;
+
+.dialog-kucun {
+  color: #333;
+  font-size: 12px;
+  position: absolute;
+  left: 300rpx;
+  top: 75rpx;
 }
-.dialog-color{
-     color:#666;
-    font-size: 12px;
-    position: absolute;
-    left: 300rpx;
-    top:120rpx;
+
+.dialog-color {
+  color: #666;
+  font-size: 12px;
+  position: absolute;
+  left: 300rpx;
+  top: 120rpx;
 }
-.dialog-center{
-    height:350rpx;
+
+.dialog-center {
+  height:250rpx;
 }
-.dialog-footer{
+
+.dialog-footer {
 }
-.dialog-footer text{
-    float: left;
-    color: #999;
-    font-size: 12px;
-    margin-left: 10px;
-    margin-top: 5px;
+
+.dialog-footer text {
+  float: left;
+  color: #999;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 5px;
 }
-.dialog-footer .zan-quantity{
-    width: auto;float: right;
-    margin-right: 5px;
+
+.dialog-footer .zan-quantity {
+  width: auto;
+  float: right;
+  margin-right: 5px;
 }
-.dialog-color-text{
-    font-size: 12px;
-    color:#999;
-    text-align: left;
-    padding-left:10px;
+
+.dialog-color-text {
+  font-size: 12px;
+  color: #999;
+  text-align: left;
+  padding-left: 10px;
 }
-.color-label-active{
-     background-color: #f60;
-     color:#fff;
-      float: left;
-    padding: 3px 6px;
-    border-radius: 3px;
-    margin: 5px;
-    font-size: 12px;
+
+.color-label-active {
+  background-color: #f60;
+  color: #fff;
+  float: left;
+  padding: 3px 6px;
+  border-radius: 3px;
+  margin: 5px;
+  font-size: 12px;
 }
-.dialog-color-box .dialog-color-label{
-    float: left;
-    padding: 3px 6px;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    color: #333;
-    margin: 5px;
-    font-size: 12px;
+
+.dialog-color-box .dialog-color-label {
+  float: left;
+  padding: 3px 6px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #333;
+  margin: 5px;
+  font-size: 12px;
 }
-.jietijia .items{
+
+.jietijia .items {
   width: 250rpx;
   height: 200rpx;
   float: left;
   text-align: center;
 }
-.jietijia .items text:first-child{
+
+.jietijia .items text:first-child {
   font-size: 13px;
   width: 250rpx;
-  color:#999;
+  color: #999;
   display: block;
   margin: 10rpx 0;
 }
-.jietijia .items text:last-child{
+
+.jietijia .items text:last-child {
   font-size: 20px;
-  color:#D62156; 
+  color: #d62156;
   width: 250rpx;
-  display: block
+  display: block;
 }

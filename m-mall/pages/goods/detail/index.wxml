@@ -116,9 +116,9 @@
           <template is="zan-quantity" data="{{ ...quantity1, componentId: 'quantity1' }}" />
           <text>购买数量：</text>
         </view>
-        <view style='height:40px;font-size:16px;font-weight:bold;position: absolute;z-index:999999;left:0;bottom:0;width:100%;'>
-          <button catchtap="addCar" style="background:#fe9402;width:50%;float:left;height:40px;line-height:40px;" class="zan-btn zan-btn--large zan-btn--danger">加入购物车</button>
-          <button catchtap="bugNow" style="background:#ff0037;width:50%;float:left;height:40px;line-height:40px;" class="zan-btn zan-btn--large zan-btn--danger">立即购买</button>
+        <view style='height:100rpx;font-size:16px;font-weight:bold;position: absolute;z-index:999999;left:0;bottom:0;width:100%;'>
+          <button catchtap="addCar" style="background:#fe9402;width:50%;float:left;height:100rpx;line-height:100rpx;" class="zan-btn zan-btn--large zan-btn--danger">加入购物车</button>
+          <button catchtap="bugNow" style="background:#ff0037;width:50%;float:left;height:100rpx;line-height:100rpx;" class="zan-btn zan-btn--large zan-btn--danger">立即购买</button>
         </view>
 
 

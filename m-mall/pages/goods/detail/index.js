@@ -72,8 +72,8 @@ Page(Object.assign({}, Zan.Quantity, {
   //价格计算
   price() {
     var that = this;
-    //SKU价格
-    if (that.data.goods.price_type == 3) {
+    //阶梯价
+    if (that.data.goods.price_type == 2) {
       for (var i in that.data.spec_price_list) {
         if (that.data.zuhePrice == i) {
           that.setData({
@@ -82,8 +82,6 @@ Page(Object.assign({}, Zan.Quantity, {
           })
         }
       }
-    } else if (that.data.goods.price_type == 2) {
-      //阶梯价
       var a = that.data.goods.price_ladder;
       var b = that.data.quantity1.quantity;
       for (var i = 1; i < a.length; i++) {
@@ -101,8 +99,7 @@ Page(Object.assign({}, Zan.Quantity, {
           break;
         }
       }
-
-    } else if (that.data.goods.price_type == 1) {
+    }  else if (that.data.goods.price_type == 1) {
       //售卖价
       that.setData({
         dialog_price: that.data.goods.price
@@ -119,11 +116,19 @@ Page(Object.assign({}, Zan.Quantity, {
     console.log(e)
   },
   onLoad(option) {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowWidth)
+        that.setData({
+          swiperH: res.windowWidth+"px"
+        })
+      }
+    })
     //取商品id
     this.setData({
       id: option.item_id
     })
-    var that = this;
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -132,6 +137,7 @@ Page(Object.assign({}, Zan.Quantity, {
         });
       }
     });
+
   },
   tabClick: function (e) {
     this.setData({
@@ -140,7 +146,7 @@ Page(Object.assign({}, Zan.Quantity, {
     });
   },
   onShow() {
-    this.getDetail(this.data.id)
+    this.getDetail(this.data.id);
   },
 
   showToast(message) {
@@ -278,7 +284,7 @@ Page(Object.assign({}, Zan.Quantity, {
       })
       return false;
     }
-    if (that.data.goods.price_type == 3) {
+    if (that.data.goods.price_type == 2) {
       if (that.data.chioceColorText == "") {
         wx.showToast({
           title: '请选择颜色',
@@ -422,7 +428,7 @@ Page(Object.assign({}, Zan.Quantity, {
       })
       return false;
     }
-    if (that.data.goods.price_type == 3) {
+    if (that.data.goods.price_type == 2) {
       if (that.data.chioceColorText == "") {
         wx.showToast({
           title: '请选择颜色',

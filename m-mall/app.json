@@ -16,7 +16,8 @@
     "pages/tel/index",
     "pages/wallet/index",
     "pages/rate/index",
-    "pages/order/wuliu/index"
+    "pages/order/wuliu/index",
+    "pages/msg/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#D62156",
@@ -43,6 +44,12 @@
         "iconPath": "assets/images/iconfont-cart.png",
         "selectedIconPath": "assets/images/iconfont-cart-active.png",
         "text": "购物车"
+      },
+      {
+        "pagePath": "pages/msg/index",
+        "iconPath": "assets/images/iconfont-msg.png",
+        "selectedIconPath": "assets/images/iconfont-msg-active.png",
+        "text": "客服"
       },
       {
         "pagePath": "pages/user/index",

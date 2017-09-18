@@ -51,6 +51,8 @@ image{
 .weui-shop-list-item-image{
   width: 340rpx;
   height: 340rpx;
+  border: 0;
+  overflow: hidden;
 }
 .weui-shop-list-item-img{
   float: left

@@ -1,0 +1,9 @@
+<view class="msg-box">
+  <image src='../../../assets/images/logo.jpg' class="logo"></image>
+  <view class='mst-tip'>
+  <text class='msg-text'>潘晨国际服饰为您提供专业的客户服务</text>
+  </view>
+  <view class='msg-btn'>
+    <button open-type="contact" class="zan-btn zan-btn--warn">发起聊天</button>
+  </view>
+</view>

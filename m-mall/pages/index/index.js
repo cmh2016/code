@@ -56,6 +56,7 @@ Page({
             },
             success: function (res) {
                 console.log(res.data)
+                wx.stopPullDownRefresh()
                 //关闭loading
                 if (wx.hideLoading) {
                     wx.hideLoading()
@@ -66,7 +67,13 @@ Page({
                         content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
                     })
                 }
+                
                 if (res.data.code == '0'){
+                  wx.showToast({
+                    title: '加载成功',
+                    icon: 'success',
+                    duration: 2000
+                  })
                     //绑定轮播
                     that.setData({
                         poster: res.data.data.poster
@@ -103,22 +110,6 @@ Page({
                     App.errGoLogin(res.data.data)
                 }
             }
-        })
-    },
-    initData() {
-        const type = this.data.goods.params && this.data.goods.params.type || ''
-        const goods = {
-            items: [],
-            params: {
-                page: 1,
-                limit: 10,
-                type: type,
-            },
-            paginate: {}
-        }
-
-        this.setData({
-            goods: goods
         })
     },
     goTO(e) {
@@ -171,6 +162,7 @@ Page({
     },
     onPullDownRefresh() {
         console.info('onPullDownRefresh')
+        this.gitIndexData();
     },
     onReachBottom() {
         console.info('onReachBottom')

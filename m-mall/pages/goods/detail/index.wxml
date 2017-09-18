@@ -1,6 +1,6 @@
 <view class="container">
   <view class="swiper-container">
-    <swiper class="swiper-box" indicator-dots="{{ indicatorDots }}" vertical="{{ vertical }}" autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}" bindchange="swiperchange">
+    <swiper class="swiper-box" style='height:{{swiperH}}' indicator-dots="{{ indicatorDots }}" vertical="{{ vertical }}" autoplay="{{ autoplay }}" interval="{{ interval }}" duration="{{ duration }}" bindchange="swiperchange">
       <block wx:for="{{ goods.pic_list }}" wx:key="">
         <swiper-item>
           <image src="{{ item }}" class="slide-image" data-index="{{ index }}" />
@@ -12,7 +12,7 @@
   <view class="shopping-container">
     <view class="name">{{ goods.name }}</view>
     <view class="names">{{ goods.sub_name }}</view>
-    <scroll-view style='height:200rpx;' scroll-x="true" class='jietijia' wx:if="{{goods.price_type==2}}">
+    <scroll-view style='height:60px;width:100%;' scroll-x="true" class='jietijia scroll-view_H' wx:if="{{goods.price_type==2}}">
       <view wx:for="{{goods.price_ladder}}" class='items'>
         <text>{{item.number}}条起订</text>
         <text>¥{{item.price}}</text>
@@ -93,14 +93,14 @@
   <view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
     <view class="zan-dialog__mask " bindtap="chioceShop" />
     <view class="zan-dialog__container visible">
-      <view class="visible" style="padding:0; text-align: center;min-height:{{goods.price_type == 3?h7:h3}};position: relative;">
+      <view class="visible" style="padding:0; text-align: center;min-height:{{goods.price_type == 2?h7:h3}};position: relative;">
         <view class="dialog-top visible">
           <image src="{{dialog_image}}"></image>
           <text class="dialog-price">¥ {{dialog_price * quantity1.quantity}}</text>
           <text class="dialog-kucun">库存：{{dialog_stock}}</text>
-          <text wx:if="{{goods.price_type == 3}}" class="dialog-color">{{dialogTopText}} {{dialogTopText2}}</text>
+          <text wx:if="{{goods.price_type == 2}}" class="dialog-color">{{dialogTopText}} {{dialogTopText2}}</text>
         </view>
-        <scroll-view wx:if="{{goods.price_type == 3}}" class="dialog-center">
+        <scroll-view wx:if="{{goods.price_type == 2}}" class="dialog-center">
           <view class="dialog-color-text">颜色分类</view>
           <view class="dialog-color-box">
             <text catchtap="chioceColor" wx:for="{{spec_list_color}}" data-index="{{index}}" data-item_id="{{item.item_id}}" class="{{index == color_label_active ? 'color-label-active' : 'dialog-color-label'}}">{{item.item}}</text>

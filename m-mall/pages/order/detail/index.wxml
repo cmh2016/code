@@ -34,16 +34,16 @@
       </view>
       <view class="zan-card__detail">
         <view class="zan-card__detail-row">
-          <view class="zan-card__right-col">¥ 999.99</view>
+          <view class="zan-card__right-col">¥ {{shop.price}}</view>
           <view class="zan-card__left-col zan-ellipsis--l2">
-             商品名称商品名称商品名称商品名称
+             {{shop.item_name}}
           </view>
         </view>
 
         <view class="zan-card__detail-row zan-c-gray-darker">
           <view class="zan-card__right-col">x{{shop.item_number}}</view>
           <view class="zan-card__left-col">
-            分类尺寸
+            {{shop.spec_key_name}}
           </view>
         </view>
       </view>
@@ -86,6 +86,7 @@
     </view>
     <view style='text-align:right;padding:10px;'>
      <button  bindtap='delete' wx:if="{{order.status == 4}}" data-order_id="{{order.order_id}}" class="zan-btn zan-btn--small zan-btn--danger">删除订单</button>
+        <button  bindtap='orderOk' wx:if="{{order.status == 2}}" data-order_id="{{order.order_id}}" class="zan-btn zan-btn--small zan-btn--danger">确认收货</button>
     <button bindtap='cancel' wx:if="{{order.status == 0}}" data-order_id="{{order.order_id}}" class="zan-btn zan-btn--small">取消订单</button>
     <navigator data-order_id="{{order.order_id}}" wx:if="{{order.send_id >0}}" url='/pages/order/wuliu/index' class="zan-btn zan-btn--small zan-btn--warn">查看物流</navigator>
     <button data-order_id="{{order.order_id}}" bindtap='pay' wx:if="{{order.status == 0}}" class="zan-btn zan-btn--small zan-btn--primary">确认付款</button>

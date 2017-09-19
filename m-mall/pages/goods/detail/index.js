@@ -77,7 +77,7 @@ Page(Object.assign({}, Zan.Quantity, {
       for (var i in that.data.spec_price_list) {
         if (that.data.zuhePrice == i) {
           that.setData({
-            dialog_price: that.data.spec_price_list[i].price,
+            //dialog_price: that.data.spec_price_list[i].price,
             dialog_stock: that.data.spec_price_list[i].stock
           })
         }
@@ -97,6 +97,10 @@ Page(Object.assign({}, Zan.Quantity, {
             dialog_price: a[a.length - 1].price,
           })
           break;
+        }else{
+          that.setData({
+            dialog_price: that.data.goods.price,
+          })
         }
       }
     }  else if (that.data.goods.price_type == 1) {
@@ -321,10 +325,7 @@ Page(Object.assign({}, Zan.Quantity, {
           token: token,
           item_id: that.data.goods.item_id,
           spec_key: that.data.zuhePrice,
-          number: that.data.quantity1.quantity,
-          price_type: that.data.goods.price_type,
-          price: that.data.dialog_price
-
+          number: that.data.quantity1.quantity
         },
         header: {
           'content-type': 'application/json'
@@ -465,10 +466,7 @@ Page(Object.assign({}, Zan.Quantity, {
           token: token,
           item_id: that.data.goods.item_id,
           spec_key: that.data.zuhePrice,
-          number: that.data.quantity1.quantity,
-          price_type: that.data.goods.price_type,
-          price: that.data.dialog_price
-
+          number: that.data.quantity1.quantity
         },
         header: {
           'content-type': 'application/json'

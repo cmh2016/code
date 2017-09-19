@@ -160,6 +160,8 @@ Page({
         }
         if (res.data.code == 0) {
           console.log(res.data.data);
+          var order_id = res.data.data.order_id;
+          var prepay_id = res.data.data.prepay_id;
           wx.requestPayment({
             'timeStamp': res.data.data.pay_info.timeStamp,
             'nonceStr': res.data.data.pay_info.nonceStr,
@@ -174,19 +176,15 @@ Page({
                 duration: 2000
               })
               wx.reLaunch({
-                url: '/pages/user/index'
+                url: '/pages/order/msg/index?ok=ok&order_id=' + order_id + '&prepay_id=' + prepay_id
               })
             },
             'fail': function (res) {
               console.log(res)
-              wx.showToast({
-                title: "转为待支付订单",
-                icon: 'success',
-                duration: 2000
-              })
+              App.error("支付失败")
               setTimeout(function () {
                 wx.reLaunch({
-                  url: '/pages/user/index'
+                  url: '/pages/order/msg/index?ok=no'
                 })
               }, 1000)
 

@@ -17,7 +17,8 @@
     "pages/wallet/index",
     "pages/rate/index",
     "pages/order/wuliu/index",
-    "pages/msg/index"
+    "pages/msg/index",
+    "pages/order/msg/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#D62156",

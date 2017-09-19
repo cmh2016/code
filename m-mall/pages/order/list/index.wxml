@@ -25,6 +25,7 @@
        </view>
        <view class='order-btn'>
           <button wx:if="{{item.order_status==2}}" class="zan-btn zan-btn--small">查看物流</button>
+          <button  wx:if="{{item.order_status==2}}" data-order_id="{{item.order_id}}" bindtap='orderOk' class="zan-btn zan-btn--small zan-btn--danger">确认收货</button>
           <button wx:if="{{item.order_status==0}}" data-order_id="{{item.order_id}}" bindtap='pay' class="zan-btn zan-btn--small zan-btn--primary">去支付</button>
           <button  wx:if="{{item.order_status==3}}" class="zan-btn zan-btn--small zan-btn--danger">删除</button>
        </view>

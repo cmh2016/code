@@ -88,25 +88,25 @@ Page(Object.assign({}, Zan.Quantity, {
         if (b >= a[i - 1].number && b < a[i].number) {
           console.log(a[i - 1].price);
           that.setData({
-            dialog_price: a[i - 1].price,
+            dialog_price_new: Math.round(a[i - 1].price * b * 100) / 100
           })
           break;
         } else if (b >= a[a.length - 1].number) {
           console.log(a[a.length - 1].price);
           that.setData({
-            dialog_price: a[a.length - 1].price,
+            dialog_price_new: Math.round(a[a.length - 1].price * b * 100) / 100
           })
           break;
         }else{
           that.setData({
-            dialog_price: that.data.goods.price,
+            dialog_price_new: Math.round(that.data.goods.price * b * 100) / 100
           })
         }
       }
     }  else if (that.data.goods.price_type == 1) {
       //售卖价
       that.setData({
-        dialog_price: that.data.goods.price
+        dialog_price_new: Math.round(that.data.goods.price * that.data.quantity1.quantity * 100) / 100
       })
     }
 
@@ -224,7 +224,7 @@ Page(Object.assign({}, Zan.Quantity, {
           })
           //设置dialog price
           that.setData({
-            dialog_price: res.data.data.price
+            dialog_price_new: res.data.data.price
           })
           if (res.data.data.spec_list.length == 0) {
             //设置规格数据空提示

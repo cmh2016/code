@@ -78,6 +78,8 @@ Page({
                     that.setData({
                         poster: res.data.data.poster
                     })
+                    //设置客服电话
+                    wx.setStorageSync('service_phone', res.data.data.service_phone)
                     //设置分类
                     that.setData({
                         navigation: res.data.data.navigation

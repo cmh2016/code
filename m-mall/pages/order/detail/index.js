@@ -2,7 +2,7 @@ const App = getApp()
 
 Page({
   data: {
-    order: {},
+    order: {}
   },
   onLoad(option) {
     this.setData({
@@ -55,6 +55,41 @@ Page({
           that.setData({
             order: res.data.data,
           })
+
+          //获取物流最新的信息
+          if (res.data.data.send_id>0){
+            var uid = wx.getStorageSync('uid');
+            var token = wx.getStorageSync('token');
+            var send_code = res.data.data.send_code;
+            var send_number = res.data.data.send_number;
+    
+            wx.request({
+              url: App.api + '/order/express', //仅为示例，并非真实的接口地址
+              data: {
+                uid: uid,
+                token: token,
+                send_number: send_number,
+                send_code: send_code
+              },
+              header: {
+                'content-type': 'application/json'
+              },
+              success: function (res) {
+                if (res.data.code == '0') {
+                  console.log(res.data.data)
+                  that.setData({
+                    wuliu_text: res.data.msg
+                  })
+                } else if (res.data.code == '-1') {
+                  //App.error(res.data.msg)
+                  that.setData({
+                    wuliu_text: res.data.msg
+                  })
+                  App.errGoLogin(res.data.data)
+                }
+              }
+            })
+          }
 
         } else if (res.data.code == '-1') {
           App.error(res.data.msg)

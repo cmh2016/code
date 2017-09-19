@@ -5,7 +5,7 @@ Page({
     userInfo: {},
     ismobiled: true,
     items: [
-      {
+      /*{
         icon: '../../assets/images/money.png',
         text: '我的钱包',
         path: '/pages/wallet/index'
@@ -14,7 +14,7 @@ Page({
         icon: '../../assets/images/yhq.png',
         text: '我的卡券',
         path: '/pages/yhq/index'
-      },
+      },*/
       {
         icon: '../../assets/images/iconfont-order.png',
         text: '我的订单',
@@ -27,8 +27,7 @@ Page({
       },
       {
         icon: '../../assets/images/tel.png',
-        text: '联系客服',
-        path: '1553887275',
+        text: '联系客服'
       },
       {
         icon: '../../assets/images/kf.png',
@@ -40,9 +39,16 @@ Page({
   onLoad() {
     this.getUserInfo()
     this.getStorageInfo()
-
+    var service_phone = wx.getStorageSync('service_phone')
+    console.log(service_phone)
+    this.setData({
+      service_phone: service_phone
+    })
   },
+ 
   onShow() {
+   
+    
     if (wx.getStorageSync("mobile") != 0) {
       this.setData({
         ismobiled: false,
@@ -66,17 +72,14 @@ Page({
         App.bindTel(path)
         break
       case 2:
-        App.bindTel(path)
-        break
-      case 4:
         App.WxService.makePhoneCall({
-          phoneNumber: path
+          phoneNumber: wx.getStorageSync('service_phone')
         })
         break
-      case 5:
+      case 3:
         return false
         break
-      case 3:
+      case 1:
         wx.chooseAddress({
           success: function (res) {
             console.log(res.userName)

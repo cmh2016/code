@@ -3,11 +3,12 @@
       <text wx:if="{{order.status == 0}}">等待买家付款</text>
       <text wx:if="{{order.status == 1}}">等待卖家发货</text>
       <text wx:if="{{order.status == 2}}">卖家已发货</text>
+      <text wx:if="{{order.status == 3}}">订单已完成</text>
       <text wx:if="{{order.status == 4}}">买家已取消</text>
     </view>
       <view wx:if="{{order.send_id >0}}" class="zan-panel">
-    <navigator url="/pages/order/wuliu/index" class="zan-cell zan-cell--access">
-      <view class="zan-cell__bd" style='color: #359a2b;'> <view class="zan-icon zan-icon-send"  style="font-size: 20px; color: #359a2b;margin-right:10px;"></view> 您的订单开始处理 </view>
+    <navigator url="/pages/order/wuliu/index?send_number={{order.send_number}}&send_code={{order.send_code}}" class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd" style='color: #359a2b;'> <view class="zan-icon zan-icon-send"  style="font-size: 20px; color: #359a2b;margin-right:10px;"></view> {{wuliu_text}} </view>
       <view class="zan-cell__ft"></view>
     </navigator>
   </view>
@@ -59,7 +60,23 @@
     </view>
    
 </view>
-
+<view  wx:if="{{order.send_id >0}}" class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">物流信息</view>
+    <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text">
+            <view style='font-size:12px;' class="weui-media-box__desc">快递公司：{{ order.send_txt }}</view>
+        </view>
+        <view class="weui-media-box weui-media-box_text">
+            <view style='font-size:12px;' class="weui-media-box__desc">快递编号：{{ order.send_number }}</view>
+        </view>
+        <view class="weui-media-box weui-media-box_text">
+            <view style='font-size:12px;' class="weui-media-box__desc">发货时间：{{ order.send_time }}</view>
+        </view>
+        <view wx:if="{{order.pay_time !=''}}" class="weui-media-box weui-media-box_text">
+            <view style='font-size:12px;' class="weui-media-box__desc">发货备注：{{ order.send_desc }}</view>
+        </view>
+    </view>
+</view>
 
 <view class="weui-panel weui-panel_access">
     <view class="weui-panel__hd">订单信息</view>
@@ -88,7 +105,7 @@
      <button  bindtap='delete' wx:if="{{order.status == 4}}" data-order_id="{{order.order_id}}" class="zan-btn zan-btn--small zan-btn--danger">删除订单</button>
         <button  bindtap='orderOk' wx:if="{{order.status == 2}}" data-order_id="{{order.order_id}}" class="zan-btn zan-btn--small zan-btn--danger">确认收货</button>
     <button bindtap='cancel' wx:if="{{order.status == 0}}" data-order_id="{{order.order_id}}" class="zan-btn zan-btn--small">取消订单</button>
-    <navigator data-order_id="{{order.order_id}}" wx:if="{{order.send_id >0}}" url='/pages/order/wuliu/index' class="zan-btn zan-btn--small zan-btn--warn">查看物流</navigator>
+    <navigator data-order_id="{{order.order_id}}" wx:if="{{order.send_id >0}}" url='/pages/order/wuliu/index?send_number={{order.send_number}}&send_code={{order.send_code}}' class="zan-btn zan-btn--small zan-btn--warn">查看物流</navigator>
     <button data-order_id="{{order.order_id}}" bindtap='pay' wx:if="{{order.status == 0}}" class="zan-btn zan-btn--small zan-btn--primary">确认付款</button>
     </view>
       

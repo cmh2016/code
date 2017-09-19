@@ -96,7 +96,7 @@
       <view class="visible" style="padding:0; text-align: center;min-height:{{goods.price_type == 2?h7:h3}};position: relative;">
         <view class="dialog-top visible">
           <image src="{{dialog_image}}"></image>
-          <text class="dialog-price">¥ {{dialog_price * quantity1.quantity}}</text>
+          <text class="dialog-price">¥ {{dialog_price_new}}</text>
           <text class="dialog-kucun">库存：{{dialog_stock}}</text>
           <text wx:if="{{goods.price_type == 2}}" class="dialog-color">{{dialogTopText}} {{dialogTopText2}}</text>
         </view>

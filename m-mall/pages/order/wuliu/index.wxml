@@ -1,8 +1,6 @@
 <!--pages/order/wuliu/index.wxml-->
 <import src="/zanui-weapp/dist/steps/index.wxml" />
 <view class="container">
-  <view class="zan-panel-title">物流公司：中通快递</view>
-   <view class="zan-panel-title">运单号码：49562656565</view>
   <view class="zan-panel">
     <view class="zan-cell zan-cell">
       <view class="zan-cell__bd">

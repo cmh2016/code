@@ -7,24 +7,7 @@ Page({
    */
   data: {
     steps: [
-      {
-        current: true,
-        done: true,
-        text: ' 快件到达 台州中转部 ',
-        desc: '8.16 10:01'
-      },
-      {
-        done: false,
-        current: false,
-        text: '您的包裹已出库 ',
-        desc: '8.15 10:02'
-      },
-      {
-        done: false,
-        current: false,
-        text: '您的订单开始处理 ',
-        desc: '8.15 7:45'
-      }
+      
     ]
   },
 
@@ -75,6 +58,25 @@ Page({
         }
         if (res.data.code == '0') {
           console.log(res.data)
+          var steps = [];
+          var obj = {};
+          for(var i=0;i<res.data.data.length;i++){
+            if (i == res.data.data.length-1){
+              obj.done = true;
+              obj.current = true;
+            }else{
+              obj.done = false;
+              obj.current = false;
+            }
+            obj.text = res.data.data[i].info;
+            obj.desc = res.data.data[i].time;
+            steps.push(obj)
+            obj = {};
+          }
+          console.log(steps)
+          that.setData({
+            steps: steps
+          })
         } else if (res.data.code == '-1') {
           App.error(res.data.msg)
           App.errGoLogin(res.data.data)

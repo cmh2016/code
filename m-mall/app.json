@@ -18,7 +18,8 @@
     "pages/rate/index",
     "pages/order/wuliu/index",
     "pages/msg/index",
-    "pages/order/msg/index"
+    "pages/order/msg/index",
+    "pages/tuijm/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#D62156",

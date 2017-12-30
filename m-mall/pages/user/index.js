@@ -21,6 +21,11 @@ Page({
         path: '/pages/order/list/index'
       },
       {
+        icon: '../../assets/images/iconfont-myTjm.png',
+        text: '我的推荐码',
+        path: '/pages/tuijm/index'
+      },
+      {
         icon: '../../assets/images/iconfont-addr.png',
         text: '收货地址',
         path: '/pages/address/list/index'
@@ -34,7 +39,7 @@ Page({
         text: '咨询客服',
         path: '微信考程序',
       }
-    ],
+    ]
   },
   onLoad() {
     this.getUserInfo()
@@ -45,7 +50,8 @@ Page({
       service_phone: service_phone
     })
   },
- 
+ //获取推荐码
+
   onShow() {
    
     
@@ -71,27 +77,36 @@ Page({
       case 0:
         App.bindTel(path)
         break
-      case 2:
+      case 3:
         App.WxService.makePhoneCall({
           phoneNumber: wx.getStorageSync('service_phone')
         })
         break
-      case 3:
+      case 4:
         return false
         break
-      case 1:
-        wx.chooseAddress({
-          success: function (res) {
-            console.log(res.userName)
-            console.log(res.postalCode)
-            console.log(res.provinceName)
-            console.log(res.cityName)
-            console.log(res.countyName)
-            console.log(res.detailInfo)
-            console.log(res.nationalCode)
-            console.log(res.telNumber)
-          }
-        })
+      case 2:
+        if (wx.chooseAddress) {
+          wx.chooseAddress({
+            success: function (res) {
+              console.log(res.userName)
+              console.log(res.postalCode)
+              console.log(res.provinceName)
+              console.log(res.cityName)
+              console.log(res.countyName)
+              console.log(res.detailInfo)
+              console.log(res.nationalCode)
+              console.log(res.telNumber)
+            }
+          })
+        } else {
+          // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+          wx.showModal({
+            title: '提示',
+            content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+          })
+        }
+       
         break
       default:
         App.WxService.navigateTo(path)

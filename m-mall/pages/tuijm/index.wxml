@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="wallet">
+  <view class="wallet-top">
+    <text class="wallet-money">我的推荐码:{{code}}</text>
+    <text class="wallet-money-num">已推荐 {{codeList.length}} 人</text>
+  </view>
+  <view class="weui-cells__title">推荐人列表</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view wx:for="{{codeList}}" class="weui-cell">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="{{item.avatar}}" style="width: 50px; height: 50px; display: block" />
+      </view>
+      <view class="weui-cell__bd">
+        <view>{{item.nickname}}</view>
+        <view style="font-size: 13px;color: #888888;">{{item.mobile}}</view>
+      </view>
+    </view>
+  </view>
+</view>

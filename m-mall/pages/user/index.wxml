@@ -12,9 +12,11 @@
         </view>
         <view class="weui-cell__bd">{{ item.text }}</view>
         <view class="weui-cell__ft weui-cell__ft_in-access">
-          <text wx:if="{{ index === 2 }}">{{ service_phone }}</text>
+          <text wx:if="{{ index === 3 }}">{{ service_phone }}</text>
+          <text wx:if="{{ index === 1 }}">{{ userInfo.code }}</text>
         </view>
-        <button class="button-contact" wx:if="{{ index === 3 }}" open-type="contact"></button>
+        
+        <button class="button-contact" wx:if="{{ index === 4 }}" open-type="contact"></button>
       </view>
       
     </view>

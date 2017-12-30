@@ -3,16 +3,23 @@ const App = getApp()
 Page({
   data: {
     logged: !1,
-    jscode: ''
+    jscode: '',
+    id:''
   },
-  onLoad() { },
+  onLoad(option) {
+    //获取分享商品的上级推荐码，存入本地用户登录时提交
+    if (option.shareCode) {
+      wx.setStorageSync('shareCode', option.shareCode);
+    }
+    if (option.item_id){
+      //取商品id
+      this.setData({
+        id: option.item_id
+      })
+    }
+   },
   onShow() {
-    const token = App.WxService.getStorageSync('token')
-    this.setData({
-      logged: !!token
-    })
-    token && setTimeout(this.goIndex, 1500)
-
+ 
   },
   login() {
     var that = this;
@@ -44,6 +51,8 @@ Page({
             var city = userInfo.city
             var country = userInfo.country
             console.log(that.data.jscode)
+            var shareCode = wx.getStorageSync('shareCode');
+            
             wx.request({
               url: App.api + '/user/login',
               data: {
@@ -51,7 +60,7 @@ Page({
                 nickname: nickName,
                 gender: gender,
                 avatar: avatarUrl,
-                code: '9W18'
+                code: shareCode
               },
               header: {
                 'content-type': 'application/json'
@@ -79,12 +88,20 @@ Page({
                   }else{
                      //已绑定推荐关系
                     wx.setStorageSync("isbinded", res.data.data.pid)
+                    
                   }
+                  
                   wx.showToast({
                     title: '登录成功',
                     icon: 'success',
                     duration: 2000
                   })
+                  if (that.data.id) {
+                    wx.navigateTo({
+                      url: '/pages/goods/detail/index?item_id=' + that.data.id
+                    })
+                    return false;
+                  }
                   setTimeout(that.goIndex, 1000)
                 } else if (res.data.code == '-1') {
                   App.error(res.data.msg)

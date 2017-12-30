@@ -35,39 +35,65 @@ Page(Object.assign({}, Zan.Quantity, {
       min: 1
     },
     color_label_active: -1,
-    color_label_active2: -1,
-    dialogTopText: "请选择颜色和规格",
+    spec_list_index_active: -1,
+    dialogTopText: "",
     chioceColorText: '',
     chioceGuigeText: '',
     zuhePrice: '',
-    dialog_stock: ''
+    dialog_stock: '',
+    version: '2'
   },
-  //选择颜色
-  chioceColor(e) {
+  //选择商品属性
+
+  chioce(e) {
     var that = this;
     var index = e.currentTarget.dataset.index;
+    var indexspec = e.currentTarget.dataset.indexspec;
     var id = e.currentTarget.dataset.item_id;
+    var src = e.currentTarget.dataset.src;
+    var name = e.currentTarget.dataset.name;
+
+    if (indexspec != that.data.spec_list_index_active) {
+      console.log("-------" + that.data.spec_list_index_active, that.data.color_label_active, that.data.dialogTopText, that.data.chioceColorText, id);
+      that.setData({
+        x: that.data.color_label_active,
+        y: that.data.spec_list_index_active,
+      })
+
+    }
+    wx.setStorageSync('select' + indexspec, id)
+    wx.setStorageSync('selectName' + indexspec, name)
+    wx.setStorageSync('selectXY' + indexspec, [index, indexspec])
+    var selected = [];
+    var selectedName = [];
+    var selectedXY = [];
+    var selectedStr = '';
+    var selectedNameStr = '';
+    for (var i = 0; i < that.data.goods.spec_list.length; i++) {
+      selected.push(wx.getStorageSync('select' + i))
+      selectedName.push(wx.getStorageSync('selectName' + i))
+      selectedXY.push(wx.getStorageSync('selectXY' + i))
+    }
+    console.log(selectedXY)
+    selected.sort(that.sortNumber);
+    for (var a = 0; a < selected.length;a++){
+      selectedStr += selected[a]+'_'
+      selectedNameStr += selectedName[a]+' '
+    }
+    selectedStr = selectedStr.substr(0, selectedStr.length-1);
     that.setData({
       color_label_active: index,
+      spec_list_index_active: indexspec,
       chioceColorText: id,
-      zuhePrice: id + "_" + that.data.chioceGuigeText,
-      dialog_image: that.data.spec_list_color[index].src,
-      dialogTopText: "已选择：" + that.data.spec_list_color[index].item
+      dialog_image: src,
+      dialogTopText: selectedNameStr,
+      zuhePrice: selectedStr,
+      selectedXY: selectedXY
     });
     that.price();
   },
-  //选择规格
-  chioceGuige(e) {
-    var that = this;
-    var index = e.currentTarget.dataset.index;
-    var id = e.currentTarget.dataset.item_id;
-    that.setData({
-      color_label_active2: index,
-      chioceGuigeText: id,
-      zuhePrice: that.data.chioceColorText + "_" + id,
-      dialogTopText2: that.data.spec_list_chima[index].item
-    });
-    that.price();
+  sortNumber(a, b) {
+    return a - b
   },
   //价格计算
   price() {
@@ -97,13 +123,13 @@ Page(Object.assign({}, Zan.Quantity, {
             dialog_price_new: Math.round(a[a.length - 1].price * b * 100) / 100
           })
           break;
-        }else{
+        } else {
           that.setData({
             dialog_price_new: Math.round(that.data.goods.price * b * 100) / 100
           })
         }
       }
-    }  else if (that.data.goods.price_type == 1) {
+    } else if (that.data.goods.price_type == 1) {
       //售卖价
       that.setData({
         dialog_price_new: Math.round(that.data.goods.price * that.data.quantity1.quantity * 100) / 100
@@ -121,14 +147,16 @@ Page(Object.assign({}, Zan.Quantity, {
   },
   onLoad(option) {
     var that = this;
+
     wx.getSystemInfo({
       success: function (res) {
         console.log(res.windowWidth)
         that.setData({
-          swiperH: res.windowWidth+"px"
+          swiperH: res.windowWidth + "px"
         })
       }
     })
+
     //取商品id
     this.setData({
       id: option.item_id
@@ -181,7 +209,8 @@ Page(Object.assign({}, Zan.Quantity, {
       data: {
         uid: uid,
         token: token,
-        item_id: id
+        item_id: id,
+        version: that.data.version
       },
       header: {
         'content-type': 'application/json'
@@ -289,23 +318,16 @@ Page(Object.assign({}, Zan.Quantity, {
       return false;
     }
     if (that.data.goods.price_type == 2) {
-      if (that.data.chioceColorText == "") {
-        wx.showToast({
-          title: '请选择颜色',
-          icon: 'success',
-          duration: 2000
-        })
-        return false;
+      for (var i = 0; i < that.data.goods.spec_list.length; i++) {
+        if (wx.getStorageSync('select' + i) == "" || wx.getStorageSync('select' + i) == undefined){
+          wx.showToast({
+            title: '请选择' + that.data.goods.spec_list[i].spec_name,
+            icon: 'success',
+            duration: 2000
+          })
+          return false;
+        }
       }
-      if (that.data.chioceGuigeText == "") {
-        wx.showToast({
-          title: '请选择规格',
-          icon: 'success',
-          duration: 2000
-        })
-        return false;
-      }
-
       if (wx.showLoading) {
         wx.showLoading({
           title: "加入购物车...",
@@ -417,7 +439,21 @@ Page(Object.assign({}, Zan.Quantity, {
       })
     }
   },
-  bugNow(e){
+  onUnload: function () {
+    console.log("close")
+    var that = this;
+    for (var i = 0; i < that.data.goods.spec_list.length; i++) {
+      wx.removeStorageSync('select'+i);
+      wx.removeStorageSync('selectName' + i); 
+      wx.removeStorageSync('selectXY' + i); 
+      that.setData({
+        x:'',
+        y:'',
+        selectedXY:[]
+      })
+    }
+  },
+  bugNow(e) {
     var that = this;
     var uid = wx.getStorageSync('uid');
     var token = wx.getStorageSync('token');
@@ -430,21 +466,15 @@ Page(Object.assign({}, Zan.Quantity, {
       return false;
     }
     if (that.data.goods.price_type == 2) {
-      if (that.data.chioceColorText == "") {
-        wx.showToast({
-          title: '请选择颜色',
-          icon: 'success',
-          duration: 2000
-        })
-        return false;
-      }
-      if (that.data.chioceGuigeText == "") {
-        wx.showToast({
-          title: '请选择规格',
-          icon: 'success',
-          duration: 2000
-        })
-        return false;
+      for (var i = 0; i < that.data.goods.spec_list.length; i++) {
+        if (wx.getStorageSync('select' + i) == "" || wx.getStorageSync('select' + i) == undefined) {
+          wx.showToast({
+            title: '请选择' + that.data.goods.spec_list[i].spec_name,
+            icon: 'success',
+            duration: 2000
+          })
+          return false;
+        }
       }
 
       if (wx.showLoading) {
@@ -531,10 +561,10 @@ Page(Object.assign({}, Zan.Quantity, {
             })
           }
           if (res.data.code == 0) {
-            setTimeout(function(){
+            setTimeout(function () {
               that.goTocar()
-            },1000)
-            
+            }, 1000)
+
           } else if (res.data.code == -1) {
             App.error(res.data.msg)
             App.errGoLogin(res.data.data)
@@ -550,5 +580,32 @@ Page(Object.assign({}, Zan.Quantity, {
     wx.switchTab({
       url: "/pages/cart/index"
     })
-  }
+  },
+  //用户分享商品
+  onShareAppMessage: function (res) {
+    var title = this.data.goods.name;
+    var path = '/pages/login/index?item_id=' + this.data.goods.item_id + '&shareCode=' + wx.getStorageSync('userInfo').code;
+    console.log(path)
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: title,
+      path: path,
+      success: function (res) {
+        // 转发成功
+        console.log(res)
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
+  //返回首页
+  backHome() {
+    App.WxService.switchTab({
+      url: '/pages/index/index'
+    })
+  },
 }))

@@ -69,14 +69,13 @@ height: 15px!important;
 }
 .shoadw-top{
   width: 750rpx;
-  height: 40vh;
   background: #fff;
   position: relative;
   z-index: 999;
 
 }
 .shoadw-top-type{
-  height: 30vh;
+  max-height: 50vh;
   width: 750rpx;
     margin-bottom: 10px;
 }

@@ -9,14 +9,13 @@
     <view wx:if="{{keyword}}" class="shop-list-top">
         <text style="font-size:13px">您搜索的'{{keyword}}',有 {{count}} 个商品</text>
     </view>
-    <scroll-view scroll-y bindscrolltolower="lower" lower-threshold="1"  style="{{category_id == 0 || keyword? 'height:92vh' : 'height:100vh'}}">
+    <scroll-view scroll-y bindscrolltolower="lower" lower-threshold="1" scroll-top="{{scrollTop}}"  style="{{category_id == 0 || keyword? 'height:92vh' : 'height:100vh'}}">
         <template is="list" data="{{ goods, prompt }}" />
     </scroll-view>
 
     <!--遮罩-->
     <view hidden="{{show}}" catchtap="hide" class="shop-list-shoadw">
         <view catchtap="show2" class="shoadw-top">
-            <form bindsubmit="formSubmit" bindreset="formReset">
                 <scroll-view  scroll-y class="shoadw-top-type">
                  <radio-group wx:if="{{topType == 'category'}}" name="category" bindchange="radioChange3">
                         <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="value">
@@ -60,10 +59,6 @@
                     </radio-group>
 
                 </scroll-view>
-                <button formType="reset" class="zan-btn zan-btn--danger shop-list-btn">重置</button>
-                <button formType="submit" catchtap="hide" class="zan-btn zan-btn--danger shop-list-btn">确认</button>
-            </form>
-
         </view>
     </view>
 </view>

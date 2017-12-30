@@ -42,11 +42,16 @@ image{
 }
 .weui-shop-list-item{
   width: 340rpx;
+  height: 440rpx;
   float: left;
   margin: 5rpx;
  padding:10rpx;
   background: #fff;
+  overflow: hidden;
   position: relative
+}
+.weui-shop-list-item:nth-child(2n){
+  float: right;
 }
 .weui-shop-list-item-image{
   width: 340rpx;
@@ -55,7 +60,11 @@ image{
   overflow: hidden;
 }
 .weui-shop-list-item-img{
-  float: left
+  float: left;
+   width: 340rpx;
+  height: 340rpx;
+  border: 0;
+  overflow: hidden;
 }
 .weui-shop-list-item-others{
   float: left;
@@ -66,6 +75,7 @@ image{
 .weui-shop-list-item-name{
   color:#4b566a;
   font-size: 12px;
+  margin-top: 5rpx;
   margin-bottom: 5rpx;
   display: -webkit-box;
 -webkit-box-orient: vertical;

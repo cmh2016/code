@@ -222,10 +222,11 @@
 }
 
 .dialog-center {
-  height:250rpx;
+  min-height:100rpx;
 }
 
 .dialog-footer {
+  padding-bottom: 65px;
 }
 
 .dialog-footer text {
@@ -293,4 +294,24 @@ display: inline-block;
 .scroll-view_H{
   white-space: nowrap;
   background: #fff;
+}
+.backHome{
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  width: 40px;
+  height: 40px;
+  z-index: 999999;
+}
+.shareBtn{
+  position: fixed;
+  right: 20px;
+  top: 150px;
+  width: 40px;
+  padding: 0;
+  z-index: 999999;
+  height: 40px;
+}
+button[plain]{
+  border: 0;
 }

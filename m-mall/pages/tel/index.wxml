@@ -30,7 +30,6 @@
         </view>
     </view>
 </view>
-<view class="weui-cells__tips">底部说明文字底部说明文字</view>
 <view class="button-sp-area">
     <button class="weui-btn mainBgColor" bindtap="submitTel" type="primary" disabled="{{btnisable}}">{{btnText}}</button>
 </view>

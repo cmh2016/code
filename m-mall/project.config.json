@@ -1,0 +1,41 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.5.4",
+	"appid": "wxdc419af10a9fb15f",
+	"projectname": "%E8%AF%BA%E5%AE%A3%E5%A8%9C",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "list",
+					"pathName": "pages/goods/list/index",
+					"query": "category_id = 0"
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/goods/detail/index",
+					"query": "item_id=45"
+				}
+			]
+		}
+	}
+}

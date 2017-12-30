@@ -27,7 +27,7 @@
           <button wx:if="{{item.order_status==2}}" data-order_id="{{item.order_id}}" bindtap='getWiLiu' class="zan-btn zan-btn--small">查看物流</button>
           <button  wx:if="{{item.order_status==2}}" data-order_id="{{item.order_id}}" bindtap='orderOk' class="zan-btn zan-btn--small zan-btn--danger">确认收货</button>
           <button wx:if="{{item.order_status==0}}" data-order_id="{{item.order_id}}" bindtap='pay' class="zan-btn zan-btn--small zan-btn--primary">去支付</button>
-          <button  wx:if="{{item.order_status==4}}" class="zan-btn zan-btn--small zan-btn--danger">删除</button>
+          <button  wx:if="{{item.order_status==4}}" data-order_id="{{item.order_id}}"  bindtap='delete' class="zan-btn zan-btn--small zan-btn--danger">删除</button>
        </view>
     </view>
 </view>

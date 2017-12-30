@@ -26,7 +26,6 @@ Page({
     },
     onLoad() {
         this.gitIndexData()
-       
     },
     //获取首页数据
     gitIndexData(){
@@ -69,11 +68,14 @@ Page({
                 }
                 
                 if (res.data.code == '0'){
-                  wx.showToast({
-                    title: '加载成功',
-                    icon: 'success',
-                    duration: 2000
-                  })
+                  setTimeout(function(){
+                    wx.showToast({
+                      title: '加载成功',
+                      icon: 'success',
+                      duration: 2000
+                    })
+                  },500)
+                  
                     //绑定轮播
                     that.setData({
                         poster: res.data.data.poster

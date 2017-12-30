@@ -1,0 +1,22 @@
+/* index.wxss */
+
+.wallet-top {
+  display: flex;
+  flex-direction: column;
+  padding: 100rpx 0;
+  border-radius: 35%;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  align-items: center;
+  background: #d62156;
+}
+
+.wallet-money {
+  color: #fff;
+  font-size: 20px;
+}
+
+.wallet-money-num {
+  color: #fff;
+  font-size: 16px;
+}

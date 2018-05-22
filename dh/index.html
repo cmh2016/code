@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name=”renderer” content=”webkit”>
+	<meta http-equiv=”X-UA-Compatible” content=”IE=Edge,chrome=1″ >
+<title>导航</title>
+	<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="css/metro.css">
+
+
+
+</head>
+<body>
+<!--头部导航开始-->
+<div id="top">
+	<dl>
+		<dt><a href="javascript:;" target="_blank">Win8网址导航</a></dt>
+		<dd>
+			<a class="a_mzdw">常用导航</a>
+			<a class="a_index a_index_h">全部导航</a>
+		</dd>
+		<div style="clear: both"></div>
+	</dl>
+</div>
+<!--头部导航结束-->
+<!--logo区开始-->
+<div id="metro_box" class="a_link">
+
+	<dl>
+
+		<dd style="display:none;">
+			<!--常用导航-->
+			<ul id="userAlwaysUse">
+
+			</ul>
+		</dd>
+		<dd style="display:block;text-align:center">
+			<!--全部导航-->
+			<b style="color:#fff">请输入系统名称检索：</b><input type="text" id="freewords" onblur="if (this.value == '') {this.value = '请输入关键字';}" onfocus="if (this.value == '请输入关键字') {this.value = '';}" placeholder="请输入关键字">
+			<ul id="allNav">
+
+			</ul>
+		</dd>
+
+	</dl>
+</div>
+
+</body>
+<script type="text/javascript"  src="script/json2.js"></script>
+<script type="text/javascript" src="script/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="script/jstorage.js"></script>
+<script type="text/javascript" src="script/load.js"></script>
+<script type="text/javascript" src="script/app.js"></script>
+</html>

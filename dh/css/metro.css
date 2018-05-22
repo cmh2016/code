@@ -1,0 +1,223 @@
+﻿@charset "utf-8";
+/* CSS Document */
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #0C6D37 url(../images/bg.jpg) repeat center top;
+    min-width: 1200px;
+}
+
+#top {
+    height: 39px;
+    line-height: 39px;
+    width: 100%;
+    min-width: 1200px;
+    background: url(../images/top_bg.png) repeat-x left top;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 19910908;
+}
+
+#top dl {
+    width:1200px;
+    margin: 0 auto;
+    min-width:1200px;
+}
+
+#top dl dt {
+    float: left;
+    background: url(../images/img_split.png) no-repeat 0 0;
+    width: 380px;
+    height: 50px;
+}
+
+#top dl dt a {
+    text-indent: -9999px;
+    display: block;
+    width: 380px;
+    height: 40px;
+}
+
+#top dl a {
+    color: #ccc;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+#top dl span {
+    padding: 0 10px;
+    color: #ddd;
+    font-size: 12px;
+}
+
+#top dl dd {
+    float: right;
+}
+
+#top dl dd a {
+    display: block;
+    float: left;
+    text-indent: -9999px;
+    margin: 0 5px;
+    _dispaly: inline;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.a_index {
+    width: 78px;
+    height: 39px;
+    background: url(../images/img_split.png) no-repeat -1px -98px;
+}
+
+.a_index_h {
+    width: 78px;
+    height: 39px;
+    background: url(../images/img_split.png) no-repeat 0px -173px;
+}
+
+.a_mzdw {
+    width: 78px;
+    height: 39px;
+    background: url(../images/img_split.png) no-repeat -65px -98px;
+}
+
+.a_mzdw_h {
+    width: 78px;
+    height: 39px;
+    background: url(../images/img_split.png) no-repeat -81px -173px;
+}
+
+#metro_box {
+    width: 1200px;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+    padding-top:100px;
+}
+
+#metro_box dl dt {
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 20px;
+}
+
+#metro_box dl dt h1 {
+    font-size: 32px;
+    font-family: "微软雅黑", "黑体";
+    color: #fff;
+    font-weight: normal;
+    float: left;
+}
+
+#metro_box dl dt div {
+    float: right;
+    font-size: 12px;
+}
+
+.nav a {
+    border-top: 3px solid #fff;
+    text-decoration: none;
+    padding: 3px;
+    color: #000;
+    font-family: "微软雅黑";
+    cursor: pointer;
+}
+
+.nav a:hover, #a_hover {
+    border-top: 3px solid #f60;
+    color: #F60;
+    font-weight: bold;
+}
+
+#metro_box dl dd ul {
+    width: 1200px;
+    height: auto;
+    overflow: hidden;
+}
+
+#metro_box dl dd ul li {
+    width: 280px;
+    height: 170px;
+    overflow: hidden;
+    float: left;
+    margin: 9px;
+    _margin: 8px;
+    _display: inline;
+    padding: 1px;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    position: relative;
+}
+
+#metro_box dl dd ul li a {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    text-align: center;
+    background: #000;
+    width: 100%;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    transition: all 0.3s;
+    -moz-transition:all 0.3s; /* Firefox 4 */
+    -webkit-transition: all 0.3s; /* Safari 和 Chrome */
+    -o-transition: all 0.3s; /* Opera */
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+#metro_box dl dd ul li a{
+    color: #fff;
+    font-family: "微软雅黑";
+    font-size: 12px;
+    text-decoration: none;
+}
+
+#metro_box dl dd ul li:hover a {
+    height:170px;
+    line-height:170px;
+    display: block;
+    opacity: 0.7;
+    cursor: pointer;
+    filter: alpha(opacity=70);
+}
+
+#metro_box dl dd ul li img {
+    width: 280px;
+    height: 170px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#metro_box dl dd ul li:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    padding: 0px;
+    border: 1px dashed #fcfcfc;
+}
+
+#metro_box dl dd ul li[class="one"] {
+    margin-left: 0;
+}
+
+#metro_box dl dd ul li[class="four"] {
+    margin-right: 0
+}
+#freewords{
+  width: 50%;
+  margin: 0 auto;
+  height: 35px;
+  line-height: 35px;
+  padding-left: 10px;
+}
